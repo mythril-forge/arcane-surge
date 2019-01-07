@@ -27,6 +27,7 @@
 	},
 	"homepage": "https://github.com/noltron000/INT-1-2_5e-spell-api#readme",
 	"dependencies": {
+		"express": "^4.16.4",
 		"mongoose": "^5.4.2"
 	}
 }
