@@ -38,15 +38,16 @@
 - [X] description (long string)
 - [X] desc_higher (long string)
 
-- [X] damage
-- [X] damage_types
+<!-- Difficulty with multiple sources of damage -->
+- [!] damage_dice: (string)
+- [!] damage_types: (list of strings)
+- [X] conditions: (list of strings)
 
-- [X] races
-- [X] classes
-- [X] subclasses
+- [X] races: (list of strings)
+- [X] classes: (list of strings)
+- [X] subclasses: (list of strings)
 
-- [X] citation
-	- [X] book
-	- [X] page
+- [X] citation (dictionary)
+	- [X] book: integer (page)
 
 - [X] comparison
