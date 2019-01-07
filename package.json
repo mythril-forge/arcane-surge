@@ -25,5 +25,8 @@
 	"bugs": {
 		"url": "https://github.com/noltron000/INT-1-2_5e-spell-api/issues"
 	},
-	"homepage": "https://github.com/noltron000/INT-1-2_5e-spell-api#readme"
+	"homepage": "https://github.com/noltron000/INT-1-2_5e-spell-api#readme",
+	"dependencies": {
+		"mongoose": "^5.4.2"
+	}
 }
