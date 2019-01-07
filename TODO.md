@@ -10,29 +10,33 @@
 
 # Spell Metadata
 
-- [X] id
+- [X] _id: (automatic)
 
-- [X] slug
-- [X] name
-- [X] level
-- [X] school
+- [X] slug: string (automatic)
+- [X] name: string
+- [X] level: integer 0-9 (level)
+- [X] school: string
 
-- [X] casting_time
-- [X] duration
+- [X] casting_time: integer (seconds)
+- [X] duration: integer (seconds)
 
-- [X] range
-- [X] shape
-- [X] target
+- [X] range: integer (feet)
+- [X] area_effect:
+	- [X] shape
+	- [X] width/radius
+	- [X] height
+- [X] targets: integer (num targets)
 
-- [X] concentration
-- [X] ritual
-- [X] somatic
-- [X] verbal
-- [X] material
-	- [X] item
+- [X] concentration: (boolean)
+- [X] ritual: (boolean)
 
-- [X] description
-- [X] desc_higher
+- [X] somatic: (none / list)
+- [X] verbal: (none / list)
+- [X] material: (none / dictionary)
+	- [X] item: integer (cp)
+
+- [X] description (long string)
+- [X] desc_higher (long string)
 
 - [X] damage
 - [X] damage_types
@@ -45,4 +49,4 @@
 	- [X] book
 	- [X] page
 
-- [X] original
+- [X] comparison
