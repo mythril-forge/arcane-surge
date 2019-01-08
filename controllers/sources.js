@@ -2,13 +2,15 @@ const express = require('express');
 const Source = require('../models/source.js');
 
 const router = new express.Router();
-router.get('/', (req, res) => { // TODO: INDEX //
-	// // indexes all gems
-	// Gem
+
+router.get('/', (req, res) => { // DONE: INDEX //
+	// indexes all sources
+	res.render(req.body)
+	// Source
 	// 	.find({})
-	// 	.then((gems) => {
+	// 	.then((sources) => {
 	// 		res // here's where INDEX differs
-	// 			.render('gem-index', { gems });
+	// 			.render('source-index', { sources });
 	// 	})
 	// 	.catch((err) => {
 	// 		console.error(err);
@@ -16,14 +18,14 @@ router.get('/', (req, res) => { // TODO: INDEX //
 });
 
 router.get('/json', (req, res) => { // TODO: INDEX JSON //
-	// // indexes all gems and returns json
-	// Gem
+	// // indexes all sources and returns json
+	// Source
 	// 	.find({})
-	// 	.then((gems) => {
+	// 	.then((sources) => {
 	// 		res // here's where INDEX JSON differs
 	// 			.json({
-	// 				message: 'Get all gems',
-	// 				gems
+	// 				message: 'Get all sources',
+	// 				sources
 	// 			})
 	// 			.status(200);
 	// 	})
@@ -38,42 +40,44 @@ router.get('/new', (req, res) => { // DONE: NEW //
 });
 
 router.post('/', (req, res) => { // TODO: CREATE //
-	// // creates a new gem
-	// const gem = new Gem(req.body);
-	// gem
+	// creates a new source
+
+	const source = new Source(req.body);
+	res.json(source)
+	// source
 	// 	.save()
 	// 	.then(() => {
-	// 		res.redirect('/gem');
+	// 		res.redirect('/');
 	// 	})
 	// 	.catch((err) => {
 	// 		console.error(err);
 	// 	});
 });
 
-router.get('/:gemID', (req, res) => { // TODO: SHOW //
-	// // shows a single gem in detail
-	// Gem
-	// 	.findById(req.params.gemID)
+router.get('/:sourceID', (req, res) => { // TODO: SHOW //
+	// // shows a single source in detail
+	// Source
+	// 	.findById(req.params.sourceID)
 	// 	.populate('fusions')
-	// 	.then((gems) => {
+	// 	.then((sources) => {
 	// 		res // here's where SHOW differs
-	// 			.render('gem-show.hbs', { gems });
+	// 			.render('source-show.hbs', { sources });
 	// 	})
 	// 	.catch((err) => {
 	// 		console.error(err);
 	// 	});
 });
 
-router.get('/:gemID/json', (req, res) => { // TODO: SHOW JSON //
-	// // shows a single gem in detail
-	// Gem
-	// 	.findById(req.params.gemID)
+router.get('/:sourceID/json', (req, res) => { // TODO: SHOW JSON //
+	// // shows a single source in detail
+	// Source
+	// 	.findById(req.params.sourceID)
 	// 	// .populate('fusions')
-	// 	.then((gems) => {
+	// 	.then((sources) => {
 	// 		res  // here's where SHOW JSON differs
 	// 			.json({
-	// 				message: 'Show this fusion with the gems who create it',
-	// 				gems
+	// 				message: 'Show this fusion with the sources who create it',
+	// 				sources
 	// 			})
 	// 			.status(200);
 	// 	})
@@ -82,33 +86,33 @@ router.get('/:gemID/json', (req, res) => { // TODO: SHOW JSON //
 	// 	});
 });
 
-router.get('/:gemID/edit', (req, res) => { // TODO: EDIT //
-	// // shows a gem edit form
-	// Gem
-	// 	.findById(req.params.gemID)
-	// 	.then((gem) => {
-	// 		res.render('gem-edit', { gem });
+router.get('/:sourceID/edit', (req, res) => { // TODO: EDIT //
+	// // shows a source edit form
+	// Source
+	// 	.findById(req.params.sourceID)
+	// 	.then((source) => {
+	// 		res.render('source-edit', { source });
 	// 	})
 	// 	.catch((err) => {
 	// 		console.error(err);
 	// 	});
 });
 
-router.put('/:gemID', (req, res) => { // TODO: UPDATE //
-	// Gem.findByIdAndUpdate(req.params.gemID, req.body)
-	// 	.then((gem) => {
-	// 		res.redirect(`/gem/${gem._id}`);
+router.put('/:sourceID', (req, res) => { // TODO: UPDATE //
+	// Source.findByIdAndUpdate(req.params.sourceID, req.body)
+	// 	.then((source) => {
+	// 		res.redirect(`/source/${source._id}`);
 	// 	})
 	// 	.catch((err) => {
 	// 		console.error(err);
 	// 	});
 });
 
-router.delete('/:gemID', (req, res) => { // TODO: DELETE //
-	// Gem
-	// 	.findByIdAndRemove(req.params.gemID)
+router.delete('/:sourceID', (req, res) => { // TODO: DELETE //
+	// Source
+	// 	.findByIdAndRemove(req.params.sourceID)
 	// 	.then(() => {
-	// 		res.redirect('/gem');
+	// 		res.redirect('/source');
 	// 	})
 	// 	.catch((err) => {
 	// 		console.error(err);
