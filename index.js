@@ -43,4 +43,17 @@ app.listen(port, () => {
 	console.log(`D&D Spell API listening on port http://localhost:${port}/`)
 })
 
+// Mongoose Connection
+const url = 'mongodb://localhost/arcane-surge';
+mongoose.Promise = global.Promise;
+mongoose.connect(
+	url,
+	{ useNewUrlParser: true },
+	(err, db) => {
+		console.log('Connected successfully to database');
+	}
+);
+
+mongoose.connection.on('error', console.error.bind(console, 'MongoDB connection Error:'));
+
 module.exports = app

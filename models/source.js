@@ -14,7 +14,7 @@ const SourceSchema = new Schema({
 		unique: true
 	},
 	official: {
-		type: Boolean,
+		type: String,
 		required: true,
 		default: false,
 	},

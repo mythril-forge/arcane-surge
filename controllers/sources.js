@@ -4,17 +4,16 @@ const Source = require('../models/source.js');
 const router = new express.Router();
 
 router.get('/', (req, res) => { // DONE: INDEX //
-	// indexes all sources
-	res.render(req.body)
-	// Source
-	// 	.find({})
-	// 	.then((sources) => {
-	// 		res // here's where INDEX differs
-	// 			.render('source-index', { sources });
-	// 	})
-	// 	.catch((err) => {
-	// 		console.error(err);
-	// 	});
+	console.log('got here')
+	Source
+		.find({})
+		.then((sources) => {
+			res // here's where INDEX differs
+				.render('source-index', { sources });
+		})
+		.catch((err) => {
+			console.error(err);
+		});
 });
 
 router.get('/json', (req, res) => { // TODO: INDEX JSON //
@@ -41,17 +40,15 @@ router.get('/new', (req, res) => { // DONE: NEW //
 
 router.post('/', (req, res) => { // TODO: CREATE //
 	// creates a new source
-
 	const source = new Source(req.body);
-	res.json(source)
-	// source
-	// 	.save()
-	// 	.then(() => {
-	// 		res.redirect('/');
-	// 	})
-	// 	.catch((err) => {
-	// 		console.error(err);
-	// 	});
+	source
+		.save()
+		.then(() => {
+			res.redirect('/');
+		})
+		.catch((err) => {
+			console.error(err);
+		});
 });
 
 router.get('/:sourceID', (req, res) => { // TODO: SHOW //
