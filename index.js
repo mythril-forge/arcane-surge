@@ -31,25 +31,6 @@ app.get('/', (req, res) => {
 // // Mount all other routes
 // app.use('/auth', auth);
 
-// connect to mongo db
-const mongoUri = config.mongo.host;
-mongoose.connect(
-	mongoUri,
-	{ useNewUrlParser: true },
-	{ server: { socketOptions: { keepAlive: 1 } } }
-);
-
-mongoose.connection.on('error', () => {
-	throw new Error(`unable to connect to database: ${mongoUri}`);
-});
-
-// print mongoose logs in dev env
-if (config.mongooseDebug) {
-	mongoose.set('debug', (collectionName, method, query, doc) => {
-		debug(`${collectionName}.${method}`, util.inspect(query, false, 20), doc);
-	});
-}
-
 const port = 3000;
 app.listen(port, () => {
 	console.log(`D&D Spell API listening on port http://localhost:${port}/`)
