@@ -1,3 +1,4 @@
+// require middleware packages
 const mongoose = require('mongoose');
 //	const util = require('util'); // still don't understand what util does yet...
 const express = require('express');
@@ -6,7 +7,8 @@ const bodyParser = require('body-parser');
 //	const cors = require('cors'); // still don't understand what cors does yet...
 const methodOverride = require('method-override');
 
-// DEFINE APPLICATION, VITAL FOR MIDDLEWARE
+// define config & app, vital for using middleware!!
+const config = require('./config');
 const app = express();
 
 // Use body parser to get req.body
@@ -47,5 +49,10 @@ if (config.mongooseDebug) {
 		debug(`${collectionName}.${method}`, util.inspect(query, false, 20), doc);
 	});
 }
+
+const port = 3000;
+app.listen(port, () => {
+	console.log(`D&D Spell API listening on port http://localhost:${port}/`)
+})
 
 module.exports = app
