@@ -32,11 +32,11 @@ app.get('/', (req, res) => {
 
 // require internal files
 const sources = require('./controllers/sources.js');
-// const spells = require('./controllers/spells.js');
+const spells = require('./controllers/spells.js');
 
 // mount all other routes
 app.use('/sources', sources);
-// app.use('/spells', spells);
+app.use('/spells', spells);
 
 const port = 3000;
 app.listen(port, () => {
