@@ -1,0 +1,37 @@
+<h2>Create a new source</h2>
+
+<form action='/source' method='post'>
+
+	<fieldset>
+		<legend>
+			Basics
+		</legend>
+
+		<div>
+			<label for='name'>
+				Name
+			</label><br />
+			<input type='text' name='name' id='name' />
+		</div>
+
+		<div>
+			<label for='abbreviation'>
+				Abbreviation
+			</label><br />
+			<input type='text' name='abbreviation' id='abbreviation' />
+		</div>
+
+		<div>
+			<input type="checkbox" id="official" name="official" checked>
+			<label for="official">
+				Official Source
+			</label>
+		</div>
+
+
+	</fieldset>
+	<button type='submit'>
+		Submit
+	</button>
+
+</form>

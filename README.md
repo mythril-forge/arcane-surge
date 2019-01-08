@@ -1,10 +1,12 @@
-# D&D Spell Generator API
+# Arcane Surge
+> A Homebrew Spell API for D&D 5e
 
 ## Comparable Platforms
 This API has comparable iterations elsewhere.
 - http://www.dnd5eapi.co/
 - https://api-beta.open5e.com/
 - https://5etools.com/
+
 The purpose of this specific API is to digest libraries of magic spells from other API's. Once this is done, a user can create modifications on their spells.
 
 ### Why Create an Alternative API?

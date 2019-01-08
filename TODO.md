@@ -1,9 +1,25 @@
 # `TODO` List
 
 ## Create Pages
-- [ ] Landing Page
-- [ ] Import Data Page
-- [ ] Filter Data Page
+1. Sources
+	- [ ] Create Source
+	- [ ] Index Sources
+	- [ ] Show 1 Source / Index Spells
+	- [ ] Modify Source
+	- [ ] Delete Source
+2. Spells
+	- [ ] Create Source
+	- [ ] Index Sources
+	- [ ] Show 1 Spell
+	- [ ] Modify Spell
+	- [ ] Delete Spell
+3. Importing Spells from JSON
+	- [ ] Import Source(s)
+		- [ ] Clean Sources
+			- [ ] Manual Cleaning
+			- [ ] Automated Cleaning
+	- [ ] Confirm Import
+
 - Additional `CRUD` Functionality
 
 ---
