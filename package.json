@@ -1,0 +1,36 @@
+{
+	"name": "5e-spell-api",
+	"version": "1.0.0",
+	"description": "A spellcasting API for D&D 5e",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/noltron000/INT-1-2_5e-spell-api.git"
+	},
+	"keywords": [
+		"D&D",
+		"Spell",
+		"Magic",
+		"API",
+		"5e",
+		"Dungeons",
+		"and",
+		"Dragons"
+	],
+	"author": "Nolan Kovacik",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/noltron000/INT-1-2_5e-spell-api/issues"
+	},
+	"homepage": "https://github.com/noltron000/INT-1-2_5e-spell-api#readme",
+	"dependencies": {
+		"body-parser": "^1.18.3",
+		"express": "^4.16.4",
+		"express-handlebars": "^3.0.0",
+		"method-override": "^3.0.0",
+		"mongoose": "^5.4.2"
+	}
+}
