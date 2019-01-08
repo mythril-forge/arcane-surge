@@ -1,10 +1,10 @@
-<h2>Create a new source</h2>
+<h2>Create a New Source</h2>
 
 <form action='/source' method='post'>
 
 	<fieldset>
 		<legend>
-			Basics
+			Source Data
 		</legend>
 
 		<div>
@@ -28,10 +28,30 @@
 			</label>
 		</div>
 
+		<fieldset>
+			<legend>
+				References
+			</legend>
 
+			<div>
+				<input type="checkbox" id="huey" name="drone" value="huey" checked>
+				<label for="huey">Player's Handbook</label>
+			</div>
+
+			<div>
+				<input type="checkbox" id="dewey" name="drone" value="dewey">
+				<label for="dewey">Xanathar's Guide to Everything</label>
+			</div>
+
+			<div>
+				<input type="checkbox" id="louie" name="drone" value="louie">
+				<label for="louie">Elemental Evil Companion</label>
+			</div>
+		</fieldset>
+
+		<button type='submit'>
+			Submit
+		</button>
 	</fieldset>
-	<button type='submit'>
-		Submit
-	</button>
 
 </form>
