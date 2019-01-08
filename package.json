@@ -1,5 +1,5 @@
 {
-	"name": "5e-spell-api",
+	"name": "arcane-surge",
 	"version": "1.0.0",
 	"description": "A spellcasting API for D&D 5e",
 	"main": "index.js",
@@ -8,7 +8,7 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/noltron000/INT-1-2_5e-spell-api.git"
+		"url": "git+https://github.com/noltron000/INT-1-2_arcane-surge.git"
 	},
 	"keywords": [
 		"D&D",
@@ -23,9 +23,9 @@
 	"author": "Nolan Kovacik",
 	"license": "ISC",
 	"bugs": {
-		"url": "https://github.com/noltron000/INT-1-2_5e-spell-api/issues"
+		"url": "https://github.com/noltron000/INT-1-2_arcane-surge/issues"
 	},
-	"homepage": "https://github.com/noltron000/INT-1-2_5e-spell-api#readme",
+	"homepage": "https://github.com/noltron000/INT-1-2_arcane-surge#readme",
 	"dependencies": {
 		"body-parser": "^1.18.3",
 		"express": "^4.16.4",
