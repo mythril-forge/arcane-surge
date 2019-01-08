@@ -7,8 +7,7 @@ const bodyParser = require('body-parser');
 //	const cors = require('cors'); // still don't understand what cors does yet...
 const methodOverride = require('method-override');
 
-// define config & app, vital for using middleware!!
-const config = require('./config');
+// define app, vital for using middleware!!
 const app = express();
 
 // Use body parser to get req.body
