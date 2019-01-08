@@ -1,5 +1,6 @@
 // require middleware
 const Joi = require('joi');
+require('dotenv').config();
 
 // define validation for all the env vars
 const envVarsSchema = Joi.object({
