@@ -44,7 +44,7 @@ app.listen(port, () => {
 })
 
 // Mongoose Connection
-const url = 'mongodb://localhost/arcane-surge';
+const url = process.env.MONGODB_URI;
 mongoose.Promise = global.Promise;
 mongoose.connect(
 	url,
