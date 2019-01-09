@@ -43,8 +43,17 @@ router.get('/new', (req, res) => { // DONE: NEW //
 });
 
 router.post('/', (req, res) => { // DONE: CREATE //
+	// must clean the req.body before sending data
+	const cleanBody = req.body;
+	cleanBody.references = [];
+	for (const key in cleanBody) {
+		if (cleanBody[key] === '$reference_on') {
+			cleanBody.references.push(key);
+		}
+	}
+
 	// creates a new source
-	const source = new Source(req.body);
+	const source = new Source(cleanBody);
 	source
 		.save()
 		.then(() => {
