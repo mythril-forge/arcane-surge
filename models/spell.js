@@ -6,6 +6,14 @@ const SpellSchema = new Schema({
 	////////////////////////
 	// Spell Heading Data //
 	////////////////////////
+	source: { // parent source for index
+		type: Schema.Types.ObjectId,
+		ref: 'Source'
+	},
+	reference: { // reference for diffs
+		type: Schema.Types.ObjectId,
+		ref: 'Spell'
+	},
 	name: {
 		type: String,
 		required: true,

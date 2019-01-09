@@ -15,21 +15,18 @@ router.get('/', (req, res) => { // DONE: INDEX //
 		});
 });
 
-router.get('/json', (req, res) => { // TODO: INDEX JSON //
-	// // indexes all sources and returns json
-	// Source
-	// 	.find({})
-	// 	.then((sources) => {
-	// 		res // here's where INDEX JSON differs
-	// 			.json({
-	// 				message: 'Get all sources',
-	// 				sources
-	// 			})
-	// 			.status(200);
-	// 	})
-	// 	.catch((err) => {
-	// 		console.error(err);
-	// 	});
+router.get('/json', (req, res) => { // DONE: INDEX JSON //
+	// indexes all sources and returns json
+	Source
+		.find({})
+		.then((source) => {
+			res // here's where INDEX JSON differs
+				.json(source)
+				.status(200);
+		})
+		.catch((err) => {
+			console.error(err);
+		});
 });
 
 router.get('/new', (req, res) => { // DONE: NEW //
@@ -51,7 +48,6 @@ router.post('/', (req, res) => { // DONE: CREATE //
 			cleanBody.references.push(key);
 		}
 	}
-
 	// creates a new source
 	const source = new Source(cleanBody);
 	source
@@ -85,9 +81,7 @@ router.get('/:sourceID/json', (req, res) => { // DONE: SHOW JSON //
 		.populate('references')
 		.then((source) => {
 			res  // here's where SHOW JSON differs
-				.json(
-					source
-				)
+				.json(source)
 				.status(200);
 		})
 		.catch((err) => {

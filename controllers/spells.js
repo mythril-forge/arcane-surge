@@ -3,27 +3,27 @@ const Spell = require('../models/spell.js');
 
 const router = new express.Router();
 router.get('/', (req, res) => { // TODO: INDEX //
-	// // indexes all gems
-	// Gem
-	// 	.find({})
-	// 	.then((gems) => {
-	// 		res // here's where INDEX differs
-	// 			.render('gem-index', { gems });
-	// 	})
-	// 	.catch((err) => {
-	// 		console.error(err);
-	// 	});
+	// indexes all spells
+	Spell
+		.find({})
+		.then((spell) => {
+			res // here's where INDEX differs
+				.render('spell-index', { spell });
+		})
+		.catch((err) => {
+			console.error(err);
+		});
 });
 
 router.get('/json', (req, res) => { // TODO: INDEX JSON //
-	// // indexes all gems and returns json
-	// Gem
+	// // indexes all spells and returns json
+	// Spell
 	// 	.find({})
-	// 	.then((gems) => {
+	// 	.then((spells) => {
 	// 		res // here's where INDEX JSON differs
 	// 			.json({
-	// 				message: 'Get all gems',
-	// 				gems
+	// 				message: 'Get all spells',
+	// 				spells
 	// 			})
 	// 			.status(200);
 	// 	})
@@ -38,42 +38,42 @@ router.get('/new', (req, res) => { // DONE: NEW //
 });
 
 router.post('/', (req, res) => { // TODO: CREATE //
-	// // creates a new gem
-	// const gem = new Gem(req.body);
-	// gem
-	// 	.save()
-	// 	.then(() => {
-	// 		res.redirect('/gem');
-	// 	})
-	// 	.catch((err) => {
-	// 		console.error(err);
-	// 	});
+	// creates a new spell
+	const spell = new Spell(req.body);
+	spell
+		.save()
+		.then(() => {
+			res.redirect('/spell');
+		})
+		.catch((err) => {
+			console.error(err);
+		});
 });
 
-router.get('/:gemID', (req, res) => { // TODO: SHOW //
-	// // shows a single gem in detail
-	// Gem
-	// 	.findById(req.params.gemID)
+router.get('/:spellID', (req, res) => { // TODO: SHOW //
+	// // shows a single spell in detail
+	// Spell
+	// 	.findById(req.params.spellID)
 	// 	.populate('fusions')
-	// 	.then((gems) => {
+	// 	.then((spells) => {
 	// 		res // here's where SHOW differs
-	// 			.render('gem-show.hbs', { gems });
+	// 			.render('spell-show.hbs', { spells });
 	// 	})
 	// 	.catch((err) => {
 	// 		console.error(err);
 	// 	});
 });
 
-router.get('/:gemID/json', (req, res) => { // TODO: SHOW JSON //
-	// // shows a single gem in detail
-	// Gem
-	// 	.findById(req.params.gemID)
+router.get('/:spellID/json', (req, res) => { // TODO: SHOW JSON //
+	// // shows a single spell in detail
+	// Spell
+	// 	.findById(req.params.spellID)
 	// 	// .populate('fusions')
-	// 	.then((gems) => {
+	// 	.then((spells) => {
 	// 		res  // here's where SHOW JSON differs
 	// 			.json({
-	// 				message: 'Show this fusion with the gems who create it',
-	// 				gems
+	// 				message: 'Show this fusion with the spells who create it',
+	// 				spells
 	// 			})
 	// 			.status(200);
 	// 	})
@@ -82,33 +82,33 @@ router.get('/:gemID/json', (req, res) => { // TODO: SHOW JSON //
 	// 	});
 });
 
-router.get('/:gemID/edit', (req, res) => { // TODO: EDIT //
-	// // shows a gem edit form
-	// Gem
-	// 	.findById(req.params.gemID)
-	// 	.then((gem) => {
-	// 		res.render('gem-edit', { gem });
+router.get('/:spellID/edit', (req, res) => { // TODO: EDIT //
+	// // shows a spell edit form
+	// Spell
+	// 	.findById(req.params.spellID)
+	// 	.then((spell) => {
+	// 		res.render('spell-edit', { spell });
 	// 	})
 	// 	.catch((err) => {
 	// 		console.error(err);
 	// 	});
 });
 
-router.put('/:gemID', (req, res) => { // TODO: UPDATE //
-	// Gem.findByIdAndUpdate(req.params.gemID, req.body)
-	// 	.then((gem) => {
-	// 		res.redirect(`/gem/${gem._id}`);
+router.put('/:spellID', (req, res) => { // TODO: UPDATE //
+	// Spell.findByIdAndUpdate(req.params.spellID, req.body)
+	// 	.then((spell) => {
+	// 		res.redirect(`/spell/${spell._id}`);
 	// 	})
 	// 	.catch((err) => {
 	// 		console.error(err);
 	// 	});
 });
 
-router.delete('/:gemID', (req, res) => { // TODO: DELETE //
-	// Gem
-	// 	.findByIdAndRemove(req.params.gemID)
+router.delete('/:spellID', (req, res) => { // TODO: DELETE //
+	// Spell
+	// 	.findByIdAndRemove(req.params.spellID)
 	// 	.then(() => {
-	// 		res.redirect('/gem');
+	// 		res.redirect('/spell');
 	// 	})
 	// 	.catch((err) => {
 	// 		console.error(err);
