@@ -4,12 +4,11 @@ const Source = require('../models/source.js');
 const router = new express.Router();
 
 router.get('/', (req, res) => { // DONE: INDEX //
-	console.log('got here')
 	Source
 		.find({})
-		.then((sources) => {
+		.then((source) => {
 			res // here's where INDEX differs
-				.render('source-index', { sources });
+				.render('source-index.hbs', { source });
 		})
 		.catch((err) => {
 			console.error(err);
@@ -35,10 +34,15 @@ router.get('/json', (req, res) => { // TODO: INDEX JSON //
 
 router.get('/new', (req, res) => { // DONE: NEW //
 	// shows a source creation form
-	res.render('source-new.hbs');
+	Source
+		.find({})
+		.then((source) => {
+			res // here's where INDEX differs
+				.render('source-new.hbs', { source });
+		});
 });
 
-router.post('/', (req, res) => { // TODO: CREATE //
+router.post('/', (req, res) => { // DONE: CREATE //
 	// creates a new source
 	const source = new Source(req.body);
 	source
@@ -51,36 +55,35 @@ router.post('/', (req, res) => { // TODO: CREATE //
 		});
 });
 
-router.get('/:sourceID', (req, res) => { // TODO: SHOW //
-	// // shows a single source in detail
-	// Source
-	// 	.findById(req.params.sourceID)
-	// 	.populate('fusions')
-	// 	.then((sources) => {
-	// 		res // here's where SHOW differs
-	// 			.render('source-show.hbs', { sources });
-	// 	})
-	// 	.catch((err) => {
-	// 		console.error(err);
-	// 	});
+router.get('/:sourceID', (req, res) => { // DONE: SHOW //
+	// shows a single source in detail
+	Source
+		.findById(req.params.sourceID)
+		.populate('references')
+		.then((source) => {
+			res // here's where SHOW differs
+				.render('source-show.hbs', { source });
+		})
+		.catch((err) => {
+			console.error(err);
+		});
 });
 
-router.get('/:sourceID/json', (req, res) => { // TODO: SHOW JSON //
-	// // shows a single source in detail
-	// Source
-	// 	.findById(req.params.sourceID)
-	// 	// .populate('fusions')
-	// 	.then((sources) => {
-	// 		res  // here's where SHOW JSON differs
-	// 			.json({
-	// 				message: 'Show this fusion with the sources who create it',
-	// 				sources
-	// 			})
-	// 			.status(200);
-	// 	})
-	// 	.catch((err) => {
-	// 		console.error(err);
-	// 	});
+router.get('/:sourceID/json', (req, res) => { // DONE: SHOW JSON //
+	// shows a single source in detail w/ json
+	Source
+		.findById(req.params.sourceID)
+		.populate('references')
+		.then((source) => {
+			res  // here's where SHOW JSON differs
+				.json(
+					source
+				)
+				.status(200);
+		})
+		.catch((err) => {
+			console.error(err);
+		});
 });
 
 router.get('/:sourceID/edit', (req, res) => { // TODO: EDIT //

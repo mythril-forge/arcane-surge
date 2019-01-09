@@ -18,7 +18,7 @@ const SourceSchema = new Schema({
 		required: true,
 		default: false,
 	},
-	reference: [{
+	references: [{
 		type: Schema.Types.ObjectId,
 		ref: 'Source'
 	}],

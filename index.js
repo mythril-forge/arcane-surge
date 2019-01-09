@@ -53,7 +53,7 @@ mongoose.connect(
 		console.log('Connected successfully to database');
 	}
 );
-
+mongoose.set('useCreateIndex', true) // removes deprication warning
 mongoose.connection.on('error', console.error.bind(console, 'MongoDB connection Error:'));
 
 module.exports = app

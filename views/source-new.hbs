@@ -32,21 +32,12 @@
 			<legend>
 				References
 			</legend>
-
+			{{#each source}}
 			<div>
-				<input type='checkbox' id='huey' name='drone' value='huey' checked>
-				<label for='huey'>Player's Handbook</label>
+				<input type='checkbox' id='{{this._id}}' name='{{this._id}}' value='{{this._id}}' checked>
+				<label for='{{this._id}}'>{{this.name}}</label>
 			</div>
-
-			<div>
-				<input type='checkbox' id='dewey' name='drone' value='dewey'>
-				<label for='dewey'>Xanathar's Guide to Everything</label>
-			</div>
-
-			<div>
-				<input type='checkbox' id='louie' name='drone' value='louie'>
-				<label for='louie'>Elemental Evil Companion</label>
-			</div>
+			{{/each}}
 		</fieldset>
 
 		<button type='submit'>

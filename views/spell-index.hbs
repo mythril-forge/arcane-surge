@@ -1,0 +1,12 @@
+<h2>Index All Spells</h2>
+<ul>
+	{{#each spell}}
+
+	<li>
+		<a href="/spells/{{this._id}}/">
+			{{this.name}}
+		</a>
+	</li>
+
+	{{/each}}
+</ul>
