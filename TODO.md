@@ -34,9 +34,13 @@
 - [X] school: string
 
 - [X] casting_time: integer (seconds)
+	- can also be "action", "bonus action", or "reaction"
 - [X] duration: integer (seconds)
 
+---
+
 - [X] range: integer (feet)
+	- note that self, touch, 0ft, and 5ft are discrete values!
 - [X] area_effect:
 	- [X] shape
 	- [X] width/radius

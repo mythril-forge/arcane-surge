@@ -45,6 +45,10 @@ router.post('/', (req, res) => { // DONE: CREATE //
 	cleanBody.references = [];
 	for (const key in cleanBody) {
 		if (cleanBody[key] === '$reference_on') {
+			// console.log("\n\nkey:")
+			// console.log(key)
+			// console.log("\n\nvalue:")
+			// console.log(cleanBody[key])
 			cleanBody.references.push(key);
 		}
 	}

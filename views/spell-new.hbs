@@ -15,22 +15,17 @@
 		</div>
 
 		<div>
+			<label for='slug'>
+				Slug
+			</label><br />
+			<input type='text' name='slug' id='slug' value='slugged-name' disabled />
+		</div>
+
+		<div>
 			<label for='level'>
 				Level
 			</label><br />
-			<select id='level'>
-				<option hidden='true'></option>
-				<option>0</option>
-				<option>1</option>
-				<option>2</option>
-				<option>3</option>
-				<option>4</option>
-				<option>5</option>
-				<option>6</option>
-				<option>7</option>
-				<option>8</option>
-				<option>9</option>
-			</select>
+			<input type='number' name='level' id='level' min='0' max='9' />
 		</div>
 
 		<div>
@@ -38,17 +33,224 @@
 				School
 			</label><br />
 			<select id='school'>
-				<option value='' hidden='true'></option>
-				<option>abjuration</option>
-				<option>conjuration</option>
-				<option>divination</option>
-				<option>enchantment</option>
-				<option>evocation</option>
-				<option>illusion</option>
-				<option>necromancy</option>
-				<option>transmutation</option>
+				<option label='' hidden='true' />
+				<option label='abjuration' />
+				<option label='conjuration' />
+				<option label='divination' />
+				<option label='enchantment' />
+				<option label='evocation' />
+				<option label='illusion' />
+				<option label='necromancy' />
+				<option label='transmutation' />
 			</select>
 		</div>
+
+		<hr />
+
+		<div>
+			<label for='cast-time'>
+				Casting Time
+			</label>
+			<div id='cast-time'>
+				<input type='radio' name='cast-time' id='cast-time-action' value='action' />
+				<label for='cast-time-action'>
+					action
+				</label><br />
+
+				<input type='radio' name='cast-time' id='cast-time-bonus' value='bonus' />
+				<label for='cast-time-bonus'>
+					bonus action
+				</label><br />
+
+				<input type='radio' name='cast-time' id='cast-time-reaction' value='reaction' />
+				<label for='cast-time-reaction'>
+					reaction
+				</label><br />
+
+				{{!-- the value of this radio button should equal the value of the input number --}}
+				{{!-- also the duration input should be disabled unless the radio button is checked --}}
+				<input type='radio' name='cast-time' id='cast-time-discrete' value='discrete' />
+				<input type='number' name='cast-time' id='cast-time-seconds' min='0' max='999999' placeholder='seconds' disabled /><br />
+			</div>
+		</div>
+
+		<div>
+			<label for='duration'>
+				Duration
+			</label>
+			<div id='duration'>
+				<input type='radio' name='duration' id='duration-instantaneous' value='instantaneous' />
+				<label for='duration-instantaneous'>
+					instantaneous
+				</label><br />
+
+				<input type='radio' name='duration' id='duration-indefinate' value='indefinate' />
+				<label for='duration-indefinate'>
+					indefinate
+				</label><br />
+
+				{{!-- the value of this radio button should equal the value of the input number --}}
+				{{!-- also the duration input should be disabled unless the radio button is checked --}}
+				<input type='radio' name='duration' id='duration-discrete' value='discrete' />
+				<input type='number' name='duration' id='duration-seconds' min='0' max='999999' placeholder='seconds' disabled /><br />
+
+				{{!-- if there is a trigger, it is explained in the spell's description --}}
+				<input type='checkbox' name='duration' id='duration-trigger' value='trigger' />
+				<label for='duration-trigger'>
+					conditional trigger
+				</label>
+			</div>
+		</div>
+
+		<hr />
+
+		<div>
+			<label for='targets'>
+				Number of Targets
+			</label><br />
+			<input type='number' name='area' id='targets' min='0' max='999999' placeholder="targets" />
+		</div>
+
+		<div>
+			<label for='range'>
+				Range
+			</label>
+			<div id='range'>
+				<input type='radio' name='range' id='range-self' value='self' />
+				<label for='range-self'>
+					self
+				</label><br />
+
+				<input type='radio' name='range' id='range-touch' value='touch' />
+				<label for='range-touch'>
+					touch
+				</label><br />
+
+				<input type='radio' name='range' id='range-unlimited' value='unlimited' />
+				<label for='range-unlimited'>
+					unlimited
+				</label><br />
+
+				{{!-- the value of this radio button should equal the value of the input number --}}
+				{{!-- also the range input should be disabled unless the radio button is checked --}}
+				<input type='radio' name='range' id='range-discrete' value='discrete' />
+				<input type='number' name='range' id='range-feet' min='0' max='999999' placeholder='feet' disabled />
+			</div>
+		</div>
+
+		<div>
+			<label for='area'>
+				Shape
+			</label><br />
+			<select id='area'>
+				<option label='' hidden='true' />
+				<option label='point' />
+				<option label='sphere' />
+				<option label='aura' />
+				<option label='cone' />
+				<option label='cube' />
+				<option label='line' />
+				<option label='wall' />
+				<option label='cylinder' />
+			</select>
+		</div>
+
+		<div>
+			<label for='area-radius'>
+				Radius
+			</label><br />
+			<input type='number' name='area' id='area-radius' min='0' max='999999' placeholder="feet" />
+		</div>
+
+		<div>
+			<label for='area-length'>
+				Length
+			</label><br />
+			<input type='number' name='area' id='area-length' min='0' max='999999' placeholder="feet" />
+		</div>
+
+		<div>
+			<label for='area-width'>
+				Width
+			</label><br />
+			<input type='number' name='area' id='area-width' min='0' max='999999' placeholder="feet" />
+		</div>
+
+		<div>
+			<label for='area-height'>
+				Height
+			</label><br />
+			<input type='number' name='area' id='area-height' min='0' max='999999' placeholder="feet" />
+		</div>
+
+		<hr />
+
+		<div>
+			<label for='tags'>
+				Spell Tags
+			</label><br />
+			<div id='tags'>
+				<input type='checkbox' name='tags' id='tags-ritual' value='ritual' />
+				<label for='tags-ritual'>
+					ritual
+				</label><br />
+				<input type='checkbox' name='tags' id='tags-concentration' value='concentration' />
+				<label for='tags-concentration'>
+					concentration
+				</label><br />
+				<input type='checkbox' name='tags' id='tags-verbal' value='verbal' />
+				<label for='tags-verbal'>
+					verbal
+				</label><br />
+				<input type='checkbox' name='tags' id='tags-somatic' value='somatic' />
+				<label for='tags-somatic'>
+					somatic
+				</label><br />
+				<input type='checkbox' name='tags' id='tags-material' value='material' />
+				<label for='tags-material'>
+					material
+				</label><br />
+			</div>
+		</div>
+
+		<fieldset>
+			<legend for='materials'>
+				Specific Materials
+			</legend>
+			<div id='materials'>
+
+				<div>
+					<label for='materials-1-2-3'>
+						material
+					</label><br />
+					<textarea></textarea>
+				</div>
+
+				<div>
+					<label for='materials-1-2-3'>
+						number
+					</label><br />
+					<input type='number' name='materials' id='materials-1-2-3' placeholder='enter text' />
+				</div>
+
+				<div>
+					<label for='materials-1-2-3'>
+						price (in copper pieces)
+					</label><br />
+					<input type='number' name='materials' id='materials-1-2-3' placeholder='enter text' />
+				</div>
+
+				{{!-- if there is a consumed, it is explained in the spell's description --}}
+				<div>
+					<input type='checkbox' name='material' id='material-consumed' value='consumed' />
+					<label for='material-consumed'>
+						consumed
+					</label>
+				</div>
+			</div>
+		</fieldset>
+
+		<hr />
 
 		<button type='submit'>
 			Submit
