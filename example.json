@@ -1,40 +1,39 @@
 {
-	"name": "Slugged Name",
+	"name": "Player's Handbook",
 	"slug": "slugged-name",
-	"level": "2",
-	"school": "conjuration",
+	"level": "3",
+	"school": "divination",
 	"cast-time": [
 		"discrete",
-		"60"
+		"23"
 	],
 	"duration": [
 		"discrete",
-		"60",
+		"23",
 		"trigger"
 	],
-	"area": [
-		"1",
-		"10",
-		"60",
-		"5",
-		"20"
-	],
+	"targets": "15",
 	"range": [
 		"discrete",
-		"30"
+		"23"
 	],
+	"area-shape": "cone",
+	"area-radius": "12",
+	"area-length": "12",
+	"area-width": "32",
+	"area-height": "23",
 	"tags": [
-		"ritual",
 		"concentration",
 		"somatic",
 		"material"
 	],
+	"materials": "Hello World",
 	"class": [
 		"cleric",
 		"sorcerer"
 	],
 	"subclass": [
 		"twilight",
-		"giant"
+		"ancients"
 	]
 }

@@ -10,20 +10,22 @@ const methodOverride = require('method-override');
 // define app, vital for using middleware!!
 const app = express();
 
-// use body parser to get req.body
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-
-// override when POST has ?_method=DELETE or ?_method=PUT
-app.use(express.static('public'));
-app.use(methodOverride('_method'));
-
 // start up handlebars engine
 app.engine('.hbs', exprHBS({
 	extname: '.hbs',
 	defaultLayout: 'main'
 }));
 app.set('view engine', 'hbs');
+
+// use body parser to get req.body
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
+// use static folder structure
+app.use(express.static(path.join(__dirname, 'static')));
+
+// override when POST has ?_method=DELETE or ?_method=PUT
+app.use(methodOverride('_method'));
 
 // mount home route
 app.get('/', (req, res) => {

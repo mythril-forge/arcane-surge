@@ -18,7 +18,7 @@
 			<label for='slug'>
 				Slug
 			</label><br />
-			<input type='text' name='slug' id='slug' value='slugged-name' disabled />
+			<input type='text' name='slug' id='slug' value='slugged-name' />
 		</div>
 
 		<div>
@@ -78,7 +78,8 @@
 					{{!-- the value of this radio button should equal the value of the input number --}}
 					{{!-- also the duration input should be disabled unless the radio button is checked --}}
 					<input type='radio' name='cast-time' id='cast-time-discrete' value='discrete' />
-					<input type='number' name='cast-time' id='cast-time-seconds' min='0' max='999999' placeholder='seconds' disabled />
+					<input type='number' name='cast-time' id='cast-time-seconds' min='0' max='999999' placeholder='seconds' />
+					{{!-- min means minimum, max means maximimum, time unit is in seconds --}}
 				</div>
 			</div>
 		</div>
@@ -107,7 +108,7 @@
 					{{!-- the value of this radio button should equal the value of the input number --}}
 					{{!-- also the duration input should be disabled unless the radio button is checked --}}
 					<input type='radio' name='duration' id='duration-discrete' value='discrete' />
-					<input type='number' name='duration' id='duration-seconds' min='0' max='999999' placeholder='seconds' disabled />
+					<input type='number' name='duration' id='duration-seconds' min='0' max='999999' placeholder='seconds' />
 				</div>
 
 				<div>
@@ -126,7 +127,7 @@
 			<label for='targets'>
 				Number of Targets
 			</label><br />
-			<input type='number' name='area' id='targets' min='0' max='999999' />
+			<input type='number' name='targets' id='targets' min='0' max='999999' />
 		</div>
 
 		<div>
@@ -160,16 +161,16 @@
 					{{!-- the value of this radio button should equal the value of the input number --}}
 					{{!-- also the range input should be disabled unless the radio button is checked --}}
 					<input type='radio' name='range' id='range-discrete' value='discrete' />
-					<input type='number' name='range' id='range-feet' min='0' max='999999' placeholder='feet' disabled />
+					<input type='number' name='range' id='range-feet' min='0' max='999999' placeholder='feet' />
 				</div>
 			</div>
 		</div>
 
 		<div>
-			<label for='area'>
+			<label for='area-shape'>
 				Shape
 			</label><br />
-			<select id='area'>
+			<select name='area-shape' id='area-shape'>
 				<option label='' value='' hidden='true' />
 				<option label='point' value='point' />
 				<option label='sphere' value='sphere' />
@@ -188,28 +189,28 @@
 			<label for='area-radius'>
 				Radius
 			</label><br />
-			<input type='number' name='area' id='area-radius' min='0' max='999999' placeholder='feet' disabled />
+			<input type='number' name='area-radius' id='area-radius' min='0' max='999999' placeholder='feet' />
 		</div>
 
 		<div>
 			<label for='area-length'>
 				Length
 			</label><br />
-			<input type='number' name='area' id='area-length' min='0' max='999999' placeholder='feet' disabled />
+			<input type='number' name='area-length' id='area-length' min='0' max='999999' placeholder='feet' />
 		</div>
 
 		<div>
 			<label for='area-width'>
 				Width
 			</label><br />
-			<input type='number' name='area' id='area-width' min='0' max='999999' placeholder='feet' disabled />
+			<input type='number' name='area-width' id='area-width' min='0' max='999999' placeholder='feet' />
 		</div>
 
 		<div>
 			<label for='area-height'>
 				Height
 			</label><br />
-			<input type='number' name='area' id='area-height' min='0' max='999999' placeholder='feet' disabled />
+			<input type='number' name='area-height' id='area-height' min='0' max='999999' placeholder='feet' />
 		</div>
 
 		<hr />
@@ -263,7 +264,7 @@
 			<label for='targets'>
 				Materials
 			</label><br />
-			<textarea name='materials' id='materials' disabled></textarea>
+			<textarea name='materials' id='materials'></textarea>
 		</div>
 
 		<hr />
@@ -273,7 +274,7 @@
 				Classes
 			</label><br />
 			<input list='class-datalist' name='class' id='class-1' />–<br />
-			<input list='class-datalist' name='class' id='class-0' disabled />+
+			<input list='class-datalist' name='class' id='class-0' />+
 
 			<datalist id='class-datalist'>
 				<option label='Cleric' value='Cleric' />
@@ -360,7 +361,4 @@
 			Submit
 		</button>
 	</fieldset>
-
-
-
 </form>
