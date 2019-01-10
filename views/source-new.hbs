@@ -22,25 +22,34 @@
 		</div>
 
 		<div>
+			<label for='color'>
+				Display Color
+			</label><br />
+			<input type='color' name='color' id='color' />
+		</div>
+
+		<div>
 			<input type='checkbox' id='official' name='official' checked>
 			<label for='official'>
 				Official Source
 			</label>
 		</div>
 
-		<fieldset>
-			<legend>
+		<div>
+			<label for='refrences'>
 				References
-			</legend>
-
-			{{#each source}}
-			<div>
-				{{!-- Need a better way to add checked items to JSON --}}
-				<input type='checkbox' id='{{this._id}}' name='{{this._id}}' value='$reference_on'>
-				<label for='{{this._id}}'>{{this.name}}</label>
+			</label>
+			{{!-- these references should be disabled if official source is checked --}}
+			<div id='refrences'>
+				{{#each source}}
+				<div>
+					{{!-- Need a better way to add checked items to JSON --}}
+					<input type='checkbox' id='{{this._id}}' name='{{this._id}}' value='$reference-on'>
+					<label for='{{this._id}}'>{{this.name}}</label>
+				</div>
+				{{/each}}
 			</div>
-			{{/each}}
-		</fieldset>
+		</div>
 
 		<button type='submit'>
 			Submit

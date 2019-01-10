@@ -41,10 +41,12 @@
 
 - [X] range: integer (feet)
 	- note that self, touch, 0ft, and 5ft are discrete values!
-- [X] area_effect:
-	- [X] shape
-	- [X] width/radius
-	- [X] height
+- [?] area_effect:
+	- shape
+	- radius
+	- length
+	- width
+	- height
 - [X] targets: integer (num targets)
 
 - [X] concentration: (boolean)
@@ -52,22 +54,22 @@
 
 - [X] somatic: (none / list)
 - [X] verbal: (none / list)
-- [X] material: (none / dictionary)
-	- [X] item: integer (cp)
+- [?] material: (none / dictionary)
+	- [ ] item: integer (cp)
 
 - [X] description (long string)
 - [X] desc_higher (long string)
 
 <!-- Difficulty with multiple sources of damage -->
-- [!] damage_dice: (string)
-- [!] damage_types: (list of strings)
-- [X] conditions: (list of strings)
+- [ ] damage_dice: (string)
+- [ ] damage_types: (list of strings)
+- [ ] conditions: (list of strings)
 
-- [X] races: (list of strings)
-- [X] classes: (list of strings)
-- [X] subclasses: (list of strings)
+- [ ] races: (list of strings)
+- [ ] classes: (list of strings)
+- [ ] subclasses: (list of strings)
 
-- [X] citation (dictionary)
-	- [X] book: integer (page)
+- [ ] citation (dictionary)
+	- [ ] book: integer (page)
 
-- [X] comparison
+- [ ] comparison

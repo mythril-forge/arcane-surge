@@ -1,0 +1,40 @@
+{
+	"name": "Slugged Name",
+	"slug": "slugged-name",
+	"level": "2",
+	"school": "conjuration",
+	"cast-time": [
+		"discrete",
+		"60"
+	],
+	"duration": [
+		"discrete",
+		"60",
+		"trigger"
+	],
+	"area": [
+		"1",
+		"10",
+		"60",
+		"5",
+		"20"
+	],
+	"range": [
+		"discrete",
+		"30"
+	],
+	"tags": [
+		"ritual",
+		"concentration",
+		"somatic",
+		"material"
+	],
+	"class": [
+		"cleric",
+		"sorcerer"
+	],
+	"subclass": [
+		"twilight",
+		"giant"
+	]
+}

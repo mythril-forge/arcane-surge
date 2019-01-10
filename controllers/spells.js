@@ -40,14 +40,15 @@ router.get('/new', (req, res) => { // DONE: NEW //
 router.post('/', (req, res) => { // TODO: CREATE //
 	// creates a new spell
 	const spell = new Spell(req.body);
-	spell
-		.save()
-		.then(() => {
-			res.redirect('/spell');
-		})
-		.catch((err) => {
-			console.error(err);
-		});
+	res.json(req.body);
+	// spell
+	// 	.save()
+	// 	.then(() => {
+	// 		res.redirect('/spell');
+	// 	})
+	// 	.catch((err) => {
+	// 		console.error(err);
+	// 	});
 });
 
 router.get('/:spellID', (req, res) => { // TODO: SHOW //
