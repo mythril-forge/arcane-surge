@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const express = require('express');
 const exprHBS = require('express-handlebars');
 const bodyParser = require('body-parser');
+const path = require('path')
 //	const cors = require('cors'); // still don't understand what cors does yet...
 const methodOverride = require('method-override');
 
