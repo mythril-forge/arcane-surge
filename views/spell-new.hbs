@@ -18,7 +18,7 @@
 			<label for='slug'>
 				Slug
 			</label><br />
-			<input type='text' name='slug' id='slug' value='slugged-name' />
+			<input type='text' name='slug' id='slug' value='slugged-name' disabled />
 		</div>
 
 		<div>
@@ -51,7 +51,7 @@
 			<label for='cast-time'>
 				Casting Time
 			</label>
-			<div id='cast-time'>
+			<div id='cast-time' onchange="disableCastTimeNum()">
 
 				<div>
 					<input type='radio' name='cast-time' id='cast-time-action' value='action' />
@@ -78,7 +78,7 @@
 					{{!-- the value of this radio button should equal the value of the input number --}}
 					{{!-- also the duration input should be disabled unless the radio button is checked --}}
 					<input type='radio' name='cast-time' id='cast-time-discrete' value='discrete' />
-					<input type='number' name='cast-time' id='cast-time-seconds' min='0' max='999999' placeholder='seconds' />
+					<input type='number' name='cast-time' id='cast-time-seconds' min='0' max='999999' placeholder='seconds' disabled />
 					{{!-- min means minimum, max means maximimum, time unit is in seconds --}}
 				</div>
 			</div>
@@ -88,7 +88,7 @@
 			<label for='duration'>
 				Duration
 			</label>
-			<div id='duration'>
+			<div id='duration' onchange="disableDurationNum()">
 
 				<div>
 					<input type='radio' name='duration' id='duration-instantaneous' value='instantaneous' />
@@ -108,12 +108,11 @@
 					{{!-- the value of this radio button should equal the value of the input number --}}
 					{{!-- also the duration input should be disabled unless the radio button is checked --}}
 					<input type='radio' name='duration' id='duration-discrete' value='discrete' />
-					<input type='number' name='duration' id='duration-seconds' min='0' max='999999' placeholder='seconds' />
+					<input type='number' name='duration' id='duration-seconds' min='0' max='999999' placeholder='seconds' disabled />
 				</div>
 
 				<div>
-					{{!-- if there is a trigger, it is explained in the spell's description --}}
-					<input type='checkbox' name='duration' id='duration-trigger' value='trigger' />
+					<input type='checkbox' name='duration' id='duration-trigger' value='$trigger-on' />
 					<label for='duration-trigger'>
 						conditional trigger
 					</label>
@@ -121,20 +120,23 @@
 			</div>
 		</div>
 
+
+		{{!-- duration trigger --}}
+
 		<hr />
 
 		<div>
-			<label for='targets'>
+			<label for='num-targets'>
 				Number of Targets
 			</label><br />
-			<input type='number' name='targets' id='targets' min='0' max='999999' />
+			<input type='number' name='num-targets' id='num-targets' min='0' max='999999' />
 		</div>
 
 		<div>
 			<label for='range'>
 				Range
 			</label>
-			<div id='range'>
+			<div id='range' onchange="disableRangeNum()">
 
 				<div>
 					<input type='radio' name='range' id='range-self' value='self' />
@@ -161,16 +163,16 @@
 					{{!-- the value of this radio button should equal the value of the input number --}}
 					{{!-- also the range input should be disabled unless the radio button is checked --}}
 					<input type='radio' name='range' id='range-discrete' value='discrete' />
-					<input type='number' name='range' id='range-feet' min='0' max='999999' placeholder='feet' />
+					<input type='number' name='range' id='range-feet' min='0' max='999999' placeholder='feet' disabled />
 				</div>
 			</div>
 		</div>
 
 		<div>
-			<label for='area-shape'>
+			<label for='shape'>
 				Shape
 			</label><br />
-			<select name='area-shape' id='area-shape'>
+			<select name='shape' id='shape'>
 				<option label='' value='' hidden='true' />
 				<option label='point' value='point' />
 				<option label='sphere' value='sphere' />
@@ -186,31 +188,31 @@
 
 		{{!-- these next four number-entry boxes are enabled only when the respective shape option is selected. --}}
 		<div>
-			<label for='area-radius'>
+			<label for='radius'>
 				Radius
 			</label><br />
-			<input type='number' name='area-radius' id='area-radius' min='0' max='999999' placeholder='feet' />
+			<input type='number' name='radius' id='radius' min='0' max='999999' placeholder='feet' />
 		</div>
 
 		<div>
-			<label for='area-length'>
+			<label for='length'>
 				Length
 			</label><br />
-			<input type='number' name='area-length' id='area-length' min='0' max='999999' placeholder='feet' />
+			<input type='number' name='length' id='length' min='0' max='999999' placeholder='feet' />
 		</div>
 
 		<div>
-			<label for='area-width'>
+			<label for='width'>
 				Width
 			</label><br />
-			<input type='number' name='area-width' id='area-width' min='0' max='999999' placeholder='feet' />
+			<input type='number' name='width' id='width' min='0' max='999999' placeholder='feet' />
 		</div>
 
 		<div>
-			<label for='area-height'>
+			<label for='height'>
 				Height
 			</label><br />
-			<input type='number' name='area-height' id='area-height' min='0' max='999999' placeholder='feet' />
+			<input type='number' name='height' id='height' min='0' max='999999' placeholder='feet' />
 		</div>
 
 		<hr />
@@ -345,6 +347,7 @@
 			</div>
 		</div>
 
+
 		{{!--
 		<div>
 			Subclasses
@@ -357,8 +360,18 @@
 
 		<hr />
 
+		{{!--
+		<input type='text' name='source' id='source' />
+		<input type='number' name='page' id='page' />
+		<a onclick="addSourceArray()">add source</a>
+		<input name='parent-src' id='parent-src' />
+		<hr />
+		--}}
+
 		<button type='submit'>
 			Submit
 		</button>
 	</fieldset>
 </form>
+
+<script src='/js/spell-new.js'></script>

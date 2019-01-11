@@ -1,1 +1,0 @@
-window.alert("hooray");// wrap in document.ready
