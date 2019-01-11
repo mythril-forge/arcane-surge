@@ -1,4 +1,4 @@
-input:disabled, textarea:disabled {
+input:disabled, textarea:disabled, input:read-only, textarea:read-only {
 	color: #444;
 	background-color: #EEE;
 	cursor: default;

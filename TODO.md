@@ -25,51 +25,48 @@
 ---
 
 # Spell Metadata
+- [x] name
+- [x] slug
+- [x] level
+- [x] school
 
-- [X] _id: (automatic)
+- [x] cast-time
+	- [x] quality
+	- [x] seconds
+	- [x] trigger
 
-- [X] slug: string (automatic)
-- [X] name: string
-- [X] level: integer 0-9 (level)
-- [X] school: string
+- [x] duration
+	- [x] quality
+	- [x] seconds
+	- [x] trigger
 
-- [X] casting_time: integer (seconds)
-	- can also be "action", "bonus action", or "reaction"
-- [X] duration: integer (seconds)
+- [x] num-targets
+- [x] range
+	- [x] quality
+	- [x] feet
+- [x] area
+	- [x] shape
+	- [x] radius
+	- [x] length
+	- [x] width
+	- [x] height
 
----
+- [x] tags \*_array_
+- [x] components
+	- [x] verbal
+	- [x] somatic
+	- [x] material
 
-- [X] range: integer (feet)
-	- note that self, touch, 0ft, and 5ft are discrete values!
-- [?] area_effect:
-	- shape
-	- radius
-	- length
-	- width
-	- height
-- [X] targets: integer (num targets)
+- [x] description
+	- [x] main
+	- [?] higher <!-- might have to come back and add a checkbox for a power-up at higher levels -->
+- [ ] classes \*_array_
+- [ ] subclasses \*_array_
+- [ ] races \*_array_
+- [ ] subraces \*_array_
 
-- [X] concentration: (boolean)
-- [X] ritual: (boolean)
-
-- [X] somatic: (none / list)
-- [X] verbal: (none / list)
-- [?] material: (none / dictionary)
-	- [ ] item: integer (cp)
-
-- [X] description (long string)
-- [X] desc_higher (long string)
-
-<!-- Difficulty with multiple sources of damage -->
-- [ ] damage_dice: (string)
-- [ ] damage_types: (list of strings)
-- [ ] conditions: (list of strings)
-
-- [ ] races: (list of strings)
-- [ ] classes: (list of strings)
-- [ ] subclasses: (list of strings)
-
-- [ ] citation (dictionary)
-	- [ ] book: integer (page)
-
-- [ ] comparison
+- [ ] parent \*_array_
+	- [ ] - source **id**
+	- [ ] - page
+- [ ] sibling
+	- [ ] - reference **id**

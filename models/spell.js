@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 
 // Set Schema
 const Schema = mongoose.Schema;
+
 const SpellSchema = new Schema({
 	// Spell Heading Data //
 	'name': {
@@ -17,32 +18,46 @@ const SpellSchema = new Schema({
 	'level': Number,
 	'school': String,
 
-	// Casting Time + Spell Area //
-	'cast-time': String,
-	'cast-trigger': String,
-	'duration': String,
-	'dur-trigger': String,
-	'num-targets': String,
-	'range': String,
+	// Casting Time  //
+	'cast-time': {
+		'quality': String,
+		'seconds': Number,
+		'trigger': String
+	},
+	'duration': {
+		'quality': String,
+		'seconds': Number,
+		'trigger': String
+	},
+
+	// Spell Area //
+	'num-targets': Number,
+	'range': {
+		'quality': String,
+		'feet': Number
+	},
 	'area': {
 		'shape': String,
-		'radius': String,
-		'length': String,
-		'width': String,
-		'height': String
+		'radius': Number,
+		'length': Number,
+		'width': Number,
+		'height': Number
 	},
 
 	// Tags + Components //
 	'tags': [String],
-	'components': {
-		'verbal': String,
-		'somatic': String,
-		'material': String
+	'component': {
+		'verbals': String,
+		'somatics': String,
+		'materials': String
 	},
 
-	// Description //
-	'description': String,
-	'desc-higher': String,
+	// Descriptions //
+	'description': {
+		'main': String,
+		'higher': String
+	},
+
 	// Compatibility //
 	'classes': [String],
 	'subclasses': [String],

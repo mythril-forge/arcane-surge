@@ -11,14 +11,14 @@
 			<label for='name'>
 				Name
 			</label><br />
-			<input type='text' name='name' id='name' />
+			<input type='text' name='name' id='name' onkeyup='updateSlug()' onchange='updateSlug()' />
 		</div>
 
 		<div>
 			<label for='slug'>
 				Slug
 			</label><br />
-			<input type='text' name='slug' id='slug' disabled />
+			<input type='text' name='slug' id='slug' readonly />
 		</div>
 
 		<div>
@@ -33,7 +33,7 @@
 				School
 			</label><br />
 			<select name='school' id='school'>
-				<option label='' value='' hidden='true' />
+				<option label='' value='' hidden />
 				<option label='abjuration' value='abjuration' />
 				<option label='conjuration' value='conjuration' />
 				<option label='divination' value='divination' />
@@ -51,24 +51,24 @@
 			<label for='cast-time'>
 				Casting Time
 			</label>
-			<div id='cast-time' onchange="disableCastTimeNum()">
+			<div id='cast-time' onchange='disableCastTimeNum()'>
 
 				<div>
-					<input type='radio' name='cast-time' id='cast-time-action' value='action' />
+					<input type='radio' name='cast-time.quality' id='cast-time-action' value='action' />
 					<label for='cast-time-action'>
 						action
 					</label>
 				</div>
 
 				<div>
-					<input type='radio' name='cast-time' id='cast-time-bonus' value='bonus' />
+					<input type='radio' name='cast-time.quality' id='cast-time-bonus' value='bonus' />
 					<label for='cast-time-bonus'>
 						bonus action
 					</label>
 				</div>
 
 				<div>
-					<input type='radio' name='cast-time' id='cast-time-reaction' value='reaction' />
+					<input type='radio' name='cast-time.quality' id='cast-time-reaction' value='reaction' />
 					<label for='cast-time-reaction'>
 						reaction
 					</label>
@@ -77,9 +77,16 @@
 				<div>
 					{{!-- the value of this radio button should equal the value of the input number --}}
 					{{!-- also the duration input should be disabled unless the radio button is checked --}}
-					<input type='radio' name='cast-time' id='cast-time-discrete' value='discrete' />
-					<input type='number' name='cast-time' id='cast-time-seconds' min='0' max='999999' placeholder='seconds' disabled />
+					<input type='radio' name='cast-time.quality' id='cast-time-discrete' value='discrete' />
+					<input type='number' name='cast-time.seconds' id='cast-time-seconds' min='0' max='999999' placeholder='seconds' disabled />
 					{{!-- min means minimum, max means maximimum, time unit is in seconds --}}
+				</div>
+
+				<div>
+					<input type='checkbox' name='cast-time.trigger' id='cast-time-trigger' value='$cast-trigger-on' />
+					<label for='cast-time-trigger'>
+						conditional trigger
+					</label>
 				</div>
 			</div>
 		</div>
@@ -88,17 +95,17 @@
 			<label for='duration'>
 				Duration
 			</label>
-			<div id='duration' onchange="disableDurationNum()">
+			<div id='duration' onchange='disableDurationNum()'>
 
 				<div>
-					<input type='radio' name='duration' id='duration-instantaneous' value='instantaneous' />
+					<input type='radio' name='duration.quality' id='duration-instantaneous' value='instantaneous' />
 					<label for='duration-instantaneous'>
 						instantaneous
 					</label>
 				</div>
 
 				<div>
-					<input type='radio' name='duration' id='duration-indefinate' value='indefinate' />
+					<input type='radio' name='duration.quality' id='duration-indefinate' value='indefinate' />
 					<label for='duration-indefinate'>
 						indefinate
 					</label>
@@ -107,21 +114,18 @@
 				<div>
 					{{!-- the value of this radio button should equal the value of the input number --}}
 					{{!-- also the duration input should be disabled unless the radio button is checked --}}
-					<input type='radio' name='duration' id='duration-discrete' value='discrete' />
-					<input type='number' name='duration' id='duration-seconds' min='0' max='999999' placeholder='seconds' disabled />
+					<input type='radio' name='duration.quality' id='duration-discrete' value='discrete' />
+					<input type='number' name='duration.seconds' id='duration-seconds' min='0' max='999999' placeholder='seconds' disabled />
 				</div>
 
 				<div>
-					<input type='checkbox' name='duration' id='duration-trigger' value='$trigger-on' />
+					<input type='checkbox' name='duration.trigger' id='duration-trigger' value='$dura-trigger-on' />
 					<label for='duration-trigger'>
 						conditional trigger
 					</label>
 				</div>
 			</div>
 		</div>
-
-
-		{{!-- duration trigger --}}
 
 		<hr />
 
@@ -136,24 +140,24 @@
 			<label for='range'>
 				Range
 			</label>
-			<div id='range' onchange="disableRangeNum()">
+			<div id='range' onchange='disableRangeNum()'>
 
 				<div>
-					<input type='radio' name='range' id='range-self' value='self' />
+					<input type='radio' name='range.quality' id='range-self' value='self' />
 					<label for='range-self'>
 						self
 					</label>
 				</div>
 
 				<div>
-					<input type='radio' name='range' id='range-touch' value='touch' />
+					<input type='radio' name='range.quality' id='range-touch' value='touch' />
 					<label for='range-touch'>
 						touch
 					</label>
 				</div>
 
 				<div>
-					<input type='radio' name='range' id='range-unlimited' value='unlimited' />
+					<input type='radio' name='range.quality' id='range-unlimited' value='unlimited' />
 					<label for='range-unlimited'>
 						unlimited
 					</label>
@@ -162,18 +166,18 @@
 				<div>
 					{{!-- the value of this radio button should equal the value of the input number --}}
 					{{!-- also the range input should be disabled unless the radio button is checked --}}
-					<input type='radio' name='range' id='range-discrete' value='discrete' />
-					<input type='number' name='range' id='range-feet' min='0' max='999999' placeholder='feet' disabled />
+					<input type='radio' name='range.quality' id='range-discrete' value='discrete' />
+					<input type='number' name='range.feet' id='range-feet' min='0' max='999999' placeholder='feet' disabled />
 				</div>
 			</div>
 		</div>
 
 		<div>
 			<label for='shape'>
-				Shape
+				Effect Shape
 			</label><br />
-			<select name='shape' id='shape'>
-				<option label='' value='' hidden='true' />
+			<select name='shape' id='shape' onchange="disableAreaNums()">
+				<option label='' value='' hidden />
 				<option label='point' value='point' />
 				<option label='sphere' value='sphere' />
 				<option label='aura' value='aura' />
@@ -185,34 +189,45 @@
 			</select>
 		</div>
 
+		{{!-- RADIUS: sphere, aura, cone, wall, cylinder --}}
+		{{!-- LENGTH: wall, line, cube --}}
+		{{!-- WIDTH: wall, line --}}
+		{{!-- HEIGHT: wall, cylinder --}}
 
 		{{!-- these next four number-entry boxes are enabled only when the respective shape option is selected. --}}
 		<div>
-			<label for='area.radius'>
-				Radius
-			</label><br />
-			<input type='number' name='area.radius' id='area.radius' min='0' max='999999' placeholder='feet' />
-		</div>
+			<label for='area'>
+				Area of Effect
+			</label>
+			<div id='area'>
+				<div>
+					<label for='area-radius'>
+						Radius
+					</label><br />
+					<input type='number' name='area.radius' id='area-radius' min='0' max='999999' placeholder='feet' disabled />
+				</div>
 
-		<div>
-			<label for='length'>
-				Length
-			</label><br />
-			<input type='number' name='length' id='length' min='0' max='999999' placeholder='feet' />
-		</div>
+				<div disabled>
+					<label for='area-length'>
+						Length
+					</label><br />
+					<input type='number' name='area.length' id='area-length' min='0' max='999999' placeholder='feet' disabled />
+				</div>
 
-		<div>
-			<label for='width'>
-				Width
-			</label><br />
-			<input type='number' name='width' id='width' min='0' max='999999' placeholder='feet' />
-		</div>
+				<div disabled>
+					<label for='area-width'>
+						Width
+					</label><br />
+					<input type='number' name='area.width' id='area-width' min='0' max='999999' placeholder='feet' disabled />
+				</div>
 
-		<div>
-			<label for='height'>
-				Height
-			</label><br />
-			<input type='number' name='height' id='height' min='0' max='999999' placeholder='feet' />
+				<div disabled>
+					<label for='area-height'>
+						Height
+					</label><br />
+					<input type='number' name='area.height' id='area-height' min='0' max='999999' placeholder='feet' disabled />
+				</div>
+			</div>
 		</div>
 
 		<hr />
@@ -238,21 +253,21 @@
 				</div>
 
 				<div>
-					<input type='checkbox' name='tags' id='tags-verbal' value='verbal' />
+					<input type='checkbox' name='tags' id='tags-verbal' value='verbal' onchange="disableComponents()" />
 					<label for='tags-verbal'>
 						verbal
 					</label>
 				</div>
 
 				<div>
-					<input type='checkbox' name='tags' id='tags-somatic' value='somatic' />
+					<input type='checkbox' name='tags' id='tags-somatic' value='somatic' onchange="disableComponents()" />
 					<label for='tags-somatic'>
 						somatic
 					</label>
 				</div>
 
 				<div>
-					<input type='checkbox' name='tags' id='tags-material' value='material' />
+					<input type='checkbox' name='tags' id='tags-material' value='material' onchange="disableComponents()" />
 					<label for='tags-material'>
 						material
 					</label>
@@ -262,11 +277,45 @@
 
 		{{!-- this entire div should appear only when tags-material checkbox is on --}}
 		{{!-- later versions of this app will have a more in-depth materials field --}}
+		<label for='components'>
+			Component Details
+		</label>
+		<div id='components'>
+			<div>
+				<label for='components-verbals'>
+					Verbals
+				</label><br />
+				<textarea name='components.verbals' id='components-verbals' disabled></textarea>
+			</div>
+			<div>
+				<label for='components-somatics'>
+					Somatics
+				</label><br />
+				<textarea name='components.somatics' id='components-somatics' disabled></textarea>
+			</div>
+			<div>
+				<label for='components-materials'>
+					Materials
+				</label><br />
+				<textarea name='components.materials' id='components-materials' disabled></textarea>
+			</div>
+		</div>
+
+		<hr />
+
+
 		<div>
-			<label for='targets'>
-				Materials
+			<label for='description.main'>
+				Description
 			</label><br />
-			<textarea name='materials' id='materials'></textarea>
+			<textarea name='description.main' id='description-main'></textarea>
+		</div>
+
+		<div>
+			<label for='description.higher'>
+				At Higher Levels
+			</label><br />
+			<textarea name='description.higher' id='description-higher'></textarea>
 		</div>
 
 		<hr />
@@ -363,7 +412,7 @@
 		{{!--
 		<input type='text' name='source' id='source' />
 		<input type='number' name='page' id='page' />
-		<a onclick="addSourceArray()">add source</a>
+		<a onclick='addSourceArray()'>add source</a>
 		<input name='parent-src' id='parent-src' />
 		<hr />
 		--}}
