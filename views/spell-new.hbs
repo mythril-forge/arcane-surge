@@ -30,10 +30,10 @@
 
 		<div>
 			<label for='school'>
-				School
+				School of Magic
 			</label><br />
 			<select name='school' id='school'>
-				<option label='' value='' hidden />
+				<option label='' disabled hidden selected />
 				<option label='abjuration' value='abjuration' />
 				<option label='conjuration' value='conjuration' />
 				<option label='divination' value='divination' />
@@ -81,13 +81,6 @@
 					<input type='number' name='cast-time.seconds' id='cast-time-seconds' min='0' max='999999' placeholder='seconds' disabled />
 					{{!-- min means minimum, max means maximimum, time unit is in seconds --}}
 				</div>
-
-				<div>
-					<input type='checkbox' name='cast-time.trigger' id='cast-time-trigger' value='$cast-trigger-on' />
-					<label for='cast-time-trigger'>
-						conditional trigger
-					</label>
-				</div>
 			</div>
 		</div>
 
@@ -112,17 +105,17 @@
 				</div>
 
 				<div>
+					<input type='radio' name='duration.quality' id='duration-provoked' value='provoked' />
+					<label for='duration-provoked'>
+						provoked
+					</label>
+				</div>
+
+				<div>
 					{{!-- the value of this radio button should equal the value of the input number --}}
 					{{!-- also the duration input should be disabled unless the radio button is checked --}}
 					<input type='radio' name='duration.quality' id='duration-discrete' value='discrete' />
 					<input type='number' name='duration.seconds' id='duration-seconds' min='0' max='999999' placeholder='seconds' disabled />
-				</div>
-
-				<div>
-					<input type='checkbox' name='duration.trigger' id='duration-trigger' value='$dura-trigger-on' />
-					<label for='duration-trigger'>
-						conditional trigger
-					</label>
 				</div>
 			</div>
 		</div>
@@ -177,7 +170,7 @@
 				Effect Shape
 			</label><br />
 			<select name='shape' id='shape' onchange="disableAreaNums()">
-				<option label='' value='' hidden />
+				<option label='' disabled hidden selected />
 				<option label='point' value='point' />
 				<option label='sphere' value='sphere' />
 				<option label='aura' value='aura' />
@@ -275,32 +268,33 @@
 			</div>
 		</div>
 
-		{{!-- this entire div should appear only when tags-material checkbox is on --}}
-		{{!-- later versions of this app will have a more in-depth materials field --}}
-		<label for='components'>
-			Component Details
-		</label>
-		<div id='components'>
-			<div>
-				<label for='components-verbals'>
-					Verbals
-				</label><br />
-				<textarea name='components.verbals' id='components-verbals' disabled></textarea>
-			</div>
-			<div>
-				<label for='components-somatics'>
-					Somatics
-				</label><br />
-				<textarea name='components.somatics' id='components-somatics' disabled></textarea>
-			</div>
-			<div>
-				<label for='components-materials'>
-					Materials
-				</label><br />
-				<textarea name='components.materials' id='components-materials' disabled></textarea>
+		<div>
+			{{!-- this entire div should appear only when tags-material checkbox is on --}}
+			{{!-- later versions of this app will have a more in-depth material field --}}
+			<label for='components'>
+				Component Details
+			</label>
+			<div id='components'>
+				<div>
+					<label for='components-verbal'>
+						Verbal Components
+					</label><br />
+					<textarea name='components.verbal' id='components-verbal' disabled></textarea>
+				</div>
+				<div>
+					<label for='components-somatic'>
+						Somatic Components
+					</label><br />
+					<textarea name='components.somatic' id='components-somatic' disabled></textarea>
+				</div>
+				<div>
+					<label for='components-material'>
+						Material Components
+					</label><br />
+					<textarea name='components.material' id='components-material' disabled></textarea>
+				</div>
 			</div>
 		</div>
-
 		<hr />
 
 
@@ -409,13 +403,37 @@
 
 		<hr />
 
-		{{!--
-		<input type='text' name='source' id='source' />
-		<input type='number' name='page' id='page' />
-		<a onclick='addSourceArray()'>add source</a>
-		<input name='parent-src' id='parent-src' />
+		<div>
+			<label for='parent'>
+				Parent Sources
+			</label><br />
+			<div id='parent'>
+				{{#each source}}
+				<div>
+					<input type='checkbox' name='parent.source' id='parent-{{this._id}}' value='{{this._id}}' />
+					<label for='parent-{{this._id}}'>
+						{{this.name}}
+					</label>
+				</div>
+				{{/each}}
+			</div>
+		</div>
+
+		<div>
+			<label for='sibling'>
+				Sibling Spell
+			</label><br />
+			<div id='sibling'>
+				<input list="sibling-spell-list" name="sibling.spell" id="sibling-spell" />
+				<datalist id="sibling-spell-list">
+					{{#each spell}}
+					<option label='{{this.name}}' />
+					{{/each}}
+				</datalist>
+			</div>
+		</div>
+
 		<hr />
-		--}}
 
 		<button type='submit'>
 			Submit

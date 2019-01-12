@@ -47,9 +47,9 @@ const SpellSchema = new Schema({
 	// Tags + Components //
 	'tags': [String],
 	'component': {
-		'verbals': String,
-		'somatics': String,
-		'materials': String
+		'verbal': String,
+		'somatic': String,
+		'material': String
 	},
 
 	// Descriptions //
@@ -63,16 +63,18 @@ const SpellSchema = new Schema({
 	'subclasses': [String],
 	'races': [String],
 	'subraces': [String],
-	'parent-src': [{ // parent source for index library
+	'parent': [{ // parent source for index library
 		'source': {
 			type: Schema.Types.ObjectId,
 			ref: 'Source'
 		},
 		'page': String
 	}],
-	'sibling-ref': { // sibling reference for spell diffs
-		type: Schema.Types.ObjectId,
-		ref: 'Spell'
+	'sibling': { // sibling reference for spell diffs
+		'spell': {
+			type: Schema.Types.ObjectId,
+			ref: 'Spell'
+		}
 	}
 });
 

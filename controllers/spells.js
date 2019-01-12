@@ -1,5 +1,6 @@
 const express = require('express');
 const Spell = require('../models/spell.js');
+const Source = require('../models/source.js')
 
 const router = new express.Router();
 router.get('/', (req, res) => { // TODO: INDEX //
@@ -34,7 +35,19 @@ router.get('/json', (req, res) => { // TODO: INDEX JSON //
 
 router.get('/new', (req, res) => { // DONE: NEW //
 	// shows a spell creation form
-	res.render('spell-new.hbs');
+	Spell
+		.find({})
+		.then((spell) => {
+			Source
+				.find({})
+				.then((source) => {
+					res
+						.render('spell-new.hbs', { source, spell });
+				})
+		})
+		.catch((err) => {
+			console.error(err);
+		});
 });
 
 router.post('/', (req, res) => { // TODO: CREATE //

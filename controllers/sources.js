@@ -57,7 +57,7 @@ router.post('/', (req, res) => { // DONE: CREATE //
 	source
 		.save()
 		.then(() => {
-			res.redirect('/');
+			res.redirect('/sources/');
 		})
 		.catch((err) => {
 			console.error(err);

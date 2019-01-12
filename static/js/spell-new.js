@@ -83,27 +83,31 @@ const disableAreaNums = () => {
 }
 
 const disableComponents = () => {
-	const verbals = document.getElementById('components-verbals');
-	const somatics = document.getElementById('components-somatics');
-	const materials = document.getElementById('components-materials');
+	const verbal = document.getElementById('components-verbal');
+	const somatic = document.getElementById('components-somatic');
+	const material = document.getElementById('components-material');
 	const verBox = document.getElementById('tags-verbal')
 	const somBox = document.getElementById('tags-somatic')
 	const matBox = document.getElementById('tags-material')
 	if (verBox.checked) {
-		enable([verbals])
+		enable([verbal])
 	} else {
-		disable([verbals])
+		disable([verbal])
 	}
 	if (somBox.checked) {
-		enable([somatics])
+		enable([somatic])
 	} else {
-		disable([somatics])
+		disable([somatic])
 	}
 	if (matBox.checked) {
-		enable([materials])
+		enable([material])
 	} else {
-		disable([materials])
+		disable([material])
 	}
+}
+
+const disableHigherLevelDesc = () => {
+
 }
 
 const updateSlug = () => {
