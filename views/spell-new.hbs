@@ -165,23 +165,6 @@
 			</div>
 		</div>
 
-		<div>
-			<label for='shape'>
-				Effect Shape
-			</label><br />
-			<select name='shape' id='shape' onchange="disableAreaNums()">
-				<option label='' disabled hidden selected />
-				<option label='point' value='point' />
-				<option label='sphere' value='sphere' />
-				<option label='aura' value='aura' />
-				<option label='cone' value='cone' />
-				<option label='cube' value='cube' />
-				<option label='line' value='line' />
-				<option label='wall' value='wall' />
-				<option label='cylinder' value='cylinder' />
-			</select>
-		</div>
-
 		{{!-- RADIUS: sphere, aura, cone, wall, cylinder --}}
 		{{!-- LENGTH: wall, line, cube --}}
 		{{!-- WIDTH: wall, line --}}
@@ -193,6 +176,24 @@
 				Area of Effect
 			</label>
 			<div id='area'>
+
+				<div>
+					<label for='area-shape'>
+						Effect Shape
+					</label><br />
+					<select name='area.shape' id='area-shape' onchange="disableAreaNums()">
+						<option label='' disabled hidden selected />
+						<option label='point' value='point' />
+						<option label='sphere' value='sphere' />
+						<option label='aura' value='aura' />
+						<option label='cone' value='cone' />
+						<option label='cube' value='cube' />
+						<option label='line' value='line' />
+						<option label='wall' value='wall' />
+						<option label='cylinder' value='cylinder' />
+					</select>
+				</div>
+
 				<div>
 					<label for='area-radius'>
 						Radius
@@ -271,27 +272,27 @@
 		<div>
 			{{!-- this entire div should appear only when tags-material checkbox is on --}}
 			{{!-- later versions of this app will have a more in-depth material field --}}
-			<label for='components'>
+			<label for='component'>
 				Component Details
 			</label>
-			<div id='components'>
+			<div id='component'>
 				<div>
-					<label for='components-verbal'>
+					<label for='component-verbal'>
 						Verbal Components
 					</label><br />
-					<textarea name='components.verbal' id='components-verbal' disabled></textarea>
+					<textarea name='component.verbal' id='component-verbal' disabled></textarea>
 				</div>
 				<div>
-					<label for='components-somatic'>
+					<label for='component-somatic'>
 						Somatic Components
 					</label><br />
-					<textarea name='components.somatic' id='components-somatic' disabled></textarea>
+					<textarea name='component.somatic' id='component-somatic' disabled></textarea>
 				</div>
 				<div>
-					<label for='components-material'>
+					<label for='component-material'>
 						Material Components
 					</label><br />
-					<textarea name='components.material' id='components-material' disabled></textarea>
+					<textarea name='component.material' id='component-material' disabled></textarea>
 				</div>
 			</div>
 		</div>

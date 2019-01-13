@@ -41,8 +41,8 @@ const disableRangeNum = () => {
 }
 
 const disableAreaNums = () => {
-	const shape = document.getElementById('shape');
 	const area = document.getElementById('area');
+	const shape = document.getElementById('area-shape');
 	const radius = document.getElementById('area-radius');
 	const length = document.getElementById('area-length');
 	const width = document.getElementById('area-width');
@@ -83,9 +83,9 @@ const disableAreaNums = () => {
 }
 
 const disableComponents = () => {
-	const verbal = document.getElementById('components-verbal');
-	const somatic = document.getElementById('components-somatic');
-	const material = document.getElementById('components-material');
+	const verbal = document.getElementById('component-verbal');
+	const somatic = document.getElementById('component-somatic');
+	const material = document.getElementById('component-material');
 	const verBox = document.getElementById('tags-verbal')
 	const somBox = document.getElementById('tags-somatic')
 	const matBox = document.getElementById('tags-material')

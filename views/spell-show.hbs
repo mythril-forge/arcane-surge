@@ -1,5 +1,175 @@
 <h2>
 	{{spell.name}}
 </h2>
-<h3>lazy output</h3>
-<code>{{spell}}</code>
+<h2>
+	{{spell.parent.source}}
+</h2>
+
+{{!--
+Cantrip-level
+1st
+2nd
+3rd
+Nth
+--}}
+<div>
+	<div>
+		<em>{{spell.level}}-level {{spell.school}}</em>
+	</div>
+	<div>
+		<strong>Casting Time:</strong>
+		{{#if spell.cast-time.seconds}}
+		{{spell.cast-time.seconds}} seconds
+		{{else}}
+		{{spell.cast-time.quality}}
+		{{/if}}
+	</div>
+	<div>
+		<Strong>Duration:</Strong>
+		{{#if spell.duration.seconds}}
+		{{spell.duration.seconds}} seconds
+		{{else}}
+		{{spell.duration.quality}}
+		{{/if}}
+	</div>
+	<div>
+		<Strong>Casting Range:</Strong>
+		{{#if spell.range.feet}}
+		{{spell.range.feet}} feet
+		{{else}}
+		{{spell.range.quality}}
+		{{/if}}
+	</div>
+	<div>
+		<Strong>Area of Effect:</Strong> {{spell.area.shape}}
+
+		<br />
+		<br />aura:
+		<br />{{spell.area.radius}}-foot-radius aura
+		<br />
+		<br />sphere:
+		<br />{{spell.area.radius}}-foot-radius sphere
+		<br />
+		<br />cone:
+		<br />{{spell.area.radius}}-foot-radius cone
+		<br />
+		<br />cube:
+		<br />{{spell.area.length}}-foot-long cube
+		<br />
+		<br />line:
+		<br />{{spell.area.width}}-foot-wide by {{spell.area.length}}-foot-long line
+		<br />
+		<br />wall:
+		<br />{{spell.area.length}}-foot-long wall or {{spell.area.radius}}-foot-radius ring, {{spell.area.width}}-foot-wide and {{spell.area.height}}-foot-tall.
+		<br />
+		<br />cylinder:
+		<br />{{spell.area.radius}}-foot-radius, {{spell.area.height}}-foot-high cylinder
+		<br />
+		<br />
+	</div>
+	<div>
+		<Strong>Spell Tags:</Strong>
+		{{#each spell.tags}}
+		{{this}}
+		{{/each}}
+	</div>
+	<div>
+		<Strong>Components:</Strong>
+		{{#each spell.component}}
+		{{this}},
+		{{/each}}
+	</div>
+</div>
+<hr />
+
+<p>{{spell.description.main}}</p>
+
+<p>{{spell.description.higher}}</p>
+
+<div>
+	<div>
+		<Strong>Classes:</Strong>
+		{{#each spell.class}}
+		{{this}},
+		{{/each}}
+	</div>
+	<div>
+		<Strong>Subclasses:</Strong>
+		{{#each spell.subclass}}
+		{{this}},
+		{{/each}}
+	</div>
+	<div>
+		<Strong>Races:</Strong>
+		{{#each spell.race}}
+		{{this}},
+		{{/each}}
+	</div>
+	<div>
+		<Strong>Subraces:</Strong>
+		{{#each spell.subrace}}
+		{{this}},
+		{{/each}}
+	</div>
+	<div>
+		<Strong>Sources:</Strong>
+		{{#each spell.source}}
+		{{this}},
+		{{/each}}
+	</div>
+	<div>
+		<Strong>Referecnces:</Strong>
+		{{#each spell.reference}}
+		{{this}},
+		{{/each}}
+	</div>
+</div>
+
+<hr />
+
+<h3>Lazy Output</h3>
+<samp>{{spell}}</samp>
+{{!--
+<samp>
+	- 'name': {
+	- 'slug': {
+	- 'level': Number,
+	- 'school': String,
+	- 'cast-time': {
+	- 'quality': String,
+	- 'seconds': Number,
+	- 'trigger': String
+	- 'duration': {
+	- 'quality': String,
+	- 'seconds': Number,
+	- 'trigger': String
+	- 'num-targets': Number,
+	- 'range': {
+	- 'quality': String,
+	- 'feet': Number
+	- 'area': {
+	- 'shape': String,
+	- 'radius': Number,
+	- 'length': Number,
+	- 'width': Number,
+	- 'height': Number
+	- 'tags': [String],
+	- 'component': {
+	- 'verbal': String,
+	- 'somatic': String,
+	- 'material': String
+	- 'description': {
+	- 'main': String,
+	- 'higher': String
+
+	- 'class': [String],
+	- 'subclass': [String],
+	- 'race': [String],
+	- 'subrace': [String],
+
+	- 'parent': [{ // parent source for index library
+	- 'source': {
+	- 'page': String
+	- 'reference': [{ // reference for spell diffs
+	- 'spell': {
+</samp> --}}

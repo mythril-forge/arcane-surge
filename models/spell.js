@@ -59,10 +59,10 @@ const SpellSchema = new Schema({
 	},
 
 	// Compatibility //
-	'classes': [String],
-	'subclasses': [String],
-	'races': [String],
-	'subraces': [String],
+	'class': [String],
+	'subclass': [String],
+	'race': [String],
+	'subrace': [String],
 
 
 

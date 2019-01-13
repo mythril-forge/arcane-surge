@@ -60,10 +60,10 @@
 - [x] description
 	- [x] main
 	- [?] higher <!-- might have to come back and add a checkbox for a power-up at higher levels -->
-- [ ] classes \*_array_
-- [ ] subclasses \*_array_
-- [ ] races \*_array_
-- [ ] subraces \*_array_
+- [ ] class \*_array_
+- [ ] subclass \*_array_
+- [ ] race \*_array_
+- [ ] subrace \*_array_
 
 - [ ] parent \*_array_
 	- [ ] - source **id**

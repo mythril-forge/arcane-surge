@@ -1,55 +1,316 @@
-{
-	"name": "Wall of Fire",
-	"slug": "wall-of-fire",
-	"level": "4",
-	"school": "evocation",
-	"cast-time": "reaction",
-	"cast-trigger": "when you are targeted with an attack",
-	"duration": "discrete",
-	"dur-trigger": "when the creature targets someone else with an attack",
-	"num-targets": "1",
-	"range": "60",
-	"area": {
-		"shape": "wall",
-		"radius": "10",
-		"length": "60",
-		"width": "5",
-		"height": "20"
+[
+	{
+		"cast-time": {
+			"quality": "action"
+		},
+		"duration": {
+			"quality": "instantaneous"
+		},
+		"range": {
+			"quality": "discrete"
+		},
+		"description": {
+			"main": "its fireball!!! 8d6 fire damage explosion goodness",
+			"higher": "its like, 1d6 more per level"
+		},
+		"tags": [
+			"verbal",
+			"somatic"
+		],
+		"class": [],
+		"subclass": [],
+		"race": [],
+		"subrace": [],
+		"_id": "5c3aadca70fa951aeec2a7a3",
+		"classes": [],
+		"subclasses": [],
+		"races": [],
+		"subraces": [],
+		"name": "Fireball",
+		"slug": "fireball",
+		"level": 3,
+		"school": "evocation",
+		"num-targets": 1,
+		"parent": [],
+		"__v": 0,
+		"reference": []
 	},
-	"tags": [
-		"concentration",
-		"ritual",
-		"verbal",
-		"somatic",
-		"material"
-	],
-	"components": {
-		"verbal": {},
-		"somatic": {},
-		"material": "a long enough string of text that it will wrap onto the next line in a text editor worth 2cp, which is consumed with the casting of this spell"
+	{
+		"description": {
+			"main": "",
+			"higher": ""
+		},
+		"tags": [],
+		"class": [],
+		"subclass": [],
+		"race": [],
+		"subrace": [],
+		"_id": "5c3ac6584a921d35b6e7d96f",
+		"classes": [],
+		"subclasses": [],
+		"races": [],
+		"subraces": [],
+		"name": "test",
+		"slug": "test",
+		"level": null,
+		"num-targets": null,
+		"parent": [],
+		"reference": [],
+		"__v": 0
 	},
-	"description": "You create a wall of fire on a solid surface within range. You can make the wall up to 60 feet long, or a ringed wall up to 20 feet in diameter. The wall is 20 feet high, and 1 foot thick. The wall is opaque and lasts for the duration.",
-	"desc-higher": "When you cast this spell using a spell slot of 5th level or higher, the damage increases by 1d8 for each slot level above 4th.",
-	"classes": [
-		"cleric",
-		"sorcerer"
-	],
-	"subclasses": [
-		"twilight",
-		"ancients"
-	],
-	"races": {
-		"gnome": null,
-		"elf": null
+	{
+		"description": {
+			"main": "",
+			"higher": ""
+		},
+		"tags": [],
+		"class": [],
+		"subclass": [],
+		"race": [],
+		"subrace": [],
+		"_id": "5c3ac6ce66ee61366abf21a9",
+		"classes": [],
+		"subclasses": [],
+		"races": [],
+		"subraces": [],
+		"name": "testingasdf",
+		"slug": "testingasdf",
+		"level": null,
+		"num-targets": null,
+		"parent": [],
+		"reference": [],
+		"__v": 0
 	},
-	"subraces": [
-		"elf (dark)",
-		"gnome (forest)"
-	],
-	"parent-src": {
-		"id": "page"
+	{
+		"description": {
+			"main": "",
+			"higher": ""
+		},
+		"tags": [],
+		"class": [],
+		"subclass": [],
+		"race": [],
+		"subrace": [],
+		"_id": "5c3ac95ca142813a4f8a6e06",
+		"classes": [],
+		"subclasses": [],
+		"races": [],
+		"subraces": [],
+		"name": "23142134",
+		"slug": "23142134",
+		"level": 9,
+		"school": "conjuration",
+		"num-targets": null,
+		"parent": [],
+		"reference": [],
+		"__v": 0
 	},
-	"sibling-ref": {
-		"id": null
+	{
+		"description": {
+			"main": "",
+			"higher": ""
+		},
+		"tags": [],
+		"class": [],
+		"subclass": [],
+		"race": [],
+		"subrace": [],
+		"_id": "5c3aca65768c083b7bd153dc",
+		"classes": [],
+		"subclasses": [],
+		"races": [],
+		"subraces": [],
+		"name": "11111",
+		"slug": "11111",
+		"level": null,
+		"num-targets": null,
+		"parent": [],
+		"reference": [],
+		"__v": 0
+	},
+	{
+		"range": {
+			"quality": "discrete",
+			"feet": 12
+		},
+		"area": {
+			"radius": 34
+		},
+		"description": {
+			"main": "",
+			"higher": ""
+		},
+		"tags": [
+			"somatic",
+			"material"
+		],
+		"class": [],
+		"subclass": [],
+		"race": [],
+		"subrace": [],
+		"_id": "5c3acc56803f563e0c987913",
+		"classes": [],
+		"subclasses": [],
+		"races": [],
+		"subraces": [],
+		"name": "yep",
+		"slug": "yep",
+		"level": null,
+		"num-targets": null,
+		"parent": [],
+		"reference": [],
+		"__v": 0
+	},
+	{
+		"cast-time": {
+			"quality": "discrete",
+			"seconds": 32
+		},
+		"description": {
+			"main": "",
+			"higher": ""
+		},
+		"tags": [],
+		"class": [],
+		"subclass": [],
+		"race": [],
+		"subrace": [],
+		"_id": "5c3af4c137246a521c90bd4a",
+		"classes": [],
+		"subclasses": [],
+		"races": [],
+		"subraces": [],
+		"name": "cczxcxc",
+		"slug": "cczxcxc",
+		"level": 3,
+		"school": "divination",
+		"num-targets": null,
+		"parent": [],
+		"reference": [],
+		"__v": 0
+	},
+	{
+		"cast-time": {
+			"quality": "discrete",
+			"seconds": 10
+		},
+		"duration": {
+			"quality": "discrete",
+			"seconds": 10
+		},
+		"range": {
+			"quality": "self"
+		},
+		"area": {
+			"length": 120,
+			"width": 5
+		},
+		"description": {
+			"main": "no way",
+			"higher": "its lightning bolt"
+		},
+		"tags": [],
+		"class": [],
+		"subclass": [],
+		"race": [],
+		"subrace": [],
+		"_id": "5c3af60a37246a521c90bd4b",
+		"classes": [],
+		"subclasses": [],
+		"races": [],
+		"subraces": [],
+		"name": "lightning bolt",
+		"slug": "lightning-bolt",
+		"level": 3,
+		"school": "evocation",
+		"num-targets": 1,
+		"parent": [],
+		"reference": [],
+		"__v": 0
+	},
+	{
+		"range": {
+			"quality": "discrete",
+			"feet": 120
+		},
+		"description": {
+			"main": "",
+			"higher": ""
+		},
+		"tags": [],
+		"class": [],
+		"subclass": [],
+		"race": [],
+		"subrace": [],
+		"_id": "5c3af6734a26bb60b4c98d97",
+		"classes": [],
+		"subclasses": [],
+		"races": [],
+		"subraces": [],
+		"name": "another test",
+		"slug": "another-test",
+		"level": null,
+		"num-targets": null,
+		"parent": [],
+		"reference": [],
+		"__v": 0
+	},
+	{
+		"range": {
+			"quality": "discrete",
+			"feet": 100
+		},
+		"area": {
+			"length": 12
+		},
+		"description": {
+			"main": "",
+			"higher": ""
+		},
+		"tags": [],
+		"class": [],
+		"subclass": [],
+		"race": [],
+		"subrace": [],
+		"_id": "5c3afaad4a26bb60b4c98d98",
+		"classes": [],
+		"subclasses": [],
+		"races": [],
+		"subraces": [],
+		"name": "oh no",
+		"slug": "oh-no",
+		"level": null,
+		"num-targets": 1,
+		"parent": [],
+		"reference": [],
+		"__v": 0
+	},
+	{
+		"component": {
+			"material": "A piece of candy"
+		},
+		"description": {
+			"main": "",
+			"higher": ""
+		},
+		"tags": [
+			"material"
+		],
+		"class": [],
+		"subclass": [],
+		"race": [],
+		"subrace": [],
+		"_id": "5c3afe4272c0f36863dfb7b2",
+		"classes": [],
+		"subclasses": [],
+		"races": [],
+		"subraces": [],
+		"name": "candy rain",
+		"slug": "candy-rain",
+		"level": null,
+		"num-targets": null,
+		"parent": [],
+		"reference": [],
+		"__v": 0
 	}
-}
+]
