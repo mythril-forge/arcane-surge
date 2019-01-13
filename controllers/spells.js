@@ -3,7 +3,7 @@ const Spell = require('../models/spell.js');
 const Source = require('../models/source.js')
 
 const router = new express.Router();
-router.get('/', (req, res) => { // TODO: INDEX //
+router.get('/', (req, res) => { // DONE: INDEX //
 	// indexes all spells
 	Spell
 		.find({})
@@ -16,21 +16,18 @@ router.get('/', (req, res) => { // TODO: INDEX //
 		});
 });
 
-router.get('/json', (req, res) => { // TODO: INDEX JSON //
-	// // indexes all spells and returns json
-	// Spell
-	// 	.find({})
-	// 	.then((spells) => {
-	// 		res // here's where INDEX JSON differs
-	// 			.json({
-	// 				message: 'Get all spells',
-	// 				spells
-	// 			})
-	// 			.status(200);
-	// 	})
-	// 	.catch((err) => {
-	// 		console.error(err);
-	// 	});
+router.get('/json', (req, res) => { // DONE: INDEX JSON //
+	// indexes all spells and returns json
+	Spell
+		.find({})
+		.then((spell) => {
+			res // here's where INDEX JSON differs
+				.json(spell)
+				.status(200);
+		})
+		.catch((err) => {
+			console.error(err);
+		});
 });
 
 router.get('/new', (req, res) => { // DONE: NEW //
@@ -50,7 +47,7 @@ router.get('/new', (req, res) => { // DONE: NEW //
 		});
 });
 
-router.post('/', (req, res) => { // TODO: CREATE //
+router.post('/', (req, res) => { // DONE: CREATE //
 	// creates a new spell
 	const spell = new Spell(req.body);
 	// res.json(req.body);
@@ -64,36 +61,33 @@ router.post('/', (req, res) => { // TODO: CREATE //
 		});
 });
 
-router.get('/:spellID', (req, res) => { // TODO: SHOW //
+router.get('/:spellID', (req, res) => { // DONE: SHOW //
 	// // shows a single spell in detail
-	// Spell
-	// 	.findById(req.params.spellID)
-	// 	.populate('fusions')
-	// 	.then((spells) => {
-	// 		res // here's where SHOW differs
-	// 			.render('spell-show.hbs', { spells });
-	// 	})
-	// 	.catch((err) => {
-	// 		console.error(err);
-	// 	});
+	Spell
+		.findById(req.params.spellID)
+		.populate('reference.spells')
+		.then((spell) => {
+			res // here's where SHOW differs
+				.render('spell-show.hbs', { spell });
+		})
+		.catch((err) => {
+			console.error(err);
+		});
 });
 
-router.get('/:spellID/json', (req, res) => { // TODO: SHOW JSON //
-	// // shows a single spell in detail
-	// Spell
-	// 	.findById(req.params.spellID)
-	// 	// .populate('fusions')
-	// 	.then((spells) => {
-	// 		res  // here's where SHOW JSON differs
-	// 			.json({
-	// 				message: 'Show this fusion with the spells who create it',
-	// 				spells
-	// 			})
-	// 			.status(200);
-	// 	})
-	// 	.catch((err) => {
-	// 		console.error(err);
-	// 	});
+router.get('/:spellID/json', (req, res) => { // DONE: SHOW JSON //
+	// shows a single spell in detail w/ json
+	Spell
+		.findById(req.params.spellID)
+		.populate('reference.spells')
+		.then((spell) => {
+			res  // here's where SHOW JSON differs
+				.json(spell)
+				.status(200);
+		})
+		.catch((err) => {
+			console.error(err);
+		});
 });
 
 router.get('/:spellID/edit', (req, res) => { // TODO: EDIT //

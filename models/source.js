@@ -20,12 +20,17 @@ const SourceSchema = new Schema({
 	},
 	'color': String,
 	'official': Boolean,
+	// TODO: array of objects not saving...
+	// This seems to be the correct way of modeling this.
+	// See https://alexanderzeitler.com/articles/mongoose-referencing-schema-in-properties-and-arrays/
+	// It should help! But still can't figure it out!
 	'reference': [{
+		'page': Number,
 		'source': {
 			type: Schema.Types.ObjectId,
 			ref: 'Source'
 		}
-	}],
+	}]
 });
 
 module.exports = mongoose.model('Source', SourceSchema);

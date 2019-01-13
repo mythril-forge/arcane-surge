@@ -63,6 +63,13 @@ const SpellSchema = new Schema({
 	'subclasses': [String],
 	'races': [String],
 	'subraces': [String],
+
+
+
+	// TODO: array of objects not saving...
+	// This seems to be the correct way of modeling this.
+	// See https://alexanderzeitler.com/articles/mongoose-referencing-schema-in-properties-and-arrays/
+	// It should help! But still can't figure it out!
 	'parent': [{ // parent source for index library
 		'source': {
 			type: Schema.Types.ObjectId,
@@ -70,6 +77,7 @@ const SpellSchema = new Schema({
 		},
 		'page': String
 	}],
+	// Above TODO is also relevent here...
 	'reference': [{ // reference for spell diffs
 		'spell': {
 			type: Schema.Types.ObjectId,
