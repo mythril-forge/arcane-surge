@@ -3,24 +3,28 @@ const mongoose = require('mongoose');
 // Set Schema
 const Schema = mongoose.Schema;
 const SourceSchema = new Schema({
-	name: {
+	'name': {
 		type: String,
 		required: true,
 		unique: true
 	},
-	abbreviation: {
+	'slug': {
 		type: String,
 		required: true,
 		unique: true
 	},
-	official: {
+	'abbreviation': {
 		type: String,
 		required: true,
-		default: false,
+		unique: true
 	},
-	references: [{
-		type: Schema.Types.ObjectId,
-		ref: 'Source'
+	'color': String,
+	'official': Boolean,
+	'reference': [{
+		'source': {
+			type: Schema.Types.ObjectId,
+			ref: 'Source'
+		}
 	}],
 });
 

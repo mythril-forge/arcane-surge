@@ -343,63 +343,11 @@
 					</label>
 				</div>
 
-				<div>
-					<input type='checkbox' name='class' id='class-sorcerer' value='sorcerer' />
-					<label for='class-sorcerer'>
-						sorcerer
-					</label>
-				</div>
-
-				<div>
-					<input type='checkbox' name='class' id='class-wizard' value='wizard' />
-					<label for='class-wizard'>
-						wizard
-					</label>
-				</div>
 			</div>
 		</div>
 
 		{{!-- this section clearly needs some love --}}
 		{{!-- might need to add a subclass resource to reference --}}
-		<div>
-			<label for='subclass'>
-				Subclasses
-			</label><br />
-			<div id='subclass'>
-
-				<div>
-					<input type='checkbox' name='subclass' id='subclass-twilight' value='twilight' />
-					<label for='subclass-twilight'>
-						druid: circle of twilight
-					</label>
-				</div>
-
-				<div>
-					<input type='checkbox' name='subclass' id='subclass-giant' value='giant' />
-					<label for='subclass-giant'>
-						sorcerer: giant's soul
-					</label>
-				</div>
-
-				<div>
-					<input type='checkbox' name='subclass' id='subclass-ancients' value='ancients' />
-					<label for='subclass-ancients'>
-						paladin: oath of the ancients
-					</label>
-				</div>
-			</div>
-		</div>
-
-
-		{{!--
-		<div>
-			Subclasses
-		</div>
-
-		<div>
-			Races and Subraces
-		</div>
-		--}}
 
 		<hr />
 
@@ -410,8 +358,8 @@
 			<div id='parent'>
 				{{#each source}}
 				<div>
-					<input type='checkbox' name='parent.source' id='parent-{{this._id}}' value='{{this._id}}' />
-					<label for='parent-{{this._id}}'>
+					<input type='checkbox' name='parent.source' id='parent-{{this.slug}}' value='{{this._id}}' />
+					<label for='parent-{{this.slug}}'>
 						{{this.name}}
 					</label>
 				</div>
@@ -420,19 +368,20 @@
 		</div>
 
 		<div>
-			<label for='sibling'>
-				Sibling Spell
+			<label for='reference'>
+				Reference Spells
 			</label><br />
-			<div id='sibling'>
-				<input list="sibling-spell-list" name="sibling.spell" id="sibling-spell" />
-				<datalist id="sibling-spell-list">
-					{{#each spell}}
-					<option label='{{this.name}}' />
-					{{/each}}
-				</datalist>
+			<div id='reference'>
+				{{#each spell}}
+				<div>
+					<input type='checkbox' name='reference.spell' id='reference-{{this.slug}}' value='{{this._id}}' />
+					<label for='reference-{{this.slug}}'>
+						{{this.name}}
+					</label>
+				</div>
+				{{/each}}
 			</div>
 		</div>
-
 		<hr />
 
 		<button type='submit'>

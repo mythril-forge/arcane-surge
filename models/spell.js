@@ -70,12 +70,12 @@ const SpellSchema = new Schema({
 		},
 		'page': String
 	}],
-	'sibling': { // sibling reference for spell diffs
+	'reference': [{ // reference for spell diffs
 		'spell': {
 			type: Schema.Types.ObjectId,
 			ref: 'Spell'
 		}
-	}
+	}]
 });
 
 module.exports = mongoose.model('Spell', SpellSchema);

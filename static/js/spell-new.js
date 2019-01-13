@@ -107,7 +107,6 @@ const disableComponents = () => {
 }
 
 const disableHigherLevelDesc = () => {
-
 }
 
 const updateSlug = () => {
