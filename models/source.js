@@ -25,7 +25,6 @@ const SourceSchema = new Schema({
 	// See https://alexanderzeitler.com/articles/mongoose-referencing-schema-in-properties-and-arrays/
 	// It should help! But still can't figure it out!
 	'reference': {
-		'page': [Number],
 		'source': [{
 			type: Schema.Types.ObjectId,
 			ref: 'Source'

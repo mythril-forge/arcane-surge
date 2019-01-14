@@ -68,20 +68,20 @@ const SpellSchema = new Schema({
 	// This seems to be the correct way of modeling this.
 	// See https://alexanderzeitler.com/articles/mongoose-referencing-schema-in-properties-and-arrays/
 	// It should help! But still can't figure it out!
-	'parent': { // parent source for index library
-		'page': [Number],
-		'source': [{
+	'parent': [{ // parent source for index library
+		'page': Number,
+		'source': {
 			type: Schema.Types.ObjectId,
 			ref: 'Source'
-		}]
-	},
+		}
+	}],
 	// Above TODO is also relevent here...
-	'reference': { // reference for spell diffs
-		'spell': [{
+	'reference': [{ // reference for spell diffs
+		'spell': {
 			type: Schema.Types.ObjectId,
 			ref: 'Spell'
-		}]
-	}
+		}
+	}]
 });
 
 module.exports = mongoose.model('Spell', SpellSchema);
