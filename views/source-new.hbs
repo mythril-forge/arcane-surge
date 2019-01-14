@@ -2,69 +2,64 @@
 
 <form action='/sources' method='post'>
 
-	<fieldset>
+	<div>
+		<label for='name'>
+			Name
+		</label><br />
+		<input type='text' name='name' id='name' onkeyup='updateSlug()' onchange='updateSlug()' />
+		{{!-- I don't like how onkeyup and onchange have redundent values. Reduce attributes here? --}}
+	</div>
+
+	<div>
+		<label for='slug'>
+			Slug
+		</label><br />
+		<input type='text' name='slug' id='slug' readonly />
+	</div>
+
+	<div>
+		<label for='abbreviation'>
+			Abbreviation
+		</label><br />
+		<input type='text' name='abbreviation' id='abbreviation' />
+		{{!-- abbreviation should only allow [a-z][A-Z] --}}
+	</div>
+
+	<div>
+		<label for='color'>
+			Display Color
+		</label><br />
+		<input type='color' name='color' id='color' />
+	</div>
+
+	<div>
+		<label for='official'>
+			Official Source
+		</label><br />
+		<input type='checkbox' name='official' id='official' value='true' />
+		{{!-- come up with a better name for this --}}
+		{{!-- toggle button would be best for a singular yes/no query --}}
+	</div>
+
+	<fieldset id='reference'>
 		<legend>
-			Source Data
+			Reference Sources
 		</legend>
-
+		{{!-- come up with a better name for this --}}
+		{{#each source}}
 		<div>
-			<label for='name'>
-				Name
-			</label><br />
-			<input type='text' name='name' id='name' onkeyup='updateSlug()' onchange='updateSlug()' />
-			{{!-- I don't like how onkeyup and onchange have redundent values. Reduce attributes here? --}}
-		</div>
-
-		<div>
-			<label for='slug'>
-				Slug
-			</label><br />
-			<input type='text' name='slug' id='slug' readonly />
-		</div>
-
-		<div>
-			<label for='abbreviation'>
-				Abbreviation
-			</label><br />
-			<input type='text' name='abbreviation' id='abbreviation' />
-			{{!-- abbreviation should only allow [a-z][A-Z] --}}
-		</div>
-
-		<div>
-			<label for='color'>
-				Display Color
-			</label><br />
-			<input type='color' name='color' id='color' />
-		</div>
-
-		<div>
-			<input type='checkbox' name='official' id='official' value='true' />
-			<label for='official'>
-				Official Source
+			<input type='checkbox' name='reference.source' id='reference-{{this.slug}}' value='{{this._id}}' />
+			<label for='reference-{{this.slug}}'>
+				{{this.name}}
 			</label>
-			{{!-- come up with a better name for this --}}
 		</div>
-
-		<div>
-			<label for='reference'>
-				Reference Sources
-			</label><br />
-			<div id='reference'>
-				{{#each source}}
-				<div>
-					<input type='checkbox' name='reference.source' id='reference-{{this.slug}}' value='{{this._id}}' />
-					<label for='reference-{{this.slug}}'>
-						{{this.name}}
-					</label>
-				</div>
-				{{/each}}
-			</div>
-		</div>
-
-		<button type='submit'>
-			Submit
-		</button>
+		{{/each}}
 	</fieldset>
+
+	<button type='submit'>
+		Submit
+	</button>
+
 </form>
 
 <script src='/js/source-new.js'></script>

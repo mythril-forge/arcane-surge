@@ -2,57 +2,61 @@
 
 <form action='/spells' method='post'>
 
-	<fieldset>
-		<legend>
-			Spell Data
-		</legend>
+	<div>
+		<section>
+			<h3>
+				Section 1
+			</h3>
 
-		<div>
-			<label for='name'>
-				Name
-			</label><br />
-			<input type='text' name='name' id='name' onkeyup='updateSlug()' onchange='updateSlug()' />
-		</div>
+			<div>
+				<label for='name'>
+					Name
+				</label><br />
+				<input type='text' name='name' id='name' onkeyup='updateSlug()' onchange='updateSlug()' />
+			</div>
 
-		<div>
-			<label for='slug'>
-				Slug
-			</label><br />
-			<input type='text' name='slug' id='slug' readonly />
-		</div>
+			<div>
+				<label for='slug'>
+					Slug
+				</label><br />
+				<input type='text' name='slug' id='slug' readonly />
+			</div>
 
-		<div>
-			<label for='level'>
-				Level
-			</label><br />
-			<input type='number' name='level' id='level' min='0' max='9' />
-		</div>
+			<div>
+				<label for='level'>
+					Level
+				</label><br />
+				<input type='number' name='level' id='level' min='0' max='9' />
+			</div>
 
-		<div>
-			<label for='school'>
-				School of Magic
-			</label><br />
-			<select name='school' id='school'>
-				<option label='' disabled hidden selected />
-				<option label='abjuration' value='abjuration' />
-				<option label='conjuration' value='conjuration' />
-				<option label='divination' value='divination' />
-				<option label='enchantment' value='enchantment' />
-				<option label='evocation' value='evocation' />
-				<option label='illusion' value='illusion' />
-				<option label='necromancy' value='necromancy' />
-				<option label='transmutation' value='transmutation' />
-			</select>
-		</div>
+			<div>
+				<label for='school'>
+					School of Magic
+				</label><br />
+				<select name='school' id='school'>
+					<option disabled hidden selected />
+					{{!-- checkmark starts by unselected option, looks bad! --}}
+					<option label='abjuration' value='abjuration' />
+					<option label='conjuration' value='conjuration' />
+					<option label='divination' value='divination' />
+					<option label='enchantment' value='enchantment' />
+					<option label='evocation' value='evocation' />
+					<option label='illusion' value='illusion' />
+					<option label='necromancy' value='necromancy' />
+					<option label='transmutation' value='transmutation' />
+				</select>
+			</div>
+		</section>
 
-		<hr />
+		<section>
+			<h3>
+				Section 2
+			</h3>
 
-		<div>
-			<label for='cast-time'>
-				Casting Time
-			</label>
-			<div id='cast-time' onchange='disableCastTimeNum()'>
-
+			<fieldset id='cast-time' onchange='disableCastTimeNum()'>
+				<legend>
+					Casting Time
+				</legend>
 				<div>
 					<input type='radio' name='cast-time.quality' id='cast-time-action' value='action' />
 					<label for='cast-time-action'>
@@ -81,15 +85,12 @@
 					<input type='number' name='cast-time.seconds' id='cast-time-seconds' min='0' max='999999' placeholder='seconds' disabled />
 					{{!-- min means minimum, max means maximimum, time unit is in seconds --}}
 				</div>
-			</div>
-		</div>
+			</fieldset>
 
-		<div>
-			<label for='duration'>
-				Duration
-			</label>
-			<div id='duration' onchange='disableDurationNum()'>
-
+			<fieldset id='duration' onchange='disableDurationNum()'>
+				<legend>
+					Duration
+				</legend>
 				<div>
 					<input type='radio' name='duration.quality' id='duration-instantaneous' value='instantaneous' />
 					<label for='duration-instantaneous'>
@@ -117,23 +118,25 @@
 					<input type='radio' name='duration.quality' id='duration-discrete' value='discrete' />
 					<input type='number' name='duration.seconds' id='duration-seconds' min='0' max='999999' placeholder='seconds' disabled />
 				</div>
+			</fieldset>
+		</section>
+
+		<section>
+			<h3>
+				Section 3
+			</h3>
+
+			<div>
+				<label for='instances'>
+					Number of Instances
+				</label><br />
+				<input type='number' name='instances' id='instances' min='0' max='999999' />
 			</div>
-		</div>
 
-		<hr />
-
-		<div>
-			<label for='num-targets'>
-				Number of Targets
-			</label><br />
-			<input type='number' name='num-targets' id='num-targets' min='0' max='999999' />
-		</div>
-
-		<div>
-			<label for='range'>
-				Range
-			</label>
-			<div id='range' onchange='disableRangeNum()'>
+			<fieldset id='range' onchange='disableRangeNum()'>
+				<legend>
+					Range
+				</legend>
 
 				<div>
 					<input type='radio' name='range.quality' id='range-self' value='self' />
@@ -162,21 +165,18 @@
 					<input type='radio' name='range.quality' id='range-discrete' value='discrete' />
 					<input type='number' name='range.feet' id='range-feet' min='0' max='999999' placeholder='feet' disabled />
 				</div>
-			</div>
-		</div>
+			</fieldset>
 
-		{{!-- RADIUS: sphere, aura, cone, wall, cylinder --}}
-		{{!-- LENGTH: wall, line, cube --}}
-		{{!-- WIDTH: wall, line --}}
-		{{!-- HEIGHT: wall, cylinder --}}
+			{{!-- RADIUS: sphere, aura, cone, wall, cylinder --}}
+			{{!-- LENGTH: wall, line, cube --}}
+			{{!-- WIDTH: wall, line --}}
+			{{!-- HEIGHT: wall, cylinder --}}
 
-		{{!-- these next four number-entry boxes are enabled only when the respective shape option is selected. --}}
-		<div>
-			<label for='area'>
-				Area of Effect
-			</label>
-			<div id='area'>
-
+			{{!-- these next four number-entry boxes are enabled only when the respective shape option is selected. --}}
+			<fieldset id='area'>
+				<legend>
+					Area of Effect
+				</legend>
 				<div>
 					<label for='area-shape'>
 						Effect Shape
@@ -201,37 +201,38 @@
 					<input type='number' name='area.radius' id='area-radius' min='0' max='999999' placeholder='feet' disabled />
 				</div>
 
-				<div disabled>
+				<div>
 					<label for='area-length'>
 						Length
 					</label><br />
 					<input type='number' name='area.length' id='area-length' min='0' max='999999' placeholder='feet' disabled />
 				</div>
 
-				<div disabled>
+				<div>
 					<label for='area-width'>
 						Width
 					</label><br />
 					<input type='number' name='area.width' id='area-width' min='0' max='999999' placeholder='feet' disabled />
 				</div>
 
-				<div disabled>
+				<div>
 					<label for='area-height'>
 						Height
 					</label><br />
 					<input type='number' name='area.height' id='area-height' min='0' max='999999' placeholder='feet' disabled />
 				</div>
-			</div>
-		</div>
+			</fieldset>
+		</section>
 
-		<hr />
+		<section>
+			<h3>
+				Section 4
+			</h3>
 
-		<div>
-			<label for='tags'>
-				Spell Tags
-			</label>
-			<div id='tags'>
-
+			<fieldset id='tags'>
+				<legend>
+					Spell Tags
+				</legend>
 				<div>
 					<input type='checkbox' name='tags' id='tags-ritual' value='ritual' />
 					<label for='tags-ritual'>
@@ -266,16 +267,14 @@
 						material
 					</label>
 				</div>
-			</div>
-		</div>
+			</fieldset>
 
-		<div>
-			{{!-- this entire div should appear only when tags-material checkbox is on --}}
-			{{!-- later versions of this app will have a more in-depth material field --}}
-			<label for='component'>
-				Component Details
-			</label>
-			<div id='component'>
+			<fieldset id='component'>
+				{{!-- this entire div should appear only when tags-material checkbox is on --}}
+				{{!-- later versions of this app will have a more in-depth material field --}}
+				<legend>
+					Component Details
+				</legend>
 				<div>
 					<label for='component-verbal'>
 						Verbal Components
@@ -294,48 +293,54 @@
 					</label><br />
 					<textarea name='component.material' id='component-material' disabled></textarea>
 				</div>
+			</fieldset>
+		</section>
+
+		<section>
+			<h3>
+				Section 5
+			</h3>
+
+			<div>
+				<label for='description-main'>
+					Description
+				</label><br />
+				<textarea name='description.main' id='description-main'></textarea>
 			</div>
-		</div>
-		<hr />
 
+			<div>
+				<label for='description-higher'>
+					At Higher Levels
+				</label><br />
+				<textarea name='description.higher' id='description-higher'></textarea>
+			</div>
+		</section>
 
-		<div>
-			<label for='description.main'>
-				Description
-			</label><br />
-			<textarea name='description.main' id='description-main'></textarea>
-		</div>
+		<section>
+			<h3>
+				Section 6
+			</h3>
 
-		<div>
-			<label for='description.higher'>
-				At Higher Levels
-			</label><br />
-			<textarea name='description.higher' id='description-higher'></textarea>
-		</div>
+			{{!-- <div>
+				<label for='class'>
+					Classes
+				</label><br />
+				<input list='class-datalist' name='class' id='class-1' />–<br />
+				<input list='class-datalist' name='class' id='class-0' />+
 
-		<hr />
+				<datalist id='class-datalist'>
+					<option label='Cleric' value='Cleric' />
+					<option label='Sorcerer' value='Sorcerer' />
+					<option label='Wizard' value='Wizard' />
+				</datalist>
+			</div> --}}
 
-		{{!-- <div>
-			<label for='class'>
-				Classes
-			</label><br />
-			<input list='class-datalist' name='class' id='class-1' />–<br />
-			<input list='class-datalist' name='class' id='class-0' />+
-
-			<datalist id='class-datalist'>
-				<option label='Cleric' value='Cleric' />
-				<option label='Sorcerer' value='Sorcerer' />
-				<option label='Wizard' value='Wizard' />
-			</datalist>
-		</div> --}}
-
-		{{!-- this section clearly needs some love --}}
-		{{!-- might need to add a class resource to reference --}}
-		<div>
-			<label for='class'>
-				Classes
-			</label><br />
-			<div id='class'>
+			{{!-- this section clearly needs some love --}}
+			{{!-- might need to add a class resource to reference --}}
+			<fieldset id='class'>
+				<legend>
+					Classes
+				</legend>
 
 				<div>
 					<input type='checkbox' name='class' id='class-cleric' value='cleric' />
@@ -343,20 +348,17 @@
 						cleric
 					</label>
 				</div>
+		</section>
 
-			</div>
-		</div>
+		<section>
+			<h3>
+				Section 7
+			</h3>
 
-		{{!-- this section clearly needs some love --}}
-		{{!-- might need to add a subclass resource to reference --}}
-
-		<hr />
-
-		<div>
-			<label for='parent'>
-				Parent Sources
-			</label><br />
-			<div id='parent'>
+			<fieldset id='parent'>
+				<legend>
+					Parent Sources
+				</legend>
 				{{#each source}}
 				<div>
 					<input type='checkbox' name='parent.source' id='parent-{{this.slug}}' value='{{this._id}}' />
@@ -365,14 +367,12 @@
 					</label>
 				</div>
 				{{/each}}
-			</div>
-		</div>
+			</fieldset>
 
-		<div>
-			<label for='reference'>
-				Reference Spells
-			</label><br />
-			<div id='reference'>
+			<fieldset id='reference'>
+				<legend>
+					Reference Spells
+				</legend>
 				{{#each spell}}
 				<div>
 					<input type='checkbox' name='reference.spell' id='reference-{{this.slug}}' value='{{this._id}}' />
@@ -381,14 +381,19 @@
 					</label>
 				</div>
 				{{/each}}
-			</div>
-		</div>
-		<hr />
+			</fieldset>
+		</section>
+	</div>
 
-		<button type='submit'>
-			Submit
-		</button>
-	</fieldset>
+	<a href='#'>
+		Next
+	</a>
+	<a href='#'>
+		Previous
+	</a>
+	<button type='submit'>
+		Submit
+	</button>
 </form>
 
 <script src='/js/spell-new.js'></script>

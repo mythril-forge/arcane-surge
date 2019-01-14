@@ -41,44 +41,32 @@ const disableRangeNum = () => {
 }
 
 const disableAreaNums = () => {
-	const area = document.getElementById('area');
 	const shape = document.getElementById('area-shape');
 	const radius = document.getElementById('area-radius');
 	const length = document.getElementById('area-length');
 	const width = document.getElementById('area-width');
 	const height = document.getElementById('area-height');
-	if (shape.value === 'point') {
-		disable([area, length, radius, width, height])
-
-	} else if (shape.value === 'sphere') {
-		enable([area, radius])
-		disable([length, width, height])
-
-	} else if (shape.value === 'aura') {
-		enable([area, radius])
-		disable([length, width, height])
-
-	} else if (shape.value === 'cone') {
-		enable([area, radius])
+	if (shape.value === 'sphere' || shape.value === 'aura' || shape.value === 'cone') {
+		enable([radius])
 		disable([length, width, height])
 
 	} else if (shape.value === 'line') {
-		enable([area, length, width])
+		enable([length, width])
 		disable([radius, height])
 
 	} else if (shape.value === 'wall') {
-		enable([area, radius, length, width, height])
+		enable([radius, length, width, height])
 
 	} else if (shape.value === 'cube') {
-		enable([area, length])
+		enable([length])
 		disable([radius, width, height])
 
 	} else if (shape.value === 'cylinder') {
-		enable([area, radius, height])
+		enable([radius, height])
 		disable([length, width])
 
-	} else {
-		disable([area, length, radius, width, height])
+	} else { // (true || shape.value === 'point')
+		disable([length, radius, width, height])
 	}
 }
 

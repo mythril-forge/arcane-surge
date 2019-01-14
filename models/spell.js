@@ -31,7 +31,7 @@ const SpellSchema = new Schema({
 	},
 
 	// Spell Area //
-	'num-targets': Number,
+	'instances': Number,
 	'range': {
 		'quality': String,
 		'feet': Number
