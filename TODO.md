@@ -60,11 +60,14 @@
 - [x] description
 	- [x] main
 	- [?] higher <!-- might have to come back and add a checkbox for a power-up at higher levels -->
+
+<!-- the following items need their own CRUD system to work -->
 - [ ] class \*_array_
 - [ ] subclass \*_array_
 - [ ] race \*_array_
 - [ ] subrace \*_array_
 
+<!-- the following items need a better mongoose schema to work -->
 - [ ] parent \*_array_
 	- [ ] - source **id**
 	- [ ] - page

@@ -51,15 +51,15 @@ router.post('/', (req, res) => { // DONE: CREATE //
 	// creates a new spell
 	const body = req.body;
 	const spell = new Spell(req.body);
-	res.json({ BEFORE: body, AFTER: spell });
-	// spell
-	// 	.save()
-	// 	.then(() => {
-	// 		res.redirect('/spells');
-	// 	})
-	// 	.catch((err) => {
-	// 		console.error(err);
-	// 	});
+	spell
+		.save()
+		.then(() => {
+			res.json({ BEFORE: body, AFTER: spell });
+			// res.redirect('/spells');
+		})
+		.catch((err) => {
+			console.error(err);
+		});
 });
 
 router.get('/:spellID', (req, res) => { // DONE: SHOW //

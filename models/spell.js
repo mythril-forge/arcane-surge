@@ -8,12 +8,10 @@ const SpellSchema = new Schema({
 	'name': {
 		type: String,
 		required: true,
-		unique: true
 	},
 	'slug': {
 		type: String,
 		required: true,
-		unique: true
 	},
 	'level': Number,
 	'school': String,
@@ -64,24 +62,65 @@ const SpellSchema = new Schema({
 	'race': [String],
 	'subrace': [String],
 
-	// TODO: array of objects not saving...
-	// This seems to be the correct way of modeling this.
-	// See https://alexanderzeitler.com/articles/mongoose-referencing-schema-in-properties-and-arrays/
-	// It should help! But still can't figure it out!
-	'parent': [{ // parent source for index library
-		'page': Number,
-		'source': {
-			type: Schema.Types.ObjectId,
-			ref: 'Source'
-		}
+	// // TODO: array of objects not saving...
+	// // This seems to be the correct way of modeling this.
+	// // See https://alexanderzeitler.com/articles/mongoose-referencing-schema-in-properties-and-arrays/
+	// // It should help! But still can't figure it out!
+	// 'parent': [{ // parent source for index library
+	// 	'page': Number,
+	// 	'source': {
+	// 		type: Schema.Types.ObjectId,
+	// 		ref: 'Source'
+	// 	}
+	// }],
+
+	// FOR NOW, I AM NOT NESTING RESOURCES.
+	// ALSO, I AM NOT TRACKING PAGES.
+	'parent.page': [Number],
+	'parent.source': [{
+		type: Schema.Types.ObjectId,
+		ref: 'Source'
 	}],
-	// Above TODO is also relevent here...
-	'reference': [{ // reference for spell diffs
-		'spell': {
-			type: Schema.Types.ObjectId,
-			ref: 'Spell'
-		}
+	'reference.spell': [{ // reference for spell diffs
+		type: Schema.Types.ObjectId,
+		ref: 'Spell'
 	}]
+})
+
+// CLEANING OUTPUT:
+// 	These values, along with their keys, should be deleted from the mongoose model.
+//
+// - null
+// - undefined
+// - ""
+// - []
+// - ["","",null,undefined...]
+// - {2nd-key: {3rd-key: null}}
+// - {2nd - key: null}
+//
+// 	This will reduce trash data in the models.
+
+SpellSchema.pre('save', function (next) {
+	if (this.isNew) {
+		this.schema
+			.eachPath((path) => {
+
+				const isEmptyItem = (item) => {
+					const output =
+						item === undefined ||
+						item === null ||
+						item === '' ||
+						// this last boolean checks if the item is an empty array []
+						(typeof this[path] !== 'undefined' && Object.getPrototypeOf(Object(this[path])) === Object.getPrototypeOf([]))
+					return output
+				}
+
+				if (isEmptyItem(this[path])) {
+					this[path] = undefined
+				}
+			})
+	}
+	next();
 });
 
 module.exports = mongoose.model('Spell', SpellSchema);
