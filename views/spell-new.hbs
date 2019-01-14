@@ -1,6 +1,6 @@
 <h2>Create a New Spell</h2>
 
-<form action='/spells' method='post'>
+<form action='/spells' method='POST'>
 
 	<div>
 		<section>
@@ -26,7 +26,7 @@
 				<label for='level'>
 					Level
 				</label><br />
-				<input type='number' name='level' id='level' min='0' max='9' />
+				<input type='number' name='level' id='level' min='0' max='9' placeholder='Lv.' />
 			</div>
 
 			<div>
@@ -167,32 +167,27 @@
 				</div>
 			</fieldset>
 
-			{{!-- RADIUS: sphere, aura, cone, wall, cylinder --}}
-			{{!-- LENGTH: wall, line, cube --}}
-			{{!-- WIDTH: wall, line --}}
-			{{!-- HEIGHT: wall, cylinder --}}
+			<div>
+				<label for='area-shape'>
+					Effect Shape
+				</label><br />
+				<select name='area.shape' id='area-shape' onchange="disableAreaNums()">
+					<option label='' disabled hidden selected />
+					<option label='point' value='point' />
+					<option label='sphere' value='sphere' />
+					<option label='aura' value='aura' />
+					<option label='cone' value='cone' />
+					<option label='cube' value='cube' />
+					<option label='line' value='line' />
+					<option label='wall' value='wall' />
+					<option label='cylinder' value='cylinder' />
+				</select>
+			</div>
 
-			{{!-- these next four number-entry boxes are enabled only when the respective shape option is selected. --}}
 			<fieldset id='area'>
 				<legend>
-					Area of Effect
+					Effect Size
 				</legend>
-				<div>
-					<label for='area-shape'>
-						Effect Shape
-					</label><br />
-					<select name='area.shape' id='area-shape' onchange="disableAreaNums()">
-						<option label='' disabled hidden selected />
-						<option label='point' value='point' />
-						<option label='sphere' value='sphere' />
-						<option label='aura' value='aura' />
-						<option label='cone' value='cone' />
-						<option label='cube' value='cube' />
-						<option label='line' value='line' />
-						<option label='wall' value='wall' />
-						<option label='cylinder' value='cylinder' />
-					</select>
-				</div>
 
 				<div>
 					<label for='area-radius'>
@@ -321,20 +316,6 @@
 				Section 6
 			</h3>
 
-			{{!-- <div>
-				<label for='class'>
-					Classes
-				</label><br />
-				<input list='class-datalist' name='class' id='class-1' />–<br />
-				<input list='class-datalist' name='class' id='class-0' />+
-
-				<datalist id='class-datalist'>
-					<option label='Cleric' value='Cleric' />
-					<option label='Sorcerer' value='Sorcerer' />
-					<option label='Wizard' value='Wizard' />
-				</datalist>
-			</div> --}}
-
 			{{!-- this section clearly needs some love --}}
 			{{!-- might need to add a class resource to reference --}}
 			<fieldset id='class'>
@@ -355,18 +336,33 @@
 				Section 7
 			</h3>
 
-			<fieldset id='parent'>
+			<fieldset id='parent-source'>
 				<legend>
 					Parent Sources
 				</legend>
 				{{#each source}}
 				<div>
-					<input type='checkbox' name='parent.source' id='parent-{{this.slug}}' value='{{this._id}}' />
-					<label for='parent-{{this.slug}}'>
+					<input type='checkbox' name='parent.source' id='parent-source-{{this.slug}}' value='{{this._id}}' />
+					<label for='parent-source-{{this.slug}}'>
 						{{this.name}}
 					</label>
 				</div>
 				{{/each}}
+			</fieldset>
+
+			<fieldset id='parent-page'>
+				<legend>
+					Source Citations
+				</legend>
+				{{#each source}}
+				<div>
+					<label for='parent-page-{{this.slug}}'>
+						{{this.name}}
+					</label><br />
+					<input type='number' name='parent.page' id='parent-page-{{this.slug}}' placeholder='page' min='0' max='999999' />
+				</div>
+				{{/each}}
+				</legend>
 			</fieldset>
 
 			<fieldset id='reference'>

@@ -49,20 +49,21 @@ router.get('/new', (req, res) => { // DONE: NEW //
 
 router.post('/', (req, res) => { // DONE: CREATE //
 	// creates a new spell
+	const body = req.body;
 	const spell = new Spell(req.body);
-	// res.json(req.body);
-	spell
-		.save()
-		.then(() => {
-			res.redirect('/spells');
-		})
-		.catch((err) => {
-			console.error(err);
-		});
+	res.json({ BEFORE: body, AFTER: spell });
+	// spell
+	// 	.save()
+	// 	.then(() => {
+	// 		res.redirect('/spells');
+	// 	})
+	// 	.catch((err) => {
+	// 		console.error(err);
+	// 	});
 });
 
 router.get('/:spellID', (req, res) => { // DONE: SHOW //
-	// // shows a single spell in detail
+	// shows a single spell in detail
 	Spell
 		.findById(req.params.spellID)
 		.populate('reference.spells')

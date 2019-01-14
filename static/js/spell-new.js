@@ -94,7 +94,8 @@ const disableComponents = () => {
 	}
 }
 
-const disableHigherLevelDesc = () => {
+const disableSourceCitations = () => {
+
 }
 
 const updateSlug = () => {
@@ -110,17 +111,3 @@ const updateSlug = () => {
 		.replace(/-+$/, '');            // Trim - from end of text
 	slug.value = output
 }
-
-// const sourceArray = []
-// const addSourceArray = () => {
-// 	const sourceBook = document.getElementById('source');
-// 	const sourcePage = document.getElementById('page');
-// 	sourceArray.push({
-// 		source: sourceBook.value,
-// 		page: sourcePage.value
-// 	})
-// 	const hiddenItem = document.getElementById('parent-src');
-// 	hiddenItem.value = JSON.stringify(sourceArray)
-// }
-
-// JSON.parse(JSON.stringify(sourceArray)
