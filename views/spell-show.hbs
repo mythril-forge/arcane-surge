@@ -1,3 +1,5 @@
+<script src='/js/handlebar-helper.js'></script>
+
 <h2>
 	{{spell.name}}
 </h2>
@@ -43,29 +45,34 @@ Nth
 	<div>
 		<Strong>Area of Effect:</Strong> {{spell.area.shape}}
 
-		<br />
-		<br />aura:
-		<br />{{spell.area.radius}}-foot-radius aura
-		<br />
-		<br />sphere:
-		<br />{{spell.area.radius}}-foot-radius sphere
-		<br />
-		<br />cone:
-		<br />{{spell.area.radius}}-foot-radius cone
-		<br />
-		<br />cube:
-		<br />{{spell.area.length}}-foot-long cube
-		<br />
-		<br />line:
-		<br />{{spell.area.width}}-foot-wide by {{spell.area.length}}-foot-long line
-		<br />
-		<br />wall:
-		<br />{{spell.area.length}}-foot-long wall or {{spell.area.radius}}-foot-radius ring, {{spell.area.width}}-foot-wide and {{spell.area.height}}-foot-tall.
-		<br />
-		<br />cylinder:
-		<br />{{spell.area.radius}}-foot-radius, {{spell.area.height}}-foot-high cylinder
-		<br />
-		<br />
+		{{!-- {{#ifeq spell.area.shape 'aura'}}
+		{{spell.area.radius}}-foot-radius aura
+		{{/ifeq}}
+
+		{{#ifeq spell.area.shape 'sphere'}}
+		{{spell.area.radius}}-foot-radius sphere
+		{{/ifeq}}
+
+		{{#ifeq spell.area.shape 'cone'}}
+		{{spell.area.radius}}-foot-radius cone
+		{{/ifeq}}
+
+		{{#ifeq spell.area.shape 'cube'}}
+		{{spell.area.length}}-foot-long cube
+		{{/ifeq}}
+
+		{{#ifeq spell.area.shape 'line'}}
+		{{spell.area.width}}-foot-wide by {{spell.area.length}}-foot-long line
+		{{/ifeq}}
+
+		{{#ifeq spell.area.shape 'wall'}}
+		{{spell.area.length}}-foot-long wall or {{spell.area.radius}}-foot-radius ring, {{spell.area.width}}-foot-wide and {{spell.area.height}}-foot-tall.
+		{{/ifeq}}
+
+		{{#ifeq spell.area.shape 'cylinder'}}
+		{{spell.area.radius}}-foot-radius, {{spell.area.height}}-foot-high cylinder
+		{{/ifeq}} --}}
+
 	</div>
 	<div>
 		<Strong>Spell Tags:</Strong>

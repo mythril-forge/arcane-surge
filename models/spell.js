@@ -2,7 +2,6 @@ const mongoose = require('mongoose');
 
 // Set Schema
 const Schema = mongoose.Schema;
-
 const SpellSchema = new Schema({
 	// Spell Heading Data //
 	'name': {

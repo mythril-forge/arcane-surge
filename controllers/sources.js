@@ -2,7 +2,6 @@ const express = require('express');
 const Source = require('../models/source.js');
 
 const router = new express.Router();
-
 router.get('/', (req, res) => { // DONE: INDEX //
 	Source
 		.find({})

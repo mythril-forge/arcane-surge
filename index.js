@@ -36,10 +36,11 @@ app.get('/', (req, res) => {
 // require internal files
 const sources = require('./controllers/sources.js');
 const spells = require('./controllers/spells.js');
-
+const imports = require('./controllers/imports.js');
 // mount all other routes
 app.use('/sources', sources);
 app.use('/spells', spells);
+app.use('/imports', imports);
 
 // process.env.PORT & MONGODB_URI lets the port and database be set by Heroku
 // if they don't exist, set them for local dev purposes
