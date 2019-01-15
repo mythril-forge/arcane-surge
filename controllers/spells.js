@@ -66,7 +66,7 @@ router.get('/:spellID', (req, res) => { // DONE: SHOW //
 	// shows a single spell in detail
 	Spell
 		.findById(req.params.spellID)
-		.populate('reference.spells')
+		.populate('predecessor.spells')
 		.then((spell) => {
 			res // here's where SHOW differs
 				.render('spell-show.hbs', { spell });
@@ -80,7 +80,7 @@ router.get('/:spellID/json', (req, res) => { // DONE: SHOW JSON //
 	// shows a single spell in detail w/ json
 	Spell
 		.findById(req.params.spellID)
-		.populate('reference.spells')
+		.populate('predecessor.spells')
 		.then((spell) => {
 			res  // here's where SHOW JSON differs
 				.json(spell)
@@ -94,12 +94,16 @@ router.get('/:spellID/json', (req, res) => { // DONE: SHOW JSON //
 router.get('/:spellID/edit', (req, res) => { // DONE: EDIT //
 	// shows a spell edit form
 	Spell
-		.findById(req.params.spellID)
-		.then((spell) => {
-			res.render('spell-edit', { spell });
-		})
-		.catch((err) => {
-			console.error(err);
+		.find({})
+		.then((library) => {
+			Spell
+				.findById(req.params.spellID)
+				.then((spell) => {
+					res.render('spell-edit', { spell, library });
+				})
+				.catch((err) => {
+					console.error(err);
+				});
 		});
 });
 

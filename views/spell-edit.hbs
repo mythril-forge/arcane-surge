@@ -317,7 +317,7 @@
 			</h3>
 
 			{{!-- this section clearly needs some love --}}
-			{{!-- might need to add a class resource to reference --}}
+			{{!-- might need to add a class resource to predecessor --}}
 			<fieldset id='class'>
 				<legend>
 					Classes
@@ -365,20 +365,19 @@
 				</legend>
 			</fieldset>
 
-			<fieldset id='reference'>
+			<fieldset id='predecessor'>
 				<legend>
-					Reference Spells
+					Predecessor Spells
 				</legend>
-				{{spell}}
-				{{#each spell}}
+				{{#each library}}
 				<div>
-					<input type='checkbox' name='reference.spell' id='reference-{{this.slug}}' value='{{this._id}}' />
-					<label for='reference-{{this.slug}}'>
+					<input type='checkbox' name='predecessor.spell' id='predecessor-{{this.slug}}' value='{{this._id}}' />
+					<label for='predecessor-{{this.slug}}'>
 						{{this.name}}
 					</label>
 				</div>
 				{{/each}}
-				{{!-- Should only be able to reference spells that are not in the same book nor in a book that is within a source citation chain --}}
+				{{!-- Should only be able to predecessor spells that are not in the same book nor in a book that is within a source citation chain --}}
 				{{!-- Also this isn't the best way to present this visually - needs a refactor --}}
 			</fieldset>
 		</section>

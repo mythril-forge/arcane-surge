@@ -41,15 +41,15 @@
 		{{!-- toggle button would be best for a singular yes/no query --}}
 	</div>
 
-	<fieldset id='reference'>
+	<fieldset id='predecessor'>
 		<legend>
-			Reference Sources
+			Predecessor Sources
 		</legend>
 		{{!-- come up with a better name for this --}}
-		{{#each source}}
+		{{#each library}}
 		<div>
-			<input type='checkbox' name='reference.source' id='reference-{{this.slug}}' value='{{this._id}}' />
-			<label for='reference-{{this.slug}}'>
+			<input type='checkbox' name='predecessor.source' id='predecessor-{{this.slug}}' value='{{this._id}}' />
+			<label for='predecessor-{{this.slug}}'>
 				{{this.name}}
 			</label>
 		</div>

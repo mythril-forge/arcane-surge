@@ -24,7 +24,7 @@ const SourceSchema = new Schema({
 	// // This seems to be the correct way of modeling this.
 	// // See https://alexanderzeitler.com/articles/mongoose-referencing-schema-in-properties-and-arrays/
 	// // It should help! But still can't figure it out!
-	// 'reference': {
+	// 'predecessor': {
 	// 	'source': [{
 	// 		type: Schema.Types.ObjectId,
 	// 		ref: 'Source'
@@ -33,7 +33,7 @@ const SourceSchema = new Schema({
 
 	// FOR NOW, I AM NOT NESTING RESOURCES.
 	// ALSO, I AM NOT TRACKING PAGES.
-	'reference.source': [{
+	'predecessor.source': [{
 		type: Schema.Types.ObjectId,
 		ref: 'Source'
 	}]

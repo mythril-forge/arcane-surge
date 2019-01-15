@@ -72,4 +72,4 @@
 	- [ ] - source **id**
 	- [ ] - page
 - [ ] sibling
-	- [ ] - reference **id**
+	- [ ] - predecessor **id**

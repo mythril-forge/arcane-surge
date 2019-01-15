@@ -89,7 +89,7 @@ const SpellSchema = new Schema({
 	// 	}
 	// }],
 
-	'reference.spell': [{ // reference for spell diffs
+	'predecessor.spell': [{ // predecessor for spell diffs
 		type: Schema.Types.ObjectId,
 		ref: 'Spell'
 	}]
