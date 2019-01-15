@@ -80,6 +80,15 @@ const SpellSchema = new Schema({
 		type: Schema.Types.ObjectId,
 		ref: 'Source'
 	}],
+
+	// 'parent': [{
+	// 	'page': Number,
+	// 	'book': {
+	// 		type: Schema.Types.ObjectId,
+	// 		ref: 'Source'
+	// 	}
+	// }],
+
 	'reference.spell': [{ // reference for spell diffs
 		type: Schema.Types.ObjectId,
 		ref: 'Spell'

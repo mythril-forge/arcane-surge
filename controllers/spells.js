@@ -114,14 +114,14 @@ router.put('/:spellID', (req, res) => { // TODO: UPDATE //
 });
 
 router.delete('/:spellID', (req, res) => { // TODO: DELETE //
-	// Spell
-	// 	.findByIdAndRemove(req.params.spellID)
-	// 	.then(() => {
-	// 		res.redirect('/spell');
-	// 	})
-	// 	.catch((err) => {
-	// 		console.error(err);
-	// 	});
+	Spell
+		.findByIdAndRemove(req.params.spellID)
+		.then(() => {
+			res.redirect('/spells');
+		})
+		.catch((err) => {
+			console.error(err);
+		});
 });
 
 module.exports = router;

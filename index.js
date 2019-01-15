@@ -12,10 +12,29 @@ const methodOverride = require('method-override');
 const app = express();
 
 // start up handlebars engine
-app.engine('.hbs', exprHBS({
-	extname: '.hbs',
+
+const hbs = exprHBS.create({
+	// Specify helpers which are only registered on this instance.
+	helpers: {
+		ifeq: (a, b, options) => {
+			if (a == b) { return options.fn(this); }
+			return options.inverse(this);
+		},
+		ifneq: (a, b, options) => {
+			if (a != b) { return options.fn(this); }
+			return options.inverse(this);
+		},
+	},
+	extname: 'hbs',
 	defaultLayout: 'main'
-}));
+})
+
+// hbs.engine
+
+app.engine('.hbs',
+	hbs.engine
+);
+
 app.set('view engine', 'hbs');
 
 // use body parser to get req.body

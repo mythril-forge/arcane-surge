@@ -1,5 +1,14 @@
 <h2>
 	{{source.name}}
 </h2>
+
 <h3>lazy output</h3>
 <code>{{source}}</code>
+
+<hr />
+
+<h2>
+	Options
+</h2>
+<a href='./edit'>Edit</a>
+<form action='/sources/{{source._id}}?_method=DELETE' method='post'><button>Delete</button></form>

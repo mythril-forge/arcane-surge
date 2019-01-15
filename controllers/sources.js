@@ -110,14 +110,14 @@ router.put('/:sourceID', (req, res) => { // TODO: UPDATE //
 });
 
 router.delete('/:sourceID', (req, res) => { // TODO: DELETE //
-	// Source
-	// 	.findByIdAndRemove(req.params.sourceID)
-	// 	.then(() => {
-	// 		res.redirect('/source');
-	// 	})
-	// 	.catch((err) => {
-	// 		console.error(err);
-	// 	});
+	Source
+		.findByIdAndRemove(req.params.sourceID)
+		.then(() => {
+			res.redirect('/sources');
+		})
+		.catch((err) => {
+			console.error(err);
+		});
 });
 
 module.exports = router;

@@ -3,3 +3,11 @@ input:disabled, textarea:disabled, input:read-only, textarea:read-only {
 	background-color: #EEE;
 	cursor: default;
 }
+
+body {
+	padding: 50px;
+	font-family: 'arial'
+}
+form {
+	display: inline
+}
