@@ -88,25 +88,25 @@ router.get('/:sourceID/json', (req, res) => { // DONE: SHOW JSON //
 });
 
 router.get('/:sourceID/edit', (req, res) => { // TODO: EDIT //
-	// // shows a source edit form
-	// Source
-	// 	.findById(req.params.sourceID)
-	// 	.then((source) => {
-	// 		res.render('source-edit', { source });
-	// 	})
-	// 	.catch((err) => {
-	// 		console.error(err);
-	// 	});
+	// shows a source edit form
+	Source
+		.findById(req.params.sourceID)
+		.then((source) => {
+			res.render('source-edit', { source });
+		})
+		.catch((err) => {
+			console.error(err);
+		});
 });
 
 router.put('/:sourceID', (req, res) => { // TODO: UPDATE //
-	// Source.findByIdAndUpdate(req.params.sourceID, req.body)
-	// 	.then((source) => {
-	// 		res.redirect(`/source/${source._id}`);
-	// 	})
-	// 	.catch((err) => {
-	// 		console.error(err);
-	// 	});
+	Source.findByIdAndUpdate(req.params.sourceID, req.body)
+		.then((source) => {
+			res.redirect(`/sources/${source._id}`);
+		})
+		.catch((err) => {
+			console.error(err);
+		});
 });
 
 router.delete('/:sourceID', (req, res) => { // TODO: DELETE //

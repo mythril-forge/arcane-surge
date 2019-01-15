@@ -1,10 +1,12 @@
 <h2>
 	{{spell.name}}
 </h2>
-<h2>
-	{{spell.parent.source}}
-</h2>
-<h4>{{spell._id}}</h4>
+<h4>
+	Spell ID: {{spell._id}}
+</h4>
+<h4>
+	Source IDs: {{spell.parent.source}}
+</h4>
 {{!--
 Cantrip-level
 1st
@@ -138,10 +140,12 @@ Nth
 </div>
 <hr />
 
+<h4>Description:</h4>
 <p>{{spell.description.main}}</p>
 
+<h4>At Higher Levels:</h4>
 <p>{{spell.description.higher}}</p>
-
+{{!--
 <div>
 	<div>
 		<Strong>Classes:</Strong>
@@ -179,7 +183,7 @@ Nth
 		{{this}},
 		{{/each}}
 	</div>
-</div>
+</div> --}}
 
 <hr />
 

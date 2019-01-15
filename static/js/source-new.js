@@ -11,3 +11,10 @@ const updateSlug = () => {
 		.replace(/-+$/, '');            // Trim - from end of text
 	slug.value = output
 }
+
+
+const startup = () => {
+	updateSlug()
+}
+
+window.onload = startup()
