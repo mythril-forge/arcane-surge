@@ -4,7 +4,7 @@
 
 	<li>
 		<a href="/spells/{{this._id}}/">
-			{{this.name}}
+			{{#if this.name}}{{this.name}}{{else}}<code>undefined</code>{{/if}}
 		</a>
 	</li>
 

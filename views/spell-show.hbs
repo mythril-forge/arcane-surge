@@ -1,12 +1,10 @@
-<script src='/js/handlebar-helper.js'></script>
-
 <h2>
 	{{spell.name}}
 </h2>
 <h2>
 	{{spell.parent.source}}
 </h2>
-
+<h4>{{spell._id}}</h4>
 {{!--
 Cantrip-level
 1st
@@ -193,5 +191,5 @@ Nth
 <h2>
 	Options
 </h2>
-<a href='./edit'>Edit</a>
+<a href='/spells/{{spell._id}}/edit'>Edit</a>
 <form action='/spells/{{spell._id}}?_method=DELETE' method='post'><button>Delete</button></form>

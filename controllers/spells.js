@@ -54,8 +54,8 @@ router.post('/', (req, res) => { // DONE: CREATE //
 	spell
 		.save()
 		.then(() => {
-			res.json({ BEFORE: body, AFTER: spell });
-			// res.redirect('/spells');
+			// res.json({ BEFORE: body, AFTER: spell });
+			res.redirect('/spells');
 		})
 		.catch((err) => {
 			console.error(err);
@@ -91,29 +91,30 @@ router.get('/:spellID/json', (req, res) => { // DONE: SHOW JSON //
 		});
 });
 
-router.get('/:spellID/edit', (req, res) => { // TODO: EDIT //
-	// // shows a spell edit form
-	// Spell
-	// 	.findById(req.params.spellID)
-	// 	.then((spell) => {
-	// 		res.render('spell-edit', { spell });
-	// 	})
-	// 	.catch((err) => {
-	// 		console.error(err);
-	// 	});
+router.get('/:spellID/edit', (req, res) => { // DONE: EDIT //
+	// shows a spell edit form
+	Spell
+		.findById(req.params.spellID)
+		.then((spell) => {
+			res.render('spell-edit', { spell });
+		})
+		.catch((err) => {
+			console.error(err);
+		});
 });
 
-router.put('/:spellID', (req, res) => { // TODO: UPDATE //
-	// Spell.findByIdAndUpdate(req.params.spellID, req.body)
-	// 	.then((spell) => {
-	// 		res.redirect(`/spell/${spell._id}`);
-	// 	})
-	// 	.catch((err) => {
-	// 		console.error(err);
-	// 	});
+router.put('/:spellID', (req, res) => { // DONE: UPDATE //
+	Spell
+		.findByIdAndUpdate(req.params.spellID, req.body)
+		.then((spell) => {
+			res.redirect(`/spells/${spell._id}`);
+		})
+		.catch((err) => {
+			console.error(err);
+		});
 });
 
-router.delete('/:spellID', (req, res) => { // TODO: DELETE //
+router.delete('/:spellID', (req, res) => { // DONE: DELETE //
 	Spell
 		.findByIdAndRemove(req.params.spellID)
 		.then(() => {

@@ -107,28 +107,31 @@ const SpellSchema = new Schema({
 // - {2nd - key: null}
 //
 // 	This will reduce trash data in the models.
+// TODO: This pre hook doesn't yet handle arrays.
+// It deletes arrays of strings and doesnt delete arrays of empty objects
+// I would like it to do these things!!
 
-SpellSchema.pre('save', function (next) {
-	if (this.isNew) {
-		this.schema
-			.eachPath((path) => {
+// SpellSchema.pre('save', function (next) {
+// 	if (this.isNew) {
+// 		this.schema
+// 			.eachPath((path) => {
 
-				const isEmptyItem = (item) => {
-					const output =
-						item === undefined ||
-						item === null ||
-						item === '' ||
-						// this last boolean checks if the item is an empty array []
-						(typeof this[path] !== 'undefined' && Object.getPrototypeOf(Object(this[path])) === Object.getPrototypeOf([]))
-					return output
-				}
+// 				const isEmptyItem = (item) => {
+// 					const output =
+// 						item === undefined ||
+// 						item === null ||
+// 						item === '' ||
+// 						// this last boolean checks if the item is an empty array []
+// 						(typeof this[path] !== 'undefined' && Object.getPrototypeOf(Object(this[path])) === Object.getPrototypeOf([]))
+// 					return output
+// 				}
 
-				if (isEmptyItem(this[path])) {
-					this[path] = undefined
-				}
-			})
-	}
-	next();
-});
+// 				if (isEmptyItem(this[path])) {
+// 					this[path] = undefined
+// 				}
+// 			})
+// 	}
+// 	next();
+// });
 
 module.exports = mongoose.model('Spell', SpellSchema);
