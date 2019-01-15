@@ -25,3 +25,32 @@ body {
 form {
 	display: inline
 }
+
+.container {
+	display: flex;
+}
+
+.container * {
+	padding: 0;
+	list-style: none;
+	flex: 1;
+}
+
+li.dropdown ul {
+	visibility: hidden;
+	opacity: 0;
+	position: absolute;
+	display: none;
+}
+
+li.dropdown:hover > ul,
+li.dropdown ul:hover {
+	visibility: visible;
+	opacity: 1;
+	display: block;
+}
+
+ul li ul li {
+	clear: both;
+	width: 100%;
+}
