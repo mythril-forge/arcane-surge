@@ -93,16 +93,20 @@ router.get('/:spellID/json', (req, res) => { // DONE: SHOW JSON //
 
 router.get('/:spellID/edit', (req, res) => { // DONE: EDIT //
 	// shows a spell edit form
-	Spell
+	Source
 		.find({})
-		.then((library) => {
+		.then((source) => {
 			Spell
-				.findById(req.params.spellID)
-				.then((spell) => {
-					res.render('spell-edit', { spell, library });
-				})
-				.catch((err) => {
-					console.error(err);
+				.find({})
+				.then((library) => {
+					Spell
+						.findById(req.params.spellID)
+						.then((spell) => {
+							res.render('spell-edit', { source, spell, library });
+						})
+						.catch((err) => {
+							console.error(err);
+						});
 				});
 		});
 });
