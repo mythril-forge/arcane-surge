@@ -1,3 +1,15 @@
+const getTab = (id) => {
+	const myTab = document.getElementById(id)
+	const sections = document.getElementsByClassName('section')
+	for (const eaTab of sections) {
+		if (myTab == eaTab) {
+			eaTab.style.display = 'block'
+		} else {
+			eaTab.style.display = 'none'
+		}
+	}
+}
+
 const enable = (list) => {
 	for (const item of list) {
 		item.removeAttribute('disabled')

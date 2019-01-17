@@ -1,9 +1,19 @@
 <h2>Create a New Spell</h2>
 
-<form action='/spells' method='POST'>
+<ol>
+	<li><a href='#' onclick='getTab("basic")'>Basic Information</a></li>
+	<li><a href='#' onclick='getTab("temporals")'>Temporal Details</a></li>
+	<li><a href='#' onclick='getTab("spacials")'>Spacial Details</a></li>
+	<li><a href='#' onclick='getTab("requisites")'>Requisite Details</a></li>
+	<li><a href='#' onclick='getTab("primary")'>Primary Information</a></li>
+	<li><a href='#' onclick='getTab("availability")'>Availability</a></li>
+	<li><a href='#' onclick='getTab("bibliography")'>Bibliography</a></li>
+</ol>
 
+
+<form action='/spells' method='POST'>
 	<div>
-		<section>
+		<section class='section' style="display: block" id='basic'>
 			<h3>
 				Section 1
 			</h3>
@@ -34,21 +44,22 @@
 					School of Magic
 				</label><br />
 				<select name='school' id='school'>
-					<option disabled hidden selected />
-					{{!-- checkmark starts by unselected option, looks bad! --}}
-					<option label='abjuration' value='abjuration' />
-					<option label='conjuration' value='conjuration' />
-					<option label='divination' value='divination' />
-					<option label='enchantment' value='enchantment' />
-					<option label='evocation' value='evocation' />
-					<option label='illusion' value='illusion' />
-					<option label='necromancy' value='necromancy' />
-					<option label='transmutation' value='transmutation' />
+					<optgroup label='select a school'>
+						<option disabled hidden selected />
+						<option label='abjuration' value='abjuration' />
+						<option label='conjuration' value='conjuration' />
+						<option label='divination' value='divination' />
+						<option label='enchantment' value='enchantment' />
+						<option label='evocation' value='evocation' />
+						<option label='illusion' value='illusion' />
+						<option label='necromancy' value='necromancy' />
+						<option label='transmutation' value='transmutation' />
+					</optgroup>
 				</select>
 			</div>
 		</section>
 
-		<section>
+		<section class='section' style="display: none" id='temporals'>
 			<h3>
 				Section 2
 			</h3>
@@ -121,7 +132,7 @@
 			</fieldset>
 		</section>
 
-		<section>
+		<section class='section' style="display: none" id='spacials'>
 			<h3>
 				Section 3
 			</h3>
@@ -172,15 +183,17 @@
 					Effect Shape
 				</label><br />
 				<select name='area.shape' id='area-shape' onchange="disableAreaNums()">
-					<option label='' disabled hidden selected />
-					<option label='point' value='point' />
-					<option label='sphere' value='sphere' />
-					<option label='aura' value='aura' />
-					<option label='cone' value='cone' />
-					<option label='cube' value='cube' />
-					<option label='line' value='line' />
-					<option label='wall' value='wall' />
-					<option label='cylinder' value='cylinder' />
+					<optgroup label='select a shape'>
+						<option disabled hidden selected />
+						<option label='point' value='point' />
+						<option label='sphere' value='sphere' />
+						<option label='aura' value='aura' />
+						<option label='cone' value='cone' />
+						<option label='cube' value='cube' />
+						<option label='line' value='line' />
+						<option label='wall' value='wall' />
+						<option label='cylinder' value='cylinder' />
+					</optgroup>
 				</select>
 			</div>
 
@@ -219,7 +232,7 @@
 			</fieldset>
 		</section>
 
-		<section>
+		<section class='section' style="display: none" id='requisites'>
 			<h3>
 				Section 4
 			</h3>
@@ -265,8 +278,6 @@
 			</fieldset>
 
 			<fieldset id='component'>
-				{{!-- this entire div should appear only when tags-material checkbox is on --}}
-				{{!-- later versions of this app will have a more in-depth material field --}}
 				<legend>
 					Component Details
 				</legend>
@@ -291,7 +302,7 @@
 			</fieldset>
 		</section>
 
-		<section>
+		<section class='section' style="display: none" id='primary'>
 			<h3>
 				Section 5
 			</h3>
@@ -311,7 +322,7 @@
 			</div>
 		</section>
 
-		<section>
+		<section class='section' style="display: none" id='availability'>
 			<h3>
 				Section 6
 			</h3>
@@ -331,7 +342,7 @@
 				</div>
 		</section>
 
-		<section>
+		<section class='section' style="display: none" id='bibliography'>
 			<h3>
 				Section 7
 			</h3>
@@ -383,8 +394,8 @@
 		</section>
 	</div>
 
-	<a href='#'>Next</a>
 	<a href='#'>Previous</a>
+	<a href='#'>Next</a>
 	<button type='submit'>
 		Submit
 	</button>
