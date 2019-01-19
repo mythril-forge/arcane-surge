@@ -1,11 +1,10 @@
-const getTab = (id) => {
-	const myTab = document.getElementById(id)
-	const sections = document.getElementsByClassName('section')
-	for (const eaTab of sections) {
-		if (myTab == eaTab) {
-			eaTab.style.display = 'block'
+const getTab = () => {
+	const allTabs = document.getElementsByClassName('tab')
+	for (const eachTab of allTabs) {
+		if (eachTab.checked == true) {
+			console.log(eachTab.value)
+			break
 		} else {
-			eaTab.style.display = 'none'
 		}
 	}
 }
