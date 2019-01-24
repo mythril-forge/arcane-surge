@@ -55,10 +55,11 @@
 
 {{!-- starting up form tag --}}
 <form action='/spells' method='POST'>
+
 	{{!-- section 1: basics --}}
 	<section id='section-1'>
 		<h3>
-			Basics
+			Basic Information
 		</h3>
 
 		<div>
@@ -105,12 +106,14 @@
 	{{!-- section 2: temporals --}}
 	<section id='section-2'>
 		<h3>
-			Section 2
+			Temporal Features
 		</h3>
+
 		<fieldset id='cast-time'>
 			<legend>
 				Casting Time
 			</legend>
+
 			<div>
 				<input type='radio' name='cast-time.quality' id='cast-time-action' value='action' />
 				<label for='cast-time-action'>
@@ -144,6 +147,7 @@
 			<legend>
 				Duration
 			</legend>
+
 			<div>
 				<input type='radio' name='duration.quality' id='duration-instantaneous' value='instantaneous' />
 				<label for='duration-instantaneous'>
@@ -174,10 +178,106 @@
 		</fieldset>
 	</section>
 
-
 	{{!-- section 3: spacials --}}
-	<section>
+	<section id='section-3'>
+		<h3>
+			Spacial Features
+		</h3>
 
+		<div>
+			<label for='instances'>
+				Instances
+			</label><br />
+			<input type='number' name='instances' id='instances' min='0' max='999999' />
+		</div>
+
+		<fieldset id='range'>
+			<legend>
+				Range
+			</legend>
+
+			<div>
+				<input type='radio' name='range.quality' id='range-self' value='self' />
+				<label for='range-self'>
+					self
+				</label>
+			</div>
+
+			<div>
+				<input type='radio' name='range.quality' id='range-touch' value='touch' />
+				<label for='range-touch'>
+					touch
+				</label>
+			</div>
+
+			<div>
+				<input type='radio' name='range.quality' id='range-unlimited' value='unlimited' />
+				<label for='range-unlimited'>
+					unlimited
+				</label>
+			</div>
+
+			<div>
+				{{!-- the value of this radio button should equal the value of the input number --}}
+				{{!-- also the range input should be disabled unless the radio button is checked --}}
+				<input type='radio' name='range.quality' id='range-discrete' value='discrete' />
+				<input type='number' name='range.feet' id='range-feet' min='0' max='999999' placeholder='feet' disabled />
+			</div>
+		</fieldset>
+
+		<div>
+			<label for='area-shape'>
+				Effect Shape
+			</label><br />
+
+			<select name='area.shape' id='area-shape'>
+				<optgroup label='select a shape:'>
+					<option disabled hidden selected />
+					<option label='point' value='point' />
+					<option label='sphere' value='sphere' />
+					<option label='aura' value='aura' />
+					<option label='cone' value='cone' />
+					<option label='cube' value='cube' />
+					<option label='line' value='line' />
+					<option label='wall' value='wall' />
+					<option label='cylinder' value='cylinder' />
+				</optgroup>
+			</select>
+		</div>
+
+		<fieldset id='area'>
+			<legend>
+				Effect Size
+			</legend>
+
+			<div>
+				<label for='area-radius'>
+					Radius
+				</label><br />
+				<input type='number' name='area.radius' id='area-radius' min='0' max='999999' placeholder='feet' disabled />
+			</div>
+
+			<div>
+				<label for='area-length'>
+					Length
+				</label><br />
+				<input type='number' name='area.length' id='area-length' min='0' max='999999' placeholder='feet' disabled />
+			</div>
+
+			<div>
+				<label for='area-width'>
+					Width
+				</label><br />
+				<input type='number' name='area.width' id='area-width' min='0' max='999999' placeholder='feet' disabled />
+			</div>
+
+			<div>
+				<label for='area-height'>
+					Height
+				</label><br />
+				<input type='number' name='area.height' id='area-height' min='0' max='999999' placeholder='feet' disabled />
+			</div>
+		</fieldset>
 	</section>
 
 </form>
