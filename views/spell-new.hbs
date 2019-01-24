@@ -27,7 +27,7 @@
 	<span>
 		<input type='radio' class='nav-tab' name='form-tab' id='form-tab-4' value='section-4' />
 		<label for='form-tab-4'>
-			Section
+			Tags &amp; Components
 		</label>
 	</span>
 
@@ -279,6 +279,89 @@
 			</div>
 		</fieldset>
 	</section>
+
+	{{!-- section 4: components --}}
+	<section id='section-4'>
+		<h3>
+			Tags &amp; Components
+		</h3>
+
+		<fieldset id='tags'>
+			<legend>
+				Spell Tags
+			</legend>
+			<div>
+				<input type='checkbox' name='tags' id='tags-ritual' value='ritual' />
+				<label for='tags-ritual'>
+					ritual
+				</label>
+			</div>
+
+			<div>
+				<input type='checkbox' name='tags' id='tags-concentration' value='concentration' />
+				<label for='tags-concentration'>
+					concentration
+				</label>
+			</div>
+
+			<div>
+				<input type='checkbox' name='tags' id='tags-verbal' value='verbal' />
+				<label for='tags-verbal'>
+					verbal
+				</label>
+			</div>
+
+			<div>
+				<input type='checkbox' name='tags' id='tags-somatic' value='somatic' />
+				<label for='tags-somatic'>
+					somatic
+				</label>
+			</div>
+
+			<div>
+				<input type='checkbox' name='tags' id='tags-material' value='material' />
+				<label for='tags-material'>
+					material
+				</label>
+			</div>
+		</fieldset>
+
+		<fieldset id='component'>
+			<legend>
+				Component Details
+			</legend>
+			<div>
+				<label for='component-verbal'>
+					Verbal Components
+				</label><br />
+				<textarea name='component.verbal' id='component-verbal' disabled></textarea>
+			</div>
+			<div>
+				<label for='component-somatic'>
+					Somatic Components
+				</label><br />
+				<textarea name='component.somatic' id='component-somatic' disabled></textarea>
+			</div>
+			<div>
+				<label for='component-material'>
+					Material Components
+				</label><br />
+				<textarea name='component.material' id='component-material' disabled></textarea>
+			</div>
+		</fieldset>
+	</section>
+
+	{{!-- section 5: --}}
+	<section id='section-5'>
+	</section>
+
+	<hr />
+
+	<a href='#'>Previous</a>
+	<a href='#'>Next</a>
+	<button type='submit'>
+		Submit
+	</button>
 
 </form>
 
