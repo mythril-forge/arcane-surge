@@ -27,14 +27,14 @@
 	<span>
 		<input type='radio' class='nav-tab' name='form-tab' id='form-tab-4' value='section-4' />
 		<label for='form-tab-4'>
-			Tags &amp; Components
+			Components
 		</label>
 	</span>
 
 	<span>
 		<input type='radio' class='nav-tab' name='form-tab' id='form-tab-5' value='section-5' />
 		<label for='form-tab-5'>
-			Section
+			Body Text
 		</label>
 	</span>
 
@@ -326,35 +326,59 @@
 			</div>
 		</fieldset>
 
-		<fieldset id='component'>
+		<fieldset id='components'>
 			<legend>
 				Component Details
 			</legend>
 			<div>
-				<label for='component-verbal'>
+				<label for='components-verbal'>
 					Verbal Components
 				</label><br />
-				<textarea name='component.verbal' id='component-verbal' disabled></textarea>
+				<textarea name='components.verbal' id='components-verbal' disabled></textarea>
 			</div>
 			<div>
-				<label for='component-somatic'>
+				<label for='components-somatic'>
 					Somatic Components
 				</label><br />
-				<textarea name='component.somatic' id='component-somatic' disabled></textarea>
+				<textarea name='components.somatic' id='components-somatic' disabled></textarea>
 			</div>
 			<div>
-				<label for='component-material'>
+				<label for='components-material'>
 					Material Components
 				</label><br />
-				<textarea name='component.material' id='component-material' disabled></textarea>
+				<textarea name='components.material' id='components-material' disabled></textarea>
 			</div>
 		</fieldset>
 	</section>
 
-	{{!-- section 5: --}}
+	{{!-- section 5: body text --}}
 	<section id='section-5'>
+		<h3>
+			Body Text
+		</h3>
+
+		<div>
+			<label for='description-main'>
+				Description
+			</label><br />
+			<textarea name='description.main' id='description-main'></textarea>
+		</div>
+
+		<div>
+			<label for='description-higher'>
+				At Higher Levels
+			</label><br />
+			<textarea name='description.higher' id='description-higher'></textarea>
+		</div>
 	</section>
 
+	{{!-- section 6: availability --}}
+	<section id='section-6'>
+	</section>
+
+	{{!-- section 7: citations --}}
+	<section id='section-7'>
+	</section>
 	<hr />
 
 	<a href='#'>Previous</a>
