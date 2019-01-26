@@ -31,9 +31,7 @@ const SourceSchema = new Schema({
 	// 	}]
 	// }
 
-	// FOR NOW, I AM NOT NESTING RESOURCES.
-	// ALSO, I AM NOT TRACKING PAGES.
-	'predecessor.source': [{
+	'carbon-copy.source': [{ // carbon copies are made to be modified
 		type: Schema.Types.ObjectId,
 		ref: 'Source'
 	}]

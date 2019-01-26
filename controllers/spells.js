@@ -32,14 +32,17 @@ router.get('/json', (req, res) => { // DONE: INDEX JSON //
 
 router.get('/new', (req, res) => { // DONE: NEW //
 	// shows a spell creation form
+	// NEED TO PASS IN:
+	// every-spell
+	// every-source
 	Spell
 		.find({})
-		.then((spell) => {
+		.then((EverySpell) => {
 			Source
 				.find({})
-				.then((source) => {
+				.then((EverySource) => {
 					res
-						.render('spell-new.hbs', { source, spell });
+						.render('spell-new.hbs', { EverySource, EverySpell });
 				})
 		})
 		.catch((err) => {

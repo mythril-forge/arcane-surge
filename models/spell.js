@@ -65,31 +65,21 @@ const SpellSchema = new Schema({
 	// // This seems to be the correct way of modeling this.
 	// // See https://alexanderzeitler.com/articles/mongoose-referencing-schema-in-properties-and-arrays/
 	// // It should help! But still can't figure it out!
-	// 'parent': [{ // parent source for index library
+	// 'parent': [{
 	// 	'page': Number,
 	// 	'source': {
 	// 		type: Schema.Types.ObjectId,
 	// 		ref: 'Source'
 	// 	}
 	// }],
-
 	// FOR NOW, I AM NOT NESTING RESOURCES.
 	// ALSO, I AM NOT TRACKING PAGES.
 	'parent.page': [Number],
-	'parent.source': [{
+	'parent.source': [{ // sources are usually books, but not always
 		type: Schema.Types.ObjectId,
 		ref: 'Source'
 	}],
-
-	// 'parent': [{
-	// 	'page': Number,
-	// 	'book': {
-	// 		type: Schema.Types.ObjectId,
-	// 		ref: 'Source'
-	// 	}
-	// }],
-
-	'predecessor.spell': [{ // predecessor for spell diffs
+	'carbon-copy.spell': [{ // carbon copies are made to be modified
 		type: Schema.Types.ObjectId,
 		ref: 'Spell'
 	}]

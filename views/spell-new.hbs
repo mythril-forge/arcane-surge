@@ -41,14 +41,14 @@
 	<span>
 		<input type='radio' class='nav-tab' name='form-tab' id='form-tab-6' value='section-6' />
 		<label for='form-tab-6'>
-			Section
+			Availability
 		</label>
 	</span>
 
 	<span>
 		<input type='radio' class='nav-tab' name='form-tab' id='form-tab-7' value='section-7' />
 		<label for='form-tab-7'>
-			Section
+			Citations
 		</label>
 	</span>
 </nav>
@@ -290,6 +290,7 @@
 			<legend>
 				Spell Tags
 			</legend>
+
 			<div>
 				<input type='checkbox' name='tags' id='tags-ritual' value='ritual' />
 				<label for='tags-ritual'>
@@ -374,11 +375,79 @@
 
 	{{!-- section 6: availability --}}
 	<section id='section-6'>
+		<h3>
+			Availability
+		</h3>
+
+		<fieldset id='class-spells'>
+			<legend>
+				Class Spell Lists
+			</legend>
+
+			{{#each EveryClass}}
+			<div>
+				<input type='checkbox' name='' id='' value='' />
+				<label for=''>
+					{{this.name}}
+				</label>
+			</div>
+			{{/each}}
+		</fieldset>
+		<fieldset id='race-spells'>
+			<legend>
+				Race Spell Lists
+			</legend>
+
+			{{#each EveryRace}}
+			<div>
+				<input type='checkbox' name='' id='' value='' />
+				<label for=''>
+					{{this.name}}
+				</label>
+			</div>
+			{{/each}}
+		</fieldset>
 	</section>
 
 	{{!-- section 7: citations --}}
 	<section id='section-7'>
+		<h3>
+			Citations
+		</h3>
+
+		<fieldset id='parent'>
+			<legend>
+				Source References
+			</legend>
+
+			{{#each EverySource}}
+			<div>
+				<input type='checkbox' name='' id='' value='' />
+				<input type='number' name='' id='' min='0' max='999999' placeholder='page' />
+				<label for=''>
+					{{this.name}}
+				</label>
+			</div>
+			{{/each}}
+		</fieldset>
+
+		<fieldset id='carbon-copy'>
+			<legend>
+				Carbon Copies
+			</legend>
+
+			{{#each EverySpell}}
+			<div>
+				<input type='checkbox' name='' id='' value='' />
+				<label for=''>
+					{{this.name}}
+				</label>
+			</div>
+			{{/each}}
+		</fieldset>
 	</section>
+
+
 	<hr />
 
 	<a href='#'>Previous</a>
