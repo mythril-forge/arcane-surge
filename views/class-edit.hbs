@@ -1,0 +1,25 @@
+<h2>Create a New Class</h2>
+
+<form action='/classes/{{MyClass._id}}?_method=PUT' method='POST'>
+
+	<div>
+		<label for='name'>
+			Name
+		</label><br />
+		<input type='text' name='name' id='name' value='{{MyClass.name}}' oninput='updateSlug()' />
+	</div>
+
+	<div>
+		<label for='slug'>
+			Slug
+		</label><br />
+		<input type='text' name='slug' id='slug' value='{{MyClass.slug}}' readonly />
+	</div>
+
+	<button type='submit'>
+		Submit
+	</button>
+
+</form>
+
+<script src='/js/core.js'></script>

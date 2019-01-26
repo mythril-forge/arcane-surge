@@ -1,15 +1,16 @@
 const express = require('express');
 const Spell = require('../models/spell.js');
-const Source = require('../models/source.js')
+const Source = require('../models/source.js');
+const Class = require('../models/class.js')
 
 const router = new express.Router();
 router.get('/', (req, res) => { // DONE: INDEX //
 	// indexes all spells
 	Spell
 		.find({})
-		.then((spell) => {
+		.then((EverySpell) => {
 			res // here's where INDEX differs
-				.render('spell-index', { spell });
+				.render('spell-index', { EverySpell });
 		})
 		.catch((err) => {
 			console.error(err);
@@ -20,9 +21,9 @@ router.get('/json', (req, res) => { // DONE: INDEX JSON //
 	// indexes all spells and returns json
 	Spell
 		.find({})
-		.then((spell) => {
+		.then((EverySpell) => {
 			res // here's where INDEX JSON differs
-				.json(spell)
+				.json(EverySpell)
 				.status(200);
 		})
 		.catch((err) => {
@@ -41,8 +42,21 @@ router.get('/new', (req, res) => { // DONE: NEW //
 			Source
 				.find({})
 				.then((EverySource) => {
-					res
-						.render('spell-new.hbs', { EverySource, EverySpell });
+					Class
+						.find({})
+						.then((EveryClass) => {
+							Race
+								.find({})
+								.then((EveryRace) => {
+									res
+										.render('spell-new.hbs', {
+											EverySource,
+											EverySpell,
+											EveryClass,
+											EveryRace
+										});
+								})
+						})
 				})
 		})
 		.catch((err) => {
@@ -51,8 +65,6 @@ router.get('/new', (req, res) => { // DONE: NEW //
 });
 
 router.post('/', (req, res) => { // DONE: CREATE //
-	// creates a new spell
-	const body = req.body;
 	const spell = new Spell(req.body);
 	spell
 		.save()
@@ -70,9 +82,9 @@ router.get('/:spellID', (req, res) => { // DONE: SHOW //
 	Spell
 		.findById(req.params.spellID)
 		.populate('predecessor.spells')
-		.then((spell) => {
+		.then((MySpell) => {
 			res // here's where SHOW differs
-				.render('spell-show.hbs', { spell });
+				.render('spell-show.hbs', { MySpell });
 		})
 		.catch((err) => {
 			console.error(err);
@@ -84,9 +96,9 @@ router.get('/:spellID/json', (req, res) => { // DONE: SHOW JSON //
 	Spell
 		.findById(req.params.spellID)
 		.populate('predecessor.spells')
-		.then((spell) => {
+		.then((MySpell) => {
 			res  // here's where SHOW JSON differs
-				.json(spell)
+				.json(MySpell)
 				.status(200);
 		})
 		.catch((err) => {
@@ -98,14 +110,14 @@ router.get('/:spellID/edit', (req, res) => { // DONE: EDIT //
 	// shows a spell edit form
 	Source
 		.find({})
-		.then((source) => {
+		.then((EverySource) => {
 			Spell
 				.find({})
-				.then((library) => {
+				.then((EverySpell) => {
 					Spell
 						.findById(req.params.spellID)
-						.then((spell) => {
-							res.render('spell-edit', { source, spell, library });
+						.then((MySpell) => {
+							res.render('spell-edit', { EverySource, EverySpell, MySpell });
 						})
 						.catch((err) => {
 							console.error(err);
@@ -117,8 +129,8 @@ router.get('/:spellID/edit', (req, res) => { // DONE: EDIT //
 router.put('/:spellID', (req, res) => { // DONE: UPDATE //
 	Spell
 		.findByIdAndUpdate(req.params.spellID, req.body)
-		.then((spell) => {
-			res.redirect(`/spells/${spell._id}`);
+		.then((MySpell) => {
+			res.redirect(`/spells/${MySpell._id}`);
 		})
 		.catch((err) => {
 			console.error(err);

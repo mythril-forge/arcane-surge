@@ -6,8 +6,7 @@
 		<label for='name'>
 			Name
 		</label><br />
-		<input type='text' name='name' id='name' onkeyup='updateSlug()' onchange='updateSlug()' />
-		{{!-- I don't like how onkeyup and onchange have redundent values. Reduce attributes here? --}}
+		<input type='text' name='name' id='name' oninput='updateSlug()' />
 	</div>
 
 	<div>
