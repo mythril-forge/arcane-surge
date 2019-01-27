@@ -1,4 +1,4 @@
-<h2>Create a New Source</h2>
+<h2>Edit Source</h2>
 
 <form action='/sources/{{source._id}}?_method=PUT' method='POST'>
 
@@ -41,15 +41,15 @@
 		{{!-- toggle button would be best for a singular yes/no query --}}
 	</div>
 
-	<fieldset id='predecessor'>
+	<fieldset id='carbon-copy'>
 		<legend>
-			Predecessor Sources
+			Carbon Copies
 		</legend>
 		{{!-- come up with a better name for this --}}
 		{{#each library}}
 		<div>
-			<input type='checkbox' name='predecessor.source' id='predecessor-{{this.slug}}' value='{{this._id}}' />
-			<label for='predecessor-{{this.slug}}'>
+			<input type='checkbox' name='carbon-copy.source' id='carbon-copy-{{this.slug}}' value='{{this._id}}' />
+			<label for='carbon-copy-{{this.slug}}'>
 				{{this.name}}
 			</label>
 		</div>
