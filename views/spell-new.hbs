@@ -386,8 +386,8 @@
 
 			{{#each EveryClass}}
 			<div>
-				<input type='checkbox' name='' id='' value='' />
-				<label for=''>
+				<input type='checkbox' name='class' id='class-{{this.slug}}' value='{{this._id}}' />
+				<label for='class-{{this.slug}}'>
 					{{this.name}}
 				</label>
 			</div>
@@ -400,8 +400,8 @@
 
 			{{#each EveryRace}}
 			<div>
-				<input type='checkbox' name='' id='' value='' />
-				<label for=''>
+				<input type='checkbox' name='race' id='race-{{this.slug}}' value='{{this._id}}' />
+				<label for='race-{{this.slug}}'>
 					{{this.name}}
 				</label>
 			</div>
@@ -422,9 +422,9 @@
 
 			{{#each EverySource}}
 			<div>
-				<input type='checkbox' name='' id='' value='' />
-				<input type='number' name='' id='' min='0' max='999999' placeholder='page' />
-				<label for=''>
+				<input type='checkbox' name='parent.source' id='parent-source-{{this.slug}}' value='{{this._id}}' />
+				<input type='number' name='parent.page' id='parent-page-{{this.slug}}' min='0' max='999999' placeholder='page' />
+				<label for='parent-source-{{this.slug}}'>
 					{{this.name}}
 				</label>
 			</div>
@@ -438,15 +438,14 @@
 
 			{{#each EverySpell}}
 			<div>
-				<input type='checkbox' name='' id='' value='' />
-				<label for=''>
+				<input type='checkbox' name='carbon-copy.spell' id='carbon-copy-{{this.slug}}' value='{{this._id}}' />
+				<label for='carbon-copy-{{this.slug}}'>
 					{{this.name}}
 				</label>
 			</div>
 			{{/each}}
 		</fieldset>
 	</section>
-
 
 	<hr />
 

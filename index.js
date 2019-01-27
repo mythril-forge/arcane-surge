@@ -56,11 +56,13 @@ app.get('/', (req, res) => {
 const sources = require('./controllers/sources.js');
 const spells = require('./controllers/spells.js');
 const classes = require('./controllers/classes.js');
+const races = require('./controllers/races.js');
 const imports = require('./controllers/imports.js');
 // mount all other routes
 app.use('/sources', sources);
 app.use('/spells', spells);
 app.use('/classes', classes);
+app.use('/races', races);
 app.use('/imports', imports);
 
 // process.env.PORT & MONGODB_URI lets the port and database be set by Heroku

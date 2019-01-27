@@ -1,0 +1,17 @@
+<h2>
+	{{MyRace.name}}
+</h2>
+<h4>
+	Race ID: {{MyRace._id}}
+</h4>
+
+<h3>lazy output</h3>
+<code>{{MyRace}}</code>
+
+<hr />
+
+<h2>
+	Options
+</h2>
+<a href='/races/{{MyRace._id}}/edit'>Edit</a>
+<form action='/races/{{MyRace._id}}?_method=DELETE' method='post'><button>Delete</button></form>

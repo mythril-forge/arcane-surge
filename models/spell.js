@@ -57,9 +57,7 @@ const SpellSchema = new Schema({
 
 	// Compatibility //
 	'class': [String],
-	'subclass': [String],
 	'race': [String],
-	'subrace': [String],
 
 	// // TODO: array of objects not saving...
 	// // This seems to be the correct way of modeling this.

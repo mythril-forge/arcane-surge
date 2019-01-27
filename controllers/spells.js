@@ -2,6 +2,7 @@ const express = require('express');
 const Spell = require('../models/spell.js');
 const Source = require('../models/source.js');
 const Class = require('../models/class.js')
+const Race = require('../models/race.js')
 
 const router = new express.Router();
 router.get('/', (req, res) => { // DONE: INDEX //

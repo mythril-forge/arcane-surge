@@ -1,11 +1,11 @@
 <h2>
-	{{spell.name}}
+	{{MySpell.name}}
 </h2>
 <h4>
-	Spell ID: {{spell._id}}
+	Spell ID: {{MySpell._id}}
 </h4>
 <h4>
-	Source IDs: {{spell.parent.source}}
+	Source IDs: {{MySpell.parent.source}}
 </h4>
 {{!--
 Cantrip-level
@@ -17,169 +17,169 @@ Nth
 <div>
 	<div>
 		<em>
-			{{#ifeq spell.level '0'}}
+			{{#ifeq MySpell.level '0'}}
 			Cantrip-level
 			{{/ifeq}}
-			{{#ifeq spell.level '1'}}
-			{{@root.spell.level}}st-level
+			{{#ifeq MySpell.level '1'}}
+			{{@root.MySpell.level}}st-level
 			{{/ifeq}}
-			{{#ifeq spell.level '2'}}
-			{{@root.spell.level}}nd-level
+			{{#ifeq MySpell.level '2'}}
+			{{@root.MySpell.level}}nd-level
 			{{/ifeq}}
-			{{#ifeq spell.level '3'}}
-			{{@root.spell.level}}rd-level
+			{{#ifeq MySpell.level '3'}}
+			{{@root.MySpell.level}}rd-level
 			{{/ifeq}}
-			{{#ifeq spell.level '4'}}
-			{{@root.spell.level}}th-level
+			{{#ifeq MySpell.level '4'}}
+			{{@root.MySpell.level}}th-level
 			{{/ifeq}}
-			{{#ifeq spell.level '5'}}
-			{{@root.spell.level}}th-level
+			{{#ifeq MySpell.level '5'}}
+			{{@root.MySpell.level}}th-level
 			{{/ifeq}}
-			{{#ifeq spell.level '6'}}
-			{{@root.spell.level}}th-level
+			{{#ifeq MySpell.level '6'}}
+			{{@root.MySpell.level}}th-level
 			{{/ifeq}}
-			{{#ifeq spell.level '7'}}
-			{{@root.spell.level}}th-level
+			{{#ifeq MySpell.level '7'}}
+			{{@root.MySpell.level}}th-level
 			{{/ifeq}}
-			{{#ifeq spell.level '8'}}
-			{{@root.spell.level}}th-level
+			{{#ifeq MySpell.level '8'}}
+			{{@root.MySpell.level}}th-level
 			{{/ifeq}}
-			{{#ifeq spell.level '9'}}
-			{{@root.spell.level}}th-level
-			{{/ifeq}} {{spell.school}}
+			{{#ifeq MySpell.level '9'}}
+			{{@root.MySpell.level}}th-level
+			{{/ifeq}} {{MySpell.school}}
 		</em>
 		{{!-- what an ugly thing! --}}
 		{{!-- TODO: this is in dire need of refactor --}}
 	</div>
 	<div>
 		<strong>Casting Time:</strong>
-		{{#if spell.cast-time.seconds}}
-		{{spell.cast-time.seconds}} seconds
+		{{#if MySpell.cast-time.seconds}}
+		{{MySpell.cast-time.seconds}} seconds
 		{{else}}
-		{{spell.cast-time.quality}}
+		{{MySpell.cast-time.quality}}
 		{{/if}}
 	</div>
 	<div>
 		<Strong>Duration:</Strong>
-		{{#if spell.duration.seconds}}
-		{{spell.duration.seconds}} seconds
+		{{#if MySpell.duration.seconds}}
+		{{MySpell.duration.seconds}} seconds
 		{{else}}
-		{{spell.duration.quality}}
+		{{MySpell.duration.quality}}
 		{{/if}}
 	</div>
 	<div>
 		<Strong>Casting Range:</Strong>
-		{{#if spell.range.feet}}
-		{{spell.range.feet}} feet
+		{{#if MySpell.range.feet}}
+		{{MySpell.range.feet}} feet
 		{{else}}
-		{{spell.range.quality}}
+		{{MySpell.range.quality}}
 		{{/if}}
 	</div>
 
-	{{#ifeq spell.area.shape 'aura'}}
+	{{#ifeq MySpell.area.shape 'aura'}}
 	<div>
 		<Strong>Area of Effect:</Strong>
-		{{@root.spell.area.radius}}-foot-radius aura
+		{{@root.MySpell.area.radius}}-foot-radius aura
 	</div>
 	{{/ifeq}}
 
-	{{#ifeq spell.area.shape 'sphere'}}
+	{{#ifeq MySpell.area.shape 'sphere'}}
 	<div>
 		<Strong>Area of Effect:</Strong>
-		{{@root.spell.area.radius}}-foot-radius sphere
+		{{@root.MySpell.area.radius}}-foot-radius sphere
 	</div>
 	{{/ifeq}}
 
-	{{#ifeq spell.area.shape 'cone'}}
+	{{#ifeq MySpell.area.shape 'cone'}}
 	<div>
 		<Strong>Area of Effect:</Strong>
-		{{@root.spell.area.radius}}-foot-radius cone
+		{{@root.MySpell.area.radius}}-foot-radius cone
 	</div>
 	{{/ifeq}}
 
-	{{#ifeq spell.area.shape 'cube'}}
+	{{#ifeq MySpell.area.shape 'cube'}}
 	<div>
 		<Strong>Area of Effect:</Strong>
-		{{@root.spell.area.length}}-foot-long cube
+		{{@root.MySpell.area.length}}-foot-long cube
 	</div>
 	{{/ifeq}}
 
-	{{#ifeq spell.area.shape 'line'}}
+	{{#ifeq MySpell.area.shape 'line'}}
 	<div>
 		<Strong>Area of Effect:</Strong>
-		{{@root.spell.area.width}}-foot-wide by {{@root.spell.area.length}}-foot-long line
+		{{@root.MySpell.area.width}}-foot-wide by {{@root.MySpell.area.length}}-foot-long line
 	</div>
 	{{/ifeq}}
 
-	{{#ifeq spell.area.shape 'wall'}}
+	{{#ifeq MySpell.area.shape 'wall'}}
 	<div>
 		<Strong>Area of Effect:</Strong>
-		{{@root.spell.area.length}}-foot-long wall or {{@root.spell.area.radius}}-foot-radius ring, {{@root.spell.area.width}}-foot-wide and {{@root.spell.area.height}}-foot-tall.
+		{{@root.MySpell.area.length}}-foot-long wall or {{@root.MySpell.area.radius}}-foot-radius ring, {{@root.MySpell.area.width}}-foot-wide and {{@root.MySpell.area.height}}-foot-tall.
 	</div>
 	{{/ifeq}}
 
-	{{#ifeq spell.area.shape 'cylinder'}}
+	{{#ifeq MySpell.area.shape 'cylinder'}}
 	<div>
 		<Strong>Area of Effect:</Strong>
-		{{@root.spell.area.radius}}-foot-radius, {{@root.spell.area.height}}-foot-high cylinder
+		{{@root.MySpell.area.radius}}-foot-radius, {{@root.MySpell.area.height}}-foot-high cylinder
 	</div>
 	{{/ifeq}}
 
 	<div>
 		<Strong>Spell Tags:</Strong>
-		{{#each spell.tags}}
+		{{#each MySpell.tags}}
 		{{this}}
 		{{/each}}
 	</div>
 	<div>
 		<Strong>Components:</Strong>
-		{{spell.component.verbal}}
-		{{spell.component.somatic}}
-		{{spell.component.material}}
+		{{MySpell.component.verbal}}
+		{{MySpell.component.somatic}}
+		{{MySpell.component.material}}
 	</div>
 </div>
 <hr />
 
 <h4>Description:</h4>
-<p>{{spell.description.main}}</p>
+<p>{{MySpell.description.main}}</p>
 
 <h4>At Higher Levels:</h4>
-<p>{{spell.description.higher}}</p>
+<p>{{MySpell.description.higher}}</p>
 {{!--
 <div>
 	<div>
 		<Strong>Classes:</Strong>
-		{{#each spell.class}}
+		{{#each MySpell.class}}
 		{{this}},
 		{{/each}}
 	</div>
 	<div>
 		<Strong>Subclasses:</Strong>
-		{{#each spell.subclass}}
+		{{#each MySpell.subclass}}
 		{{this}},
 		{{/each}}
 	</div>
 	<div>
 		<Strong>Races:</Strong>
-		{{#each spell.race}}
+		{{#each MySpell.race}}
 		{{this}},
 		{{/each}}
 	</div>
 	<div>
 		<Strong>Subraces:</Strong>
-		{{#each spell.subrace}}
+		{{#each MySpell.subrace}}
 		{{this}},
 		{{/each}}
 	</div>
 	<div>
 		<Strong>Sources:</Strong>
-		{{#each spell.source}}
+		{{#each MySpell.source}}
 		{{this}},
 		{{/each}}
 	</div>
 	<div>
 		<Strong>Predecessors:</Strong>
-		{{#each spell.predecessor.spell}}
+		{{#each MySpell.predecessor.MySpell}}
 		{{this}},
 		{{/each}}
 	</div>
@@ -188,12 +188,12 @@ Nth
 <hr />
 
 <h3>Lazy Output</h3>
-<samp>{{spell}}</samp>
+<samp>{{MySpell}}</samp>
 
 <hr />
 
 <h2>
 	Options
 </h2>
-<a href='/spells/{{spell._id}}/edit'>Edit</a>
-<form action='/spells/{{spell._id}}?_method=DELETE' method='post'><button>Delete</button></form>
+<a href='/spells/{{MySpell._id}}/edit'>Edit</a>
+<form action='/spells/{{MySpell._id}}?_method=DELETE' method='post'><button>Delete</button></form>
