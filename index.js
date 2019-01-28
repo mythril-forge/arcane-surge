@@ -56,7 +56,7 @@ app.use('/spells', spells);
 // process.env.PORT & MONGODB_URI lets the port and database be set by Heroku
 // if they don't exist, set them for local dev purposes
 const port = process.env.PORT || 8080;
-const url = process.env.MONGODB_URI || "mongodb://localhost/arcane-surge-v2";
+const url = process.env.MONGODB_URI || 'mongodb://localhost/arcane-surge-v2';
 
 app.listen(port, () => {
 	console.log(`D&D Spell API listening on port http://localhost:${port}/`)

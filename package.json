@@ -1,27 +1,27 @@
 {
-  "name": "arcane-surge-v2",
-  "version": "1.0.0",
-  "description": "Arcane Surge D&D API",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/noltron000/INT-1-2_arcane-surge-v2.git"
-  },
-  "author": "Nolan Kovacik",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/noltron000/INT-1-2_arcane-surge-v2/issues"
-  },
-  "homepage": "https://github.com/noltron000/INT-1-2_arcane-surge-v2#readme",
-  "dependencies": {
-    "body-parser": "^1.18.3",
-    "express": "^4.16.4",
-    "express-handlebars": "^3.0.0",
-    "method-override": "^3.0.0",
-    "mongoose": "^5.4.7",
-    "path": "^0.12.7"
-  }
+	"name": "arcane-surge-v2",
+	"version": "1.0.0",
+	"description": "Arcane Surge D&D API",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/noltron000/INT-1-2_arcane-surge-v2.git"
+	},
+	"author": "Nolan Kovacik",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/noltron000/INT-1-2_arcane-surge-v2/issues"
+	},
+	"homepage": "https://github.com/noltron000/INT-1-2_arcane-surge-v2#readme",
+	"dependencies": {
+		"body-parser": "^1.18.3",
+		"express": "^4.16.4",
+		"express-handlebars": "^3.0.0",
+		"method-override": "^3.0.0",
+		"mongoose": "^5.4.7",
+		"path": "^0.12.7"
+	}
 }
