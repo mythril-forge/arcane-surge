@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/noltron000/INT-1-2_arcane-surge-v2#readme",
   "dependencies": {
+    "express": "^4.16.4",
     "mongoose": "^5.4.7"
   }
 }
