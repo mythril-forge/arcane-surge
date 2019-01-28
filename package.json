@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/noltron000/INT-1-2_arcane-surge-v2/issues"
   },
-  "homepage": "https://github.com/noltron000/INT-1-2_arcane-surge-v2#readme"
+  "homepage": "https://github.com/noltron000/INT-1-2_arcane-surge-v2#readme",
+  "dependencies": {
+    "mongoose": "^5.4.7"
+  }
 }
