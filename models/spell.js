@@ -4,7 +4,9 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 // create schema
-const SpellSchema = new Schema({});
+const SpellSchema = new Schema({
+	'name': String
+});
 
 // export schema
 module.exports = mongoose.model('Spell', SpellSchema);

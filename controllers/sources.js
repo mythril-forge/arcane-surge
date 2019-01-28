@@ -6,7 +6,17 @@ const Source = require('../models/source.js');
 const router = new express.Router();
 
 // set up routes
-router.get('/', (req, res) => { });
+router.get('/', (req, res) => {
+	Source
+		.find({})
+		.then((ThisSource) => {
+			res
+				.render('source-index.hbs', { ThisSource });
+		})
+		.catch((err) => {
+			console.error(err);
+		});
+});
 
 // export routes
 module.exports = router;

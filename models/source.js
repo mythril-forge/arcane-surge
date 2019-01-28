@@ -4,7 +4,9 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 // create schema
-const SourceSchema = new Schema({});
+const SourceSchema = new Schema({
+	'name': String
+});
 
 // export schema
 module.exports = mongoose.model('Source', SourceSchema);
