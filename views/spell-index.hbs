@@ -1,0 +1,21 @@
+<h2>Spell Index</h2>
+
+<ul>
+	{{#each EverySpell}}
+	<li>
+		{{this.name}}
+	</li>
+	<ul>
+		<li><a href='/spells/{{this._id}}'>Show</a></li>
+		<li><a href='/spells/{{this._id}}/edit'>Edit</a></li>
+		<li>
+			<form action='/spells/{{this._id}}?_method=DELETE' method='post'><button>Delete</button></form>
+		</li>
+	</ul>
+	{{/each}}
+</ul>
+
+<hr />
+
+<h4>every spell</h4>
+<pre><code>{{EverySpell}}</code></pre>

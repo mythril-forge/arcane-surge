@@ -1,0 +1,21 @@
+<h2>Source Index</h2>
+
+<ul>
+	{{#each EverySource}}
+	<li>
+		{{this.name}} (<span style='color:{{this.color}}'>{{this.abbreviation}}</span>)</a>
+	</li>
+	<ul>
+		<li><a href='/sources/{{this._id}}'>Show</a></li>
+		<li><a href='/sources/{{this._id}}/edit'>Edit</a></li>
+		<li>
+			<form action='/sources/{{this._id}}?_method=DELETE' method='post'><button>Delete</button></form>
+		</li>
+	</ul>
+	{{/each}}
+</ul>
+
+<hr />
+
+<h4>every source</h4>
+<pre><code>{{EverySource}}</code></pre>
