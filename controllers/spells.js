@@ -6,12 +6,41 @@ const Source = require('../models/source.js');
 const router = new express.Router();
 
 // set up routes
-router.get('/', (req, res) => {
+router.get('/', (req, res) => { // INDEX //
 	Spell
 		.find({})
-		.then((ThisSpell) => {
+		.then((EverySpell) => {
 			res
-				.render('spell-index.hbs', { ThisSpell });
+				.render('spell-index.hbs', { EverySpell });
+		})
+		.catch((err) => {
+			console.error(err);
+		});
+});
+
+router.get('/json', (req, res) => { // INDEX-JSON //
+	Spell
+		.find({})
+		.then((EverySpell) => {
+			res
+				.json(EverySpell)
+				.status(200);
+		})
+		.catch((err) => {
+			console.error(err);
+		});
+});
+
+router.get('/new', (req, res) => { // NEW //
+	Spell
+		.find({})
+		.then((EverySpell) => {
+			Source
+				.find({})
+				.then((EverySource) => {
+					res
+						.render('spell-new.hbs', { EverySource, EverySpell });
+				});
 		})
 		.catch((err) => {
 			console.error(err);
