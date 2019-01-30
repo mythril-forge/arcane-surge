@@ -20,8 +20,16 @@ const SourceSchema = new Schema({
 		required: true,
 		unique: true
 	},
+
 	'color': String,
-	'official': Boolean
+	'official': Boolean,
+
+	'original': {
+		'sources': [{
+			type: Schema.Types.ObjectId,
+			ref: 'Source'
+		}]
+	}
 });
 
 // export schema

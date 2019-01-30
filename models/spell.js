@@ -19,7 +19,20 @@ const SpellSchema = new Schema({
 	'description': {
 		'prime': String,
 		'bonus': String
+	},
+
+	'citations': [{
+		type: Schema.Types.ObjectId,
+		ref: 'Citation'
+	}],
+
+	'original': {
+		'spells': [{
+			type: Schema.Types.ObjectId,
+			ref: 'Spell'
+		}]
 	}
+
 });
 
 // export schema
