@@ -17,7 +17,7 @@ const SpellSchema = new Schema({
 	'level': Number,
 	'school': String,
 	'description': {
-		'body': String,
+		'prime': String,
 		'bonus': String
 	}
 });

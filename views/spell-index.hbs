@@ -3,8 +3,15 @@
 <ul>
 	{{#each EverySpell}}
 	<li>
-		<a href='/spells/{{this._id}}'>{{this.name}}</a>
+		{{this.name}}
 	</li>
+	<ul>
+		<li><a href='/spells/{{this._id}}'>Show</a></li>
+		<li><a href='/spells/{{this._id}}/edit'>Edit</a></li>
+		<li>
+			<form action='/spells/{{this._id}}?_method=DELETE' method='post'><button>Delete</button></form>
+		</li>
+	</ul>
 	{{/each}}
 </ul>
 

@@ -22,10 +22,52 @@ router.get('/new', (req, res) => { // NEW //
 		});
 });
 
+router.get('/:spellID/edit', (req, res) => { // EDIT //
+	Spell
+		.findById(req.params.spellID)
+		.then((ChosenSpell) => {
+			Spell
+				.find({})
+				.then((EverySpell) => {
+					Source
+						.find({})
+						.then((EverySource) => {
+							res
+								.render('spell-edit.hbs', { ChosenSpell, EverySpell, EverySource });
+						});
+				});
+		})
+		.catch((err) => {
+			console.error(err);
+		});
+});
+
 router.post('/', (req, res) => { // CREATE //
 	const NewSpell = new Spell(req.body);
 	NewSpell
 		.save()
+		.then(() => {
+			res.redirect('/spells');
+		})
+		.catch((err) => {
+			console.error(err);
+		});
+});
+
+router.put('/:spellID', (req, res) => { // UPDATE //
+	Spell
+		.findByIdAndUpdate(req.params.spellID, req.body)
+		.then((ChosenSpell) => {
+			res.redirect(`/spells/${ChosenSpell._id}`);
+		})
+		.catch((err) => {
+			console.error(err);
+		});
+});
+
+router.delete('/:spellID', (req, res) => { // DELETE //
+	Spell
+		.findByIdAndRemove(req.params.spellID)
 		.then(() => {
 			res.redirect('/spells');
 		})

@@ -18,10 +18,48 @@ router.get('/new', (req, res) => { // NEW //
 		});
 });
 
+router.get('/:sourceID/edit', (req, res) => { // EDIT //
+	Source
+		.findById(req.params.sourceID)
+		.then((ChosenSource) => {
+			Source
+				.find({})
+				.then((EverySource) => {
+					res
+						.render('source-edit.hbs', { ChosenSource, EverySource });
+				});
+		})
+		.catch((err) => {
+			console.error(err);
+		});
+});
+
 router.post('/', (req, res) => { // CREATE //
 	const NewSource = new Source(req.body);
 	NewSource
 		.save()
+		.then(() => {
+			res.redirect('/sources');
+		})
+		.catch((err) => {
+			console.error(err);
+		});
+});
+
+router.put('/:sourceID', (req, res) => { // UPDATE //
+	Source
+		.findByIdAndUpdate(req.params.sourceID, req.body)
+		.then((ChosenSource) => {
+			res.redirect(`/sources/${ChosenSource._id}`);
+		})
+		.catch((err) => {
+			console.error(err);
+		});
+});
+
+router.delete('/:sourceID', (req, res) => { // DELETE //
+	Source
+		.findByIdAndRemove(req.params.sourceID)
 		.then(() => {
 			res.redirect('/sources');
 		})
