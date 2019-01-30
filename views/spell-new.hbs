@@ -1,5 +1,67 @@
 <h2>New Spell</h2>
 
+<form action='/spells' method='POST'>
+	<div>
+		<label for='name'>
+			Name
+		</label><br />
+		<input type='text' name='name' id='name' oninput='updateSlug()' />
+	</div>
+
+	<div>
+		<label for='slug'>
+			Slug
+		</label><br />
+		<input type='text' name='slug' id='slug' readonly />
+	</div>
+
+	<div>
+		<label for='level'>
+			Level
+		</label><br />
+		<input type='number' name='level' id='level' min='0' max='9' placeholder='Lv.' />
+	</div>
+
+	<div>
+		<label for='school'>
+			School of Magic
+		</label><br />
+		<select name='school' id='school'>
+			<optgroup label='select a school:'>
+				<option disabled hidden selected />
+				<option label='abjuration' value='abjuration' />
+				<option label='conjuration' value='conjuration' />
+				<option label='divination' value='divination' />
+				<option label='enchantment' value='enchantment' />
+				<option label='evocation' value='evocation' />
+				<option label='illusion' value='illusion' />
+				<option label='necromancy' value='necromancy' />
+				<option label='transmutation' value='transmutation' />
+			</optgroup>
+		</select>
+	</div>
+
+	<div>
+		<label for='description-body'>
+			Description
+		</label><br />
+		<textarea name='description.body' id='description-body'></textarea>
+	</div>
+
+	<div>
+		<label for='description-bonus'>
+			Bonus at Higher Levels
+		</label><br />
+		<textarea name='description.bonus' id='description-bonus'></textarea>
+	</div>
+
+	<button type='submit'>
+		Submit
+	</button>
+</form>
+
+<hr />
+
 <h4>every spell</h4>
 <pre><code>{{EverySpell}}</code></pre>
 

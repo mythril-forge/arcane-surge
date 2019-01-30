@@ -1,4 +1,14 @@
 <h2>Source Index</h2>
 
+<ul>
+	{{#each EverySource}}
+	<li>
+		<a href='/sources/{{this._id}}'>{{this.name}} (<span style='color:{{this.color}}'>{{this.abbreviation}}</span>)</a>
+	</li>
+	{{/each}}
+</ul>
+
+<hr />
+
 <h4>every source</h4>
 <pre><code>{{EverySource}}</code></pre>
