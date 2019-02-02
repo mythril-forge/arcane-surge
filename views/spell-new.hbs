@@ -61,7 +61,7 @@
 		</legend>
 		{{#each EverySpell}}
 		<div>
-			<input type='checkbox' name='original.spells' id='orginal-spell-{{this.slug}}' value='{{this._id}}' />
+			<input type='checkbox' name='original.spells' id='original-spell-{{this.slug}}' value='{{this._id}}' />
 			<label for='original-spell-{{this.slug}}'>
 				{{this.name}}
 			</label>
@@ -70,14 +70,17 @@
 	</fieldset>
 
 
-	<fieldset id='citations' disabled>
+	<fieldset id='citations'>
 		<legend>
 			Citations
 		</legend>
 
-		<div>
-			<button><code>&minus;</code></button>
-			<select name='source-:citeID' id='source-:citeID'>
+		<div id='citations-0'>
+			<button type='button' id='citations-0-delete' onclick='deleteCitation(this.id)'>
+				<code>&minus;</code>
+			</button>
+
+			<select name='citations.0.source' id='citations-0-source'>
 				<optgroup label='select a source:'>
 					<option disabled hidden selected />
 					{{#each EverySource}}
@@ -85,11 +88,14 @@
 					{{/each}}
 				</optgroup>
 			</select>
-			<input type="number" name='page-:citeID' id='page-:citeID' min='0' max='999999' placeholder='page' />
+
+			<input type="number" name='citations.0.page' id='citations-0-page' min='0' max='999999' placeholder='page' />
 		</div>
 
 		<div>
-			<button><code>&plus;</code></button>
+			<button type='button' id='citations-create' onclick='createCitation(this.id)'>
+				<code>&plus;</code>
+			</button>
 		</div>
 
 	</fieldset>
@@ -106,3 +112,5 @@
 
 <h4>every source</h4>
 <pre><code>{{EverySource}}</code></pre>
+
+<script type='text/javascript' src='/js/spell-new.js' defer></script>

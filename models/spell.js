@@ -22,8 +22,11 @@ const SpellSchema = new Schema({
 	},
 
 	'citations': [{
-		type: Schema.Types.ObjectId,
-		ref: 'Citation'
+		'page': Number,
+		'source': {
+			type: Schema.Types.ObjectId,
+			ref: 'Source'
+		}
 	}],
 
 	'original': {
@@ -32,7 +35,6 @@ const SpellSchema = new Schema({
 			ref: 'Spell'
 		}]
 	}
-
 });
 
 // export schema
