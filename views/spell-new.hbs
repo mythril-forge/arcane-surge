@@ -60,12 +60,12 @@
 			Original Spells
 		</legend>
 		{{#each EverySpell}}
-		<div>
-			<input type='checkbox' name='original.spells' id='original-spell-{{this.slug}}' value='{{this._id}}' />
-			<label for='original-spell-{{this.slug}}'>
-				{{this.name}}
-			</label>
-		</div>
+			<div>
+				<input type='checkbox' name='original.spells' id='original-spell-{{this.slug}}' value='{{this._id}}' />
+				<label for='original-spell-{{this.slug}}'>
+					{{this.name}}
+				</label>
+			</div>
 		{{/each}}
 	</fieldset>
 
@@ -84,7 +84,7 @@
 				<optgroup label='select a source:'>
 					<option disabled hidden selected />
 					{{#each EverySource}}
-					<option label='{{this.name}}' value='{{this._id}}' />
+						<option label='{{this.name}}' value='{{this._id}}' />
 					{{/each}}
 				</optgroup>
 			</select>
