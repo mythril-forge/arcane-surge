@@ -75,6 +75,16 @@
 			Citations
 		</legend>
 
+		{{!-- create a new source --}}
+		<div>
+			<button type='button' id='citations-create' onclick='createCitation(this.id,{
+				{{#each EverySource}}"{{this.id}}":"{{this.name}}", {{/each}}
+			})'>
+				<code>&plus;</code>
+			</button>
+		</div>
+
+		{{!-- source options & delete --}}
 		<div id='citations-0'>
 			<button type='button' id='citations-0-delete' onclick='deleteCitation(this.id)'>
 				<code>&minus;</code>
@@ -90,12 +100,6 @@
 			</select>
 
 			<input type="number" name='citations.0.page' id='citations-0-page' min='0' max='999999' placeholder='page' />
-		</div>
-
-		<div>
-			<button type='button' id='citations-create' onclick='createCitation(this.id)'>
-				<code>&plus;</code>
-			</button>
 		</div>
 
 	</fieldset>
