@@ -1,1 +1,16 @@
 # To-Do List
+- [ ] improve spell-new.hbs
+	- enhance form experience with bad html assets
+- [ ] improve *-edit.hbs and *-new.hbs
+	- redundent html should be put in one file
+- [ ] channel citations to an external resource
+	- easiest way to produce results
+	- CRUD functionality must be in spells-new.hbs and spells-edit.
+	- Must delete extras when simply removed from spells-new.hbs or spells-edit.hbs
+	- Must delete extras when spell-new.hbs isn't saved.
+	- Must delete extras when spell-edit.hbs citation is removed and is saved.
+	- Must delete extras when spell object is deleted.
+	- [ ] channel citations to an embedded document
+		- may be harder, but strongly ties with spells object
+		- CRUD functionality will be tied in, and easier
+		- Modeling will be harder
