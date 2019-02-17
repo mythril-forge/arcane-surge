@@ -18,11 +18,11 @@ const hbs = exprHBS.create({
 				case '==':
 					if (x == y) { return options.fn(this) }
 					else { return options.inverse(this) }
-				case '===':
-					if (x === y) { return options.fn(this) }
-					else { return options.inverse(this) }
 				case '!=':
 					if (x != y) { return options.fn(this) }
+					else { return options.inverse(this) }
+				case '===':
+					if (x === y) { return options.fn(this) }
 					else { return options.inverse(this) }
 				case '!==':
 					if (x !== y) { return options.fn(this) }
