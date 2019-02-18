@@ -61,10 +61,7 @@ const SpellSchema = new Schema({
 	},
 
 	// Main Description //
-	'description': {
-		'entry': String,
-		'bonus': String
-	},
+	'description': String,
 
 	// Racial & Class Compatibility //
 	'compatible': {

@@ -60,3 +60,25 @@ const deleteCitation = (buttonID) => {
 const regainCitation = () => {
 
 }
+
+const entry = new EasyMDE({
+	element: document.getElementById('description'),
+	renderingConfig: {
+		singleLineBreaks: false
+	},
+	tabSize: 8,
+	minHeight: "300px",
+	toolbar: [
+		"bold", "italic", "|",
+		"unordered-list", "ordered-list", "|",
+		"heading-1", "heading-2", "heading-3", "|",
+		"quote", "code", "|",
+		"link", "image", "table", "|",
+		"clean-block", "preview", "guide"
+	],
+	status: false,
+	shortcuts: {
+		"toggleSideBySide": null,
+		"toggleFullScreen": null
+	},
+})
