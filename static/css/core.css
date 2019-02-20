@@ -7,6 +7,10 @@ textarea:read-only {
 	cursor: default;
 }
 
+*:disabled {
+	pointer-events: none;
+}
+
 html {
 	font-family: 'arial';
 	background-color: #e5dddb;
