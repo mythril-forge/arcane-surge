@@ -104,7 +104,8 @@ router.get('/json', (req, res) => { // INDEX-JSON //
 router.get('/:spellID', (req, res) => { // SHOW //
 	Spell
 		.findById(req.params.spellID)
-		// .populate('') ← ← ← populate some other resource
+		.populate('citations')
+		.populate('original.spells')
 		.then((ChosenSpell) => {
 			res
 				.render('spell-show.hbs', { ChosenSpell });

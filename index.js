@@ -13,14 +13,42 @@ const app = express();
 const hbs = exprHBS.create({
 	// Specify helpers which are only registered on this instance.
 	helpers: {
-		ifeq: (a, b, options) => {
-			if (a == b) { return options.fn(this); }
-			return options.inverse(this);
-		},
-		ifneq: (a, b, options) => {
-			if (a != b) { return options.fn(this); }
-			return options.inverse(this);
-		},
+		is: (x, operator, y, options) => {
+			switch (operator) {
+				case '==':
+					if (x == y) { return options.fn(this) }
+					else { return options.inverse(this) }
+				case '!=':
+					if (x != y) { return options.fn(this) }
+					else { return options.inverse(this) }
+				case '===':
+					if (x === y) { return options.fn(this) }
+					else { return options.inverse(this) }
+				case '!==':
+					if (x !== y) { return options.fn(this) }
+					else { return options.inverse(this) }
+				case '<':
+					if (x < y) { return options.fn(this) }
+					else { return options.inverse(this) }
+				case '<=':
+					if (x <= y) { return options.fn(this) }
+					else { return options.inverse(this) }
+				case '>':
+					if (x > y) { return options.fn(this) }
+					else { return options.inverse(this) }
+				case '>=':
+					if (x >= y) { return options.fn(this) }
+					else { return options.inverse(this) }
+				case '&&':
+					if (x && y) { return options.fn(this) }
+					else { return options.inverse(this) }
+				case '||':
+					if (x || y) { return options.fn(this) }
+					else { return options.inverse(this) }
+				default:
+					return options.inverse(this)
+			}
+		}
 	},
 	extname: 'hbs',
 	defaultLayout: 'main'

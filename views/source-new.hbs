@@ -39,6 +39,21 @@
 		{{!-- toggle button would be best for a singular yes/no query --}}
 	</div>
 
+
+	<fieldset id='original-sources'>
+		<legend>
+			Original Sources
+		</legend>
+		{{#each EverySource}}
+			<div>
+				<input type='checkbox' name='original.sources' id='original-source-{{this.slug}}' value='{{this._id}}' />
+				<label for='original-source-{{this.slug}}'>
+					{{this.name}}
+				</label>
+			</div>
+		{{/each}}
+	</fieldset>
+
 	<button type='submit'>
 		Submit
 	</button>
