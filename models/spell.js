@@ -7,6 +7,7 @@ const Schema = mongoose.Schema;
 const SpellSchema = new Schema({
 	// Basic Info //
 	'name': String,
+	'slug': String,
 	'level': Number,
 	'school': String,
 
@@ -55,7 +56,7 @@ const SpellSchema = new Schema({
 		'material': [{
 			'entry': String,
 			'price': Number,
-			'quantity': Number,
+			'num-items': Number,
 			'consumed': Boolean
 		}]
 	},
