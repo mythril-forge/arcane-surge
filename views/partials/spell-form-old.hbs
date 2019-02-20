@@ -1,5 +1,5 @@
 {{!-- OLD DATA, USE TO MAKE EDIT FORM WORK --}}
-{{!--
+
 <div>
 	<section>
 		<h3>
@@ -33,7 +33,6 @@
 			</label><br />
 			<select name='school' id='school'>
 				<option label='' disabled {{#if spell.school}} hidden {{else}} selected {{/if}} />
-				{{!-- checkmark starts by unselected option, looks bad! --}}
 				<option label='abjuration' value='abjuration' {{#ifeq spell.school 'abjuration'}} selected{{/ifeq}} />
 				<option label='conjuration' value='conjuration' {{#ifeq spell.school 'conjuration'}} selected{{/ifeq}} />
 				<option label='divination' value='divination' {{#ifeq spell.school 'divination'}} selected{{/ifeq}} />
@@ -77,8 +76,8 @@
 			</div>
 
 			<div>
-				{{!-- the value of this radio button should equal the value of the input number --}}
-				{{!-- also the duration input should be disabled unless the radio button is checked --}}
+				{{!-- the value of this radio button should equal the value of the input number
+				also the duration input should be disabled unless the radio button is checked --}}
 				<input type='radio' name='cast-time.quality' id='cast-time-discrete' value='discrete' {{#ifeq spell.cast-time.quality 'discrete'}} checked{{/ifeq}} />
 				<input type='number' name='cast-time.seconds' id='cast-time-seconds' min='0' max='999999' placeholder='seconds' value='{{spell.cast-time.seconds}}' disabled />
 				{{!-- min means minimum, max means maximimum, time unit is in seconds --}}
@@ -111,8 +110,8 @@
 			</div>
 
 			<div>
-				{{!-- the value of this radio button should equal the value of the input number --}}
-				{{!-- also the duration input should be disabled unless the radio button is checked --}}
+				{{!-- the value of this radio button should equal the value of the input number
+				also the duration input should be disabled unless the radio button is checked --}}
 				<input type='radio' name='duration.quality' id='duration-discrete' value='discrete' {{#ifeq spell.duration.quality 'discrete'}} checked{{/ifeq}} />
 				<input type='number' name='duration.seconds' id='duration-seconds' min='0' max='999999' placeholder='seconds' value='{{spell.duration.seconds}}' disabled />
 			</div>
@@ -158,8 +157,8 @@
 			</div>
 
 			<div>
-				{{!-- the value of this radio button should equal the value of the input number --}}
-				{{!-- also the range input should be disabled unless the radio button is checked --}}
+				{{!-- the value of this radio button should equal the value of the input number
+				also the range input should be disabled unless the radio button is checked --}}
 				<input type='radio' name='range.quality' id='range-discrete' value='discrete' {{#ifeq spell.range.quality 'discrete'}} checked{{/ifeq}} />
 				<input type='number' name='range.feet' id='range-feet' min='0' max='999999' placeholder='feet' value='{{spell.range.feet}}' disabled />
 			</div>
@@ -312,8 +311,8 @@
 			Section 6
 		</h3>
 
-		{{!-- this section clearly needs some love --}}
-		{{!-- might need to add a class resource to predecessor --}}
+		{{!-- this section clearly needs some love
+		might need to add a class resource to predecessor --}}
 		<fieldset id='class'>
 			<legend>
 				Classes
@@ -337,12 +336,12 @@
 				Parent Sources
 			</legend>
 			{{#each source}}
-			<div>
-				<input type='checkbox' name='parent.source' id='parent-source-{{this.slug}}' value='{{this._id}}' />
-				<label for='parent-source-{{this.slug}}'>
-					{{this.name}}
-				</label>
-			</div>
+				<div>
+					<input type='checkbox' name='parent.source' id='parent-source-{{this.slug}}' value='{{this._id}}' />
+					<label for='parent-source-{{this.slug}}'>
+						{{this.name}}
+					</label>
+				</div>
 			{{/each}}
 		</fieldset>
 
@@ -351,12 +350,12 @@
 				Source Citations
 			</legend>
 			{{#each source}}
-			<div>
-				<label for='parent-page-{{this.slug}}'>
-					{{this.name}}
-				</label><br />
-				<input type='number' name='parent.page' id='parent-page-{{this.slug}}' placeholder='page' min='0' max='999999' />
-			</div>
+				<div>
+					<label for='parent-page-{{this.slug}}'>
+						{{this.name}}
+					</label><br />
+					<input type='number' name='parent.page' id='parent-page-{{this.slug}}' placeholder='page' min='0' max='999999' />
+				</div>
 			{{/each}}
 			</legend>
 		</fieldset>
@@ -366,15 +365,15 @@
 				Predecessor Spells
 			</legend>
 			{{#each library}}
-			<div>
-				<input type='checkbox' name='predecessor.spell' id='predecessor-{{this.slug}}' value='{{this._id}}' />
-				<label for='predecessor-{{this.slug}}'>
-					{{this.name}}
-				</label>
-			</div>
+				<div>
+					<input type='checkbox' name='predecessor.spell' id='predecessor-{{this.slug}}' value='{{this._id}}' />
+					<label for='predecessor-{{this.slug}}'>
+						{{this.name}}
+					</label>
+				</div>
 			{{/each}}
-			{{!-- Should only be able to predecessor spells that are not in the same book nor in a book that is within a source citation chain --}}
-			{{!-- Also this isn't the best way to present this visually - needs a refactor --}}
+			{{!-- Should only be able to predecessor spells that are not in the same book nor in a book that is within a source citation chain
+			Also this isn't the best way to present this visually - needs a refactor --}}
 		</fieldset>
 	</section>
 </div>
@@ -383,8 +382,7 @@
 <a href='#'>Previous</a>
 <button type='submit'>
 	Submit
-</button> --}}
+</button>
 
-
-{{!-- this whole file needs a refactor due to bad handlebars practice! --}}
-{{!-- it was made with a work-around. maybe there is a better way? --}}
+{{!--this whole file needs a refactor due to bad handlebars practice!
+it was made with a work-around. maybe there is a better way? --}}
