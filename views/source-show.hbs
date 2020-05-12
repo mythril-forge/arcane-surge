@@ -1,0 +1,17 @@
+<h2>
+	{{source.name}} <span style='color:{{source.color}}'> ({{source.abbreviation}})</span>
+</h2>
+<h4>
+	Source ID: {{source._id}}
+</h4>
+
+<h3>lazy output</h3>
+<code>{{source}}</code>
+
+<hr />
+
+<h2>
+	Options
+</h2>
+<a href='/sources/{{source._id}}/edit'>Edit</a>
+<form action='/sources/{{source._id}}?_method=DELETE' method='post'><button>Delete</button></form>

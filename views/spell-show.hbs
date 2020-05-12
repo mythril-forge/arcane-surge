@@ -1,0 +1,199 @@
+<h2>
+	{{MySpell.name}}
+</h2>
+<h4>
+	Spell ID: {{MySpell._id}}
+</h4>
+<h4>
+	Source IDs: {{MySpell.parent.source}}
+</h4>
+{{!--
+Cantrip-level
+1st
+2nd
+3rd
+Nth
+--}}
+<div>
+	<div>
+		<em>
+			{{#ifeq MySpell.level '0'}}
+			Cantrip-level
+			{{/ifeq}}
+			{{#ifeq MySpell.level '1'}}
+			{{@root.MySpell.level}}st-level
+			{{/ifeq}}
+			{{#ifeq MySpell.level '2'}}
+			{{@root.MySpell.level}}nd-level
+			{{/ifeq}}
+			{{#ifeq MySpell.level '3'}}
+			{{@root.MySpell.level}}rd-level
+			{{/ifeq}}
+			{{#ifeq MySpell.level '4'}}
+			{{@root.MySpell.level}}th-level
+			{{/ifeq}}
+			{{#ifeq MySpell.level '5'}}
+			{{@root.MySpell.level}}th-level
+			{{/ifeq}}
+			{{#ifeq MySpell.level '6'}}
+			{{@root.MySpell.level}}th-level
+			{{/ifeq}}
+			{{#ifeq MySpell.level '7'}}
+			{{@root.MySpell.level}}th-level
+			{{/ifeq}}
+			{{#ifeq MySpell.level '8'}}
+			{{@root.MySpell.level}}th-level
+			{{/ifeq}}
+			{{#ifeq MySpell.level '9'}}
+			{{@root.MySpell.level}}th-level
+			{{/ifeq}} {{MySpell.school}}
+		</em>
+		{{!-- what an ugly thing! --}}
+		{{!-- TODO: this is in dire need of refactor --}}
+	</div>
+	<div>
+		<strong>Casting Time:</strong>
+		{{#if MySpell.cast-time.seconds}}
+		{{MySpell.cast-time.seconds}} seconds
+		{{else}}
+		{{MySpell.cast-time.quality}}
+		{{/if}}
+	</div>
+	<div>
+		<Strong>Duration:</Strong>
+		{{#if MySpell.duration.seconds}}
+		{{MySpell.duration.seconds}} seconds
+		{{else}}
+		{{MySpell.duration.quality}}
+		{{/if}}
+	</div>
+	<div>
+		<Strong>Casting Range:</Strong>
+		{{#if MySpell.range.feet}}
+		{{MySpell.range.feet}} feet
+		{{else}}
+		{{MySpell.range.quality}}
+		{{/if}}
+	</div>
+
+	{{#ifeq MySpell.area.shape 'aura'}}
+	<div>
+		<Strong>Area of Effect:</Strong>
+		{{@root.MySpell.area.radius}}-foot-radius aura
+	</div>
+	{{/ifeq}}
+
+	{{#ifeq MySpell.area.shape 'sphere'}}
+	<div>
+		<Strong>Area of Effect:</Strong>
+		{{@root.MySpell.area.radius}}-foot-radius sphere
+	</div>
+	{{/ifeq}}
+
+	{{#ifeq MySpell.area.shape 'cone'}}
+	<div>
+		<Strong>Area of Effect:</Strong>
+		{{@root.MySpell.area.radius}}-foot-radius cone
+	</div>
+	{{/ifeq}}
+
+	{{#ifeq MySpell.area.shape 'cube'}}
+	<div>
+		<Strong>Area of Effect:</Strong>
+		{{@root.MySpell.area.length}}-foot-long cube
+	</div>
+	{{/ifeq}}
+
+	{{#ifeq MySpell.area.shape 'line'}}
+	<div>
+		<Strong>Area of Effect:</Strong>
+		{{@root.MySpell.area.width}}-foot-wide by {{@root.MySpell.area.length}}-foot-long line
+	</div>
+	{{/ifeq}}
+
+	{{#ifeq MySpell.area.shape 'wall'}}
+	<div>
+		<Strong>Area of Effect:</Strong>
+		{{@root.MySpell.area.length}}-foot-long wall or {{@root.MySpell.area.radius}}-foot-radius ring, {{@root.MySpell.area.width}}-foot-wide and {{@root.MySpell.area.height}}-foot-tall.
+	</div>
+	{{/ifeq}}
+
+	{{#ifeq MySpell.area.shape 'cylinder'}}
+	<div>
+		<Strong>Area of Effect:</Strong>
+		{{@root.MySpell.area.radius}}-foot-radius, {{@root.MySpell.area.height}}-foot-high cylinder
+	</div>
+	{{/ifeq}}
+
+	<div>
+		<Strong>Spell Tags:</Strong>
+		{{#each MySpell.tags}}
+		{{this}}
+		{{/each}}
+	</div>
+	<div>
+		<Strong>Components:</Strong>
+		{{MySpell.component.verbal}}
+		{{MySpell.component.somatic}}
+		{{MySpell.component.material}}
+	</div>
+</div>
+<hr />
+
+<h4>Description:</h4>
+<p>{{MySpell.description.main}}</p>
+
+<h4>At Higher Levels:</h4>
+<p>{{MySpell.description.higher}}</p>
+{{!--
+<div>
+	<div>
+		<Strong>Classes:</Strong>
+		{{#each MySpell.class}}
+		{{this}},
+		{{/each}}
+	</div>
+	<div>
+		<Strong>Subclasses:</Strong>
+		{{#each MySpell.subclass}}
+		{{this}},
+		{{/each}}
+	</div>
+	<div>
+		<Strong>Races:</Strong>
+		{{#each MySpell.race}}
+		{{this}},
+		{{/each}}
+	</div>
+	<div>
+		<Strong>Subraces:</Strong>
+		{{#each MySpell.subrace}}
+		{{this}},
+		{{/each}}
+	</div>
+	<div>
+		<Strong>Sources:</Strong>
+		{{#each MySpell.source}}
+		{{this}},
+		{{/each}}
+	</div>
+	<div>
+		<Strong>Predecessors:</Strong>
+		{{#each MySpell.predecessor.MySpell}}
+		{{this}},
+		{{/each}}
+	</div>
+</div> --}}
+
+<hr />
+
+<h3>Lazy Output</h3>
+<samp>{{MySpell}}</samp>
+
+<hr />
+
+<h2>
+	Options
+</h2>
+<a href='/spells/{{MySpell._id}}/edit'>Edit</a>
+<form action='/spells/{{MySpell._id}}?_method=DELETE' method='post'><button>Delete</button></form>

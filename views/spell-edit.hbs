@@ -1,0 +1,10 @@
+<h2>Edit a Spell</h2>
+
+{{> spell-navi}}
+
+{{!-- starting up form tag --}}
+<form action='/spells/{{spell._id}}?_method=PUT' method='POST'>
+	{{> spell-form}}
+</form>
+
+<script src='/js/core.js'></script>

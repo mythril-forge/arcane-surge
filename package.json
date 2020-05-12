@@ -1,0 +1,40 @@
+{
+	"name": "arcane-surge",
+	"version": "1.0.0",
+	"description": "A spellcasting API for D&D 5e",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/noltron000/INT-1-2_arcane-surge.git"
+	},
+	"keywords": [
+		"Arcane",
+		"Surge",
+		"D&D",
+		"Spell",
+		"Magic",
+		"API",
+		"5e",
+		"Dungeons",
+		"and",
+		"Dragons"
+	],
+	"author": "Nolan Kovacik",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/noltron000/INT-1-2_arcane-surge/issues"
+	},
+	"homepage": "https://github.com/noltron000/INT-1-2_arcane-surge#readme",
+	"dependencies": {
+		"body-parser": "^1.18.3",
+		"express": "^4.16.4",
+		"express-handlebars": "^3.0.0",
+		"method-override": "^3.0.0",
+		"mongoose": "^5.4.2",
+		"nodemon": "^1.18.9",
+		"path": "^0.12.7"
+	}
+}
