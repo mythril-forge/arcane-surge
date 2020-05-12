@@ -1,0 +1,400 @@
+<h2>New Spell</h2>
+
+<form action='/spells' method='POST'>
+	{{!-- section 1: basics --}}
+	<section id='section-1'>
+		<h3>
+			Basic Information
+		</h3>
+
+		<div>
+			<label for='name'>
+				Name
+			</label><br />
+			<input type='text' name='name' id='name' oninput='updateSlug()' />
+		</div>
+
+		<div>
+			<label for='slug'>
+				Slug
+			</label><br />
+			<input type='text' name='slug' id='slug' readonly />
+		</div>
+
+		<div>
+			<label for='level'>
+				Level
+			</label><br />
+			<input type='number' name='level' id='level' min='0' max='9' />
+		</div>
+
+		<div>
+			<label for='school'>
+				School of Magic
+			</label><br />
+			<select name='school' id='school'>
+				<optgroup label='select a school:'>
+					<option disabled hidden selected />
+					<option label='abjuration' value='abjuration' />
+					<option label='conjuration' value='conjuration' />
+					<option label='divination' value='divination' />
+					<option label='enchantment' value='enchantment' />
+					<option label='evocation' value='evocation' />
+					<option label='illusion' value='illusion' />
+					<option label='necromancy' value='necromancy' />
+					<option label='transmutation' value='transmutation' />
+				</optgroup>
+			</select>
+		</div>
+	</section>
+
+	{{!-- section 2: temporal specs --}}
+	<section id='section-2'>
+		<h3>
+			Temporal Features
+		</h3>
+
+		<fieldset id='cast-time' oninput='updateCastTimeNum()'>
+			<legend>
+				Casting Time
+			</legend>
+
+			<div>
+				<input type='radio' name='cast-time.quality' id='cast-time-action' value='action' />
+				<label for='cast-time-action'>
+					action
+				</label>
+			</div>
+
+			<div>
+				<input type='radio' name='cast-time.quality' id='cast-time-bonus' value='bonus' />
+				<label for='cast-time-bonus'>
+					bonus action
+				</label>
+			</div>
+
+			<div>
+				<input type='radio' name='cast-time.quality' id='cast-time-reaction' value='reaction' />
+				<label for='cast-time-reaction'>
+					reaction
+				</label>
+			</div>
+
+			<div>
+				{{!-- the value of this radio button should equal the value of the input number --}}
+				{{!-- also the duration input should be disabled unless the radio button is checked --}}
+				<input type='radio' name='cast-time.quality' id='cast-time-discrete' value='discrete' />
+				<label for='cast-time-discrete'>
+					<input type='number' name='cast-time.seconds' id='cast-time-seconds' min='0' max='9999999' step="10" placeholder='seconds' disabled />
+				</label>
+			</div>
+		</fieldset>
+
+		<fieldset id='duration' oninput='updateDurationNum()'>
+			<legend>
+				Duration
+			</legend>
+
+			<div>
+				<input type='radio' name='duration.quality' id='duration-instantaneous' value='instantaneous' />
+				<label for='duration-instantaneous'>
+					instantaneous
+				</label>
+			</div>
+
+			<div>
+				<input type='radio' name='duration.quality' id='duration-indefinate' value='indefinate' />
+				<label for='duration-indefinate'>
+					indefinate
+				</label>
+			</div>
+
+			<div>
+				<input type='radio' name='duration.quality' id='duration-provoked' value='provoked' />
+				<label for='duration-provoked'>
+					provoked
+				</label>
+			</div>
+
+			<div>
+				{{!-- the value of this radio button should equal the value of the input number --}}
+				{{!-- also the duration input should be disabled unless the radio button is checked --}}
+				<input type='radio' name='duration.quality' id='duration-discrete' value='discrete' />
+				<label for='duration-discrete'>
+					<input type='number' name='duration.seconds' id='duration-seconds' min='0' max='9999999' placeholder='seconds' disabled />
+				</label>
+			</div>
+		</fieldset>
+
+		<fieldset id='range' oninput='updateRangeNum()'>
+			<legend>
+				Range
+			</legend>
+
+			<div>
+				<input type='radio' name='range.quality' id='range-self' value='self' />
+				<label for='range-self'>
+					self
+				</label>
+			</div>
+
+			<div>
+				<input type='radio' name='range.quality' id='range-touch' value='touch' />
+				<label for='range-touch'>
+					touch
+				</label>
+			</div>
+
+			<div>
+				<input type='radio' name='range.quality' id='range-unlimited' value='unlimited' />
+				<label for='range-unlimited'>
+					unlimited
+				</label>
+			</div>
+
+			<div>
+				{{!-- the value of this radio button should equal the value of the input number --}}
+				{{!-- also the range input should be disabled unless the radio button is checked --}}
+				<input type='radio' name='range.quality' id='range-discrete' value='discrete' />
+				<label for='range-discrete'>
+					<input type='number' name='range.feet' id='range-feet' min='0' max='9999999' step='5' placeholder='feet' disabled />
+				</label>
+			</div>
+		</fieldset>
+	</section>
+
+	{{!-- section 3: spacials --}}
+	<section id='section-3'>
+		<h3>
+			Spacial Features
+		</h3>
+
+		<div>
+			<label for='num-targets'>
+				&numero; Targets
+			</label><br />
+			<input type='number' name='num-targets' id='num-targets' min='0' max='9999999' />
+		</div>
+
+		<div>
+			<label for='area-shape'>
+				Effect Shape
+			</label><br />
+
+			<select name='area.shape' id='area-shape' oninput='updateAreaNums()'>
+				<optgroup label='select a shape:'>
+					<option disabled hidden selected />
+					<option label='point' value='point' />
+					<option label='sphere' value='sphere' />
+					<option label='aura' value='aura' />
+					<option label='cone' value='cone' />
+					<option label='cube' value='cube' />
+					<option label='line' value='line' />
+					<option label='wall' value='wall' />
+					<option label='cylinder' value='cylinder' />
+				</optgroup>
+			</select>
+		</div>
+
+		<fieldset id='area' hidden>
+			<legend>
+				Effect Size
+			</legend>
+
+			<div hidden>
+				<label for='area-radius'>
+					Radius
+				</label><br />
+				<input type='number' name='area.radius' id='area-radius' min='0' max='9999999' placeholder='feet' disabled />
+			</div>
+
+			<div hidden>
+				<label for='area-length'>
+					Length
+				</label><br />
+				<input type='number' name='area.length' id='area-length' min='0' max='9999999' placeholder='feet' disabled />
+			</div>
+
+			<div hidden>
+				<label for='area-width'>
+					Width
+				</label><br />
+				<input type='number' name='area.width' id='area-width' min='0' max='9999999' placeholder='feet' disabled />
+			</div>
+
+			<div hidden>
+				<label for='area-height'>
+					Height
+				</label><br />
+				<input type='number' name='area.height' id='area-height' min='0' max='9999999' placeholder='feet' disabled />
+			</div>
+		</fieldset>
+	</section>
+
+	{{!-- section 4: components --}}
+	<section id='section-4'>
+		<h3>
+			Tags &amp; Components
+		</h3>
+
+		<fieldset id='tagged'>
+			<legend>
+				Spell Tags
+			</legend>
+
+			<div>
+				<input type='checkbox' name='tagged' id='tagged-concentration' value='concentration' />
+				<label for='tagged-concentration'>
+					concentration
+				</label>
+			</div>
+
+			<div>
+				<input type='checkbox' name='tagged' id='tagged-ritualization' value='ritualization' />
+				<label for='tagged-ritualization'>
+					ritualization
+				</label>
+			</div>
+
+			<div>
+				<input type='checkbox' name='tagged' id='tagged-verbal' value='verbal' />
+				<label for='tagged-verbal'>
+					verbal
+				</label>
+			</div>
+
+			<div>
+				<input type='checkbox' name='tagged' id='tagged-somatic' value='somatic' />
+				<label for='tagged-somatic'>
+					somatic
+				</label>
+			</div>
+
+			<div>
+				<input type='checkbox' name='tagged' id='tagged-material' value='material' />
+				<label for='tagged-material'>
+					material
+				</label>
+			</div>
+		</fieldset>
+
+		{{!-- verbal components --}}
+		<fieldset id='component-verbal'>
+			<legend>
+				Verbal Components
+			</legend>
+
+			{{!-- create a new verbal component --}}
+			<div>
+				<button type='button' id='component-verbal-create' onclick='createCompoVrb(this.id)'>
+					<code>&plus;</code>
+				</button>
+			</div>
+		</fieldset>
+
+		{{!-- somatic components --}}
+		<fieldset id='component-somatic'>
+			<legend>
+				Somatic Components
+			</legend>
+
+			{{!-- create a new somatic component --}}
+			<div>
+				<button type='button' id='component-somatic-create' onclick='createCompoSmt(this.id)'>
+					<code>&plus;</code>
+				</button>
+			</div>
+		</fieldset>
+
+		{{!-- material components --}}
+		<fieldset id='component-material'>
+			<legend>
+				Material Components
+			</legend>
+
+			{{!-- create a new material component --}}
+			<div>
+				<button type='button' id='component-material-create' onclick='createCompoMtr(this.id)'>
+					<code>&plus;</code>
+				</button>
+			</div>
+		</fieldset>
+	</section>
+
+	{{!-- section 5: body text --}}
+	<section id='section-5'>
+		<h3>
+			Body Text
+		</h3>
+
+		<div>
+			<label for='description'>
+				Description
+			</label><br />
+			<textarea name='description' id='description'></textarea>
+		</div>
+	</section>
+
+	<fieldset id='original-spells'>
+		<legend>
+			Original Spells
+		</legend>
+		{{#each EverySpell}}
+			<div>
+				<input type='checkbox' name='original.spell' id='original-spell-{{this.slug}}' value='{{this._id}}' />
+				<label for='original-spell-{{this.slug}}'>
+					{{this.name}}
+				</label>
+			</div>
+		{{/each}}
+	</fieldset>
+
+
+	<fieldset id='citations'>
+		<legend>
+			Citations
+		</legend>
+
+		{{!-- create a new source --}}
+		<div>
+			<button type='button' id='citations-create' onclick='createCitation(this.id,{
+				{{#each EverySource}}"{{this.id}}":"{{this.name}}", {{/each}}
+			})'>
+				<code>&plus;</code>
+			</button>
+		</div>
+
+		{{!-- <div id='citations-0'>
+			<button type='button' id='citations-0-delete' onclick='deleteCitation(this.id)' disabled>
+				<code>&minus;</code>
+			</button>
+
+			<select name='citations.0.source' id='citations-0-source' disabled>
+				<optgroup label='select a source:'>
+					<option disabled hidden selected />
+					{{#each EverySource}}
+						<option label='{{this.name}}' value='{{this._id}}' />
+					{{/each}}
+				</optgroup>
+			</select>
+
+			<input type="number" name='citations.0.page' id='citations-0-page' min='0' max='9999999' placeholder='page' disabled />
+		</div> --}}
+
+	</fieldset>
+
+	<button type='submit'>
+		Submit
+	</button>
+</form>
+
+<hr />
+
+<h4>every spell</h4>
+<pre><code>{{EverySpell}}</code></pre>
+
+<h4>every source</h4>
+<pre><code>{{EverySource}}</code></pre>
+
+{{> easy-mde}}
+<script type='text/javascript' src='/js/spell-new.js' defer></script>
