@@ -1,0 +1,17 @@
+<h2>
+	{{MyClass.name}}
+</h2>
+<h4>
+	Class ID: {{MyClass._id}}
+</h4>
+
+<h3>lazy output</h3>
+<code>{{MyClass}}</code>
+
+<hr />
+
+<h2>
+	Options
+</h2>
+<a href='/classes/{{MyClass._id}}/edit'>Edit</a>
+<form action='/classes/{{MyClass._id}}?_method=DELETE' method='post'><button>Delete</button></form>

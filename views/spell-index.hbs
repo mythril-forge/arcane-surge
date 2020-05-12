@@ -1,0 +1,11 @@
+<h2>Index All Spells</h2>
+<ul>
+	{{#each EverySpell}}
+	<li>
+		<a href="/spells/{{this._id}}/">
+			{{#if this.name}}{{this.name}}{{else}}<code>undefined</code>{{/if}}
+		</a>
+	</li>
+
+	{{/each}}
+</ul>

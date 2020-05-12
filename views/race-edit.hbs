@@ -1,0 +1,25 @@
+<h2>Edit a Race</h2>
+
+<form action='/classes/{{MyRace._id}}?_method=PUT' method='POST'>
+
+	<div>
+		<label for='name'>
+			Name
+		</label><br />
+		<input type='text' name='name' id='name' value='{{MyRace.name}}' oninput='updateSlug()' />
+	</div>
+
+	<div>
+		<label for='slug'>
+			Slug
+		</label><br />
+		<input type='text' name='slug' id='slug' value='{{MyRace.slug}}' readonly />
+	</div>
+
+	<button type='submit'>
+		Submit
+	</button>
+
+</form>
+
+<script src='/js/core.js'></script>

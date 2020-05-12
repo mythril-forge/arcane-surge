@@ -1,0 +1,11 @@
+<h2>Index All Races</h2>
+<ul>
+	{{#each EveryRace}}
+	<li>
+		<a href="/races/{{this._id}}/">
+			{{this.name}}
+		</a>
+	</li>
+
+	{{/each}}
+</ul>
